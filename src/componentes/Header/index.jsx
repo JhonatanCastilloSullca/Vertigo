@@ -1,28 +1,15 @@
 import { useEffect, useState } from 'react'
 import './index.css'
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 function Header() {
+
     const [click, setClick] = useState(false);
-    const [button, setButton] = useState(true);
+
     const [navbar, setNavbar] = useState(false);
 
     const handleClick = () => setClick(!click);
-    const closeMobileMenu = () => setClick(!false);
-
-    const showButton = () => {
-        if (window.innerWidth <= 960) {
-            setButton(false);
-        } else {
-            setButton(true);
-        }
-    };
-
-    useEffect(() => {
-        showButton();
-    }, []);
-
-    window.addEventListener('resize', showButton);
+    const closeMobileMenu = () => setClick(false);
 
     const changeBackground = () => {
         if (window.scrollY >= 80) {
@@ -30,26 +17,42 @@ function Header() {
         } else {
             setNavbar(false);
         }
-    };
+    }
 
     window.addEventListener('scroll', changeBackground);
 
     return (
         <>
-            <nav className={navbar ? 'navbar active' : 'navbar'}>
-                <div className="navbar-container">
-                    <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>PRVX</Link>
-                    <div className="menu-icon" onClick={handleClick} >*</div>
-                    <ul className={click ? 'nav-menu active' : 'nav-menu'} >
-                        <li className='nav-item'>
-                            <Link to='/' className='nav-links' onClick={closeMobileMenu} >Home</Link>
-                        </li>
-                    </ul>
+            <nav className={navbar ? 'navbar active navbar-expand-lg' : 'navbar navbar-expand-lg'}  >
+                <div className="container">
+                    <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+                        EPIC
+                    </Link>
+                    <div className='menu-icon' onClick={handleClick}>
+                        x
+                    </div>
+                    <div className="collapse navbar-collapse">
+                        <ul className="navbar-nav ml-auto d-flex flex-row">
+                            <li className="nav-item">
+                                <NavLink to='/' className={({ isActive }) => {
+                                    return isActive ? 'nav-link active' : ' nav-link'
+                                }} onClick={closeMobileMenu}>
+                                    Home
+                                </NavLink>
+                            </li>
+                            <li className="nav-item">
+                                <NavLink to='/tours' className='nav-link'>
+                                    Tours
+                                </NavLink>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
-
         </>
     )
 }
 
 export default Header
+
+

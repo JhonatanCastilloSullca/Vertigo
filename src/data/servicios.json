@@ -1,0 +1,38 @@
+{
+    "Search": [
+        {
+            "Title": "Activities",
+            "Content": "A small river named Duden flows by their place and supplies it with the necessary",
+            "Id": "1",
+            "Type": "servicios",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg",
+            "Icono": "https://imgur.com./TjIIrcz.png"
+        },
+        {
+            "Title": "Travel Arrangements",
+            "Content": " small river named Duden flows by their place and supplies it with the necessary",
+            "Id": "2",
+            "Type": "servicios",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg",
+            "Icono": "https://imgur.com/oEJ3FXK.png"
+        },
+        {
+            "Title": "Private Guide",
+            "Content": " small river named Duden flows by their place and supplies it with the necessary",
+            "Id": "3",
+            "Type": "servicios",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_SX300.jpg",
+            "Icono": "https://imgur.com/vlI4JEI.png"
+        },
+        {
+            "Title": "Location Manager",
+            "Content": " small river named Duden flows by their place and supplies it with the necessary",
+            "Id": "4",
+            "Type": "servicios",
+            "Poster": "https://m.media-amazon.com/images/M/MV5BMTM4OGJmNWMtOTM4Ni00NTE3LTg3MDItZmQxYjc4N2JhNmUxXkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg",
+            "Icono": "https://imgur.com/UJzgNiU.png"
+        }
+    ],
+    "totalResults": "4",
+    "Response": "True"
+}

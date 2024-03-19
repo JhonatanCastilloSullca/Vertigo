@@ -5,6 +5,7 @@ import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Tours from '../Tours';
 import Header from '../../componentes/Header';
+import Footer from '../../componentes/Footer';
 function App() {
   return (
     <>
@@ -13,6 +14,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/tours' element={<Tours />} />
       </Routes>
+      <Footer></Footer>
     </>
   )
 }

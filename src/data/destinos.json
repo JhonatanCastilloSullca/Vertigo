@@ -1,0 +1,54 @@
+{
+    "Search": [
+        {
+            "Id": "1",
+            "Title": "Cusco",
+            "Type": "destinos",
+            "Imagen": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
+        },
+        {
+            "Id": "2",
+            "Title": "Cusco",
+            "Type": "destinos",
+            "Imagen": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
+        },
+        {
+            "Id": "3",
+            "Title": "Cusco",
+            "Type": "destinos",
+            "Imagen": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
+        },
+        {
+            "Id": "4",
+            "Title": "Cusco",
+            "Type": "destinos",
+            "Imagen": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
+        },
+        {
+            "Id": "5",
+            "Title": "Cusco",
+            "Type": "destinos",
+            "Imagen": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
+        },
+        {
+            "Id": "6",
+            "Title": "Cusco",
+            "Type": "destinos",
+            "Imagen": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
+        },
+        {
+            "Id": "7",
+            "Title": "Cusco",
+            "Type": "destinos",
+            "Imagen": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
+        },
+        {
+            "Id": "8",
+            "Title": "Cusco",
+            "Type": "destinos",
+            "Imagen": "https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg"
+        }
+    ],
+    "totalResults": "8",
+    "Response": "True"
+}

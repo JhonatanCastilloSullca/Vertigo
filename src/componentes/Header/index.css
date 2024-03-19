@@ -7,7 +7,7 @@
 }
 
 .navbar.active {
-    background: linear-gradient(90deg, rgba(66, 2, 194, 0.097)0%, rgb(0, 78, 194) 100%) !important;
+    background: linear-gradient(90deg, rgba(66, 2, 194, 0.097)0%, rgb(0, 194, 39) 100%) !important;
 }
 
 .navbar-logo {

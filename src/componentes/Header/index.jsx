@@ -26,7 +26,7 @@ function Header() {
             <nav className={navbar ? 'navbar active navbar-expand-lg' : 'navbar navbar-expand-lg'}  >
                 <div className="container">
                     <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-                        EPIC
+                        VERTIGO
                     </Link>
                     <div className='menu-icon' onClick={handleClick}>
                         x

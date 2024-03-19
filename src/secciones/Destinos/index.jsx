@@ -7,14 +7,26 @@ function Destinos() {
                 <div className="container">
                     <div className="row justify-content-center pb-4">
                         <div className="col-md-12 heading-section text-center">
-                            <span className="subheading">Pacific Provide Places</span>
-                            <h2 className="mb-4">Select Your Destination</h2>
+                            <span className="subheading">Nuestros paquetes a nivel nacional</span>
+                            <h2 className="mb-4">Selecciona tu destino favorito</h2>
                         </div>
                     </div>
                 </div>
                 <div className="container">
                     <div className="row justify-content-center pb-4">
                         <div className="row">
+                            <div className="col-md-12">
+                                <div className="item">
+                                    <div className="project-destination">
+                                        <a href="#" className="img" style={{ backgroundImage: "url('../../../src/assets/images/place-1.jpg')" }}>
+                                            <div className="text">
+                                                <h3>Philippines</h3>
+                                                <span>8 Tours</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
                             <div className="col-md-12">
                                 <div className="item">
                                     <div className="project-destination">

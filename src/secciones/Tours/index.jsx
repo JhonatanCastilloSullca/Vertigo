@@ -1,3 +1,4 @@
+import CardTours from '../../componentes/CardTours'
 import './index.css'
 
 function Tours() {
@@ -12,108 +13,7 @@ function Tours() {
                         </div>
                     </div>
                     <div className="row">
-                        <div className="col-md-4 ">
-                            <div className="project-wrap">
-                                <a href="#" className="img" style={{ backgroundImage: "url('../../../src/assets/images/destination-1.jpg')" }}>
-                                    <span className="price">$550/person</span>
-                                </a>
-                                <div className="text p-4">
-                                    <span className="days">8 Days Tour</span>
-                                    <h3><a href="#">Banaue Rice Terraces</a></h3>
-                                    <p className="location"><span className="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
-                                    <ul>
-                                        <li><span className="flaticon-shower"></span>2</li>
-                                        <li><span className="flaticon-king-size"></span>3</li>
-                                        <li><span className="flaticon-mountains"></span>Near Mountain</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-4 ">
-                            <div className="project-wrap">
-                                <a href="#" className="img" style={{ backgroundImage: "url('../../../src/assets/images/destination-2.jpg')" }}>
-                                    <span className="price">$550/person</span>
-                                </a>
-                                <div className="text p-4">
-                                    <span className="days">10 Days Tour</span>
-                                    <h3><a href="#">Banaue Rice Terraces</a></h3>
-                                    <p className="location"><span className="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
-                                    <ul>
-                                        <li><span className="flaticon-shower"></span>2</li>
-                                        <li><span className="flaticon-king-size"></span>3</li>
-                                        <li><span className="flaticon-sun-umbrella"></span>Near Beach</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-4 ">
-                            <div className="project-wrap">
-                                <a href="#" className="img" style={{ backgroundImage: "url('../../../src/assets/images/destination-3.jpg')" }}>
-                                    <span className="price">$550/person</span>
-                                </a>
-                                <div className="text p-4">
-                                    <span className="days">7 Days Tour</span>
-                                    <h3><a href="#">Banaue Rice Terraces</a></h3>
-                                    <p className="location"><span className="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
-                                    <ul>
-                                        <li><span className="flaticon-shower"></span>2</li>
-                                        <li><span className="flaticon-king-size"></span>3</li>
-                                        <li><span className="flaticon-sun-umbrella"></span>Near Beach</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-4 ">
-                            <div className="project-wrap">
-                                <a href="#" className="img" style={{ backgroundImage: "url('../../../src/assets/images/destination-4.jpg')" }}>
-                                    <span className="price">$550/person</span>
-                                </a>
-                                <div className="text p-4">
-                                    <span className="days">8 Days Tour</span>
-                                    <h3><a href="#">Banaue Rice Terraces</a></h3>
-                                    <p className="location"><span className="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
-                                    <ul>
-                                        <li><span className="flaticon-shower"></span>2</li>
-                                        <li><span className="flaticon-king-size"></span>3</li>
-                                        <li><span className="flaticon-sun-umbrella"></span>Near Beach</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-4 ">
-                            <div className="project-wrap">
-                                <a href="#" className="img" style={{ backgroundImage: "url('../../../src/assets/images/destination-5.jpg')" }}>
-                                    <span className="price">$550/person</span>
-                                </a>
-                                <div className="text p-4">
-                                    <span className="days">10 Days Tour</span>
-                                    <h3><a href="#">Banaue Rice Terraces</a></h3>
-                                    <p className="location"><span className="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
-                                    <ul>
-                                        <li><span className="flaticon-shower"></span>2</li>
-                                        <li><span className="flaticon-king-size"></span>3</li>
-                                        <li><span className="flaticon-sun-umbrella"></span>Near Beach</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-4 ">
-                            <div className="project-wrap">
-                                <a href="#" className="img" style={{ backgroundImage: "url('../../../src/assets/images/destination-6.jpg')" }}>
-                                    <span className="price">$550/person</span>
-                                </a>
-                                <div className="text p-4">
-                                    <span className="days">7 Days Tour</span>
-                                    <h3><a href="#">Banaue Rice Terraces</a></h3>
-                                    <p className="location"><span className="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
-                                    <ul>
-                                        <li><span className="flaticon-shower"></span>2</li>
-                                        <li><span className="flaticon-king-size"></span>3</li>
-                                        <li><span className="flaticon-sun-umbrella"></span>Near Beach</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        <CardTours />
                     </div>
                 </div>
             </div>

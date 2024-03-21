@@ -14,7 +14,6 @@ function CardActividades() {
                         <div className={`services color-${servicio.Id} services-1 d-block img`} style={{ backgroundImage: `url(${servicio.Poster})` }}>
                             <div className="icon d-flex align-items-center justify-content-center">
                                 <img src={servicio.Icono} className='img-icono' alt="" />
-
                             </div>
                             <div className="media-body">
                                 <h3 className="heading mb-3">{servicio.Title}</h3>

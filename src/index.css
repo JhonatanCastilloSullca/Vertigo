@@ -18,7 +18,7 @@
     --white: #fff;
     --gray: #6c757d;
     --gray-dark: #343a40;
-    --primary: #007bff;
+    --primary: #28a745;
     --secondary: #6c757d;
     --success: #28a745;
     --info: #17a2b8;
@@ -5079,6 +5079,7 @@ input[type="button"].btn-block {
     -ms-flex-pack: justify;
     justify-content: space-between;
     padding: 0.5rem 1rem;
+    z-index: 99;
 }
 
 .navbar .container,
@@ -11837,7 +11838,7 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-    color: #007bff !important;
+    color: var(--primary) !important;
 }
 
 a.text-primary:hover,
@@ -14523,4 +14524,88 @@ textarea.form-control {
         stroke-dasharray: 89, 200;
         stroke-dashoffset: -136px;
     }
+}
+
+.hero-wrap {
+    width: 100%;
+    height: 100%;
+    position: inherit;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.js-fullheight {
+    height: 100vh;
+}
+
+.js-mediumheight {
+    height: 50vh;
+}
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.slider-text .subheading {
+    font-size: 30px;
+    color: #f15d30;
+    font-family: "Arizonia", cursive;
+}
+
+.slider-text h1 {
+    font-size: 55px;
+    color: #fff;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.slider-text p {
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.heading-section .subheading {
+    font-size: 30px;
+    display: block;
+    margin-bottom: 5px;
+    color: #f15d30;
+    font-family: "Arizonia", cursive;
+}
+
+.heading-section.heading-section-white .subheading {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.slider-text p.caps {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.slider-text .icon-video {
+    margin: 0 0 0 auto;
+}
+
+.icon-video {
+    width: 80px;
+    height: 80px;
+    background: #fff;
+    -webkit-animation: pulse 2s infinite;
+    animation: pulse 2s infinite;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.icon-video span {
+    color: #f15d30;
+    font-size: 24px;
 }

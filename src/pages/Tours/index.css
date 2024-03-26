@@ -39,8 +39,136 @@
 
 .icono-tour-cusco ion-icon {
     font-size: 30px;
+
 }
 
 .img-icono-tour-info {
     width: 20px;
+}
+
+.box-title {
+    font-size: 20px;
+    border-bottom: 1px solid #E2DFEB;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 15px;
+    font-weight: 600;
+}
+
+.box-title:after {
+    content: '';
+    width: 2px;
+    background: var(--primary);
+    position: absolute;
+    top: 2px;
+    bottom: 10px;
+    left: 0;
+    z-index: 1;
+}
+
+.div-formulario {
+    padding: 10px 0;
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #E2DFEB80;
+}
+
+.div-formulario>.input-formulario {
+    width: 180px !important;
+    height: 30px !important;
+}
+
+.fs-12 {
+    font-size: 12px !important;
+}
+
+.booking_form_submit {
+    margin-top: 20px;
+    justify-content: center;
+    background: var(--primary);
+    color: #fff;
+    font-family: var(--primary);
+    font-weight: 700;
+    padding: 18px 32px 18px 32px;
+    line-height: 22px;
+    font-size: 16px;
+    position: relative;
+    z-index: 9;
+    display: inline-block;
+    -webkit-transition: all 0.35s;
+    transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    -ms-transition: all 0.35s;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.card-information-tour {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.item-tittle-information {
+    font-size: 15px;
+    margin: 0 0 2px;
+    color: var(--plomo-oscuro);
+    font-weight: 500;
+}
+
+.item-description-information {
+    color: var(--dark);
+    font-weight: 700;
+}
+
+.icono-information-tour {
+    font-size: 30px;
+    color: var(--primary);
+    padding: 5px 10px;
+}
+
+.icono-check {
+    font-size: 14px;
+    color: var(--primary);
+    padding: 0 10px;
+}
+
+.icono-times {
+    font-size: 14px;
+    color: var(--danger);
+    padding: 0 10px;
+}
+
+.icono-backpack {
+    font-size: 14px;
+    color: var(--blue);
+    padding: 0 10px;
+}
+
+.text-check {
+    display: flex;
+    align-items: center;
+}
+
+.img-icono-tour-info-related {
+    width: 90px;
+    height: 60px;
+    border-radius: 5px;
+}
+
+.prices-item-information {
+    color: var(--primary);
+}
+
+.fs-18 {
+    font-size: 14px;
+}
+
+.related-tour {
+    border-bottom: 1px solid #E2DFEB80;
+    padding: 10px 0;
+
 }

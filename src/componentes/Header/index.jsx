@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import './index.css'
 import { Link, NavLink } from 'react-router-dom';
+import ToursData from '../../data/tours.json';
+
 
 function Header() {
 
@@ -18,6 +20,11 @@ function Header() {
             setNavbar(false);
         }
     }
+
+    const tours = ToursData.Search;
+
+
+
 
     window.addEventListener('scroll', changeBackground);
 
@@ -45,6 +52,14 @@ function Header() {
                                     Tours
                                 </NavLink>
                             </li>
+                            {tours.map(tour => (
+                                <li className="nav-item" key={tour.Id}>
+                                    <NavLink to={`/tours/${tour.Id}`} className='nav-link' onClick={closeMobileMenu}>
+                                        {tour.Titulo}
+                                    </NavLink>
+                                </li>
+                            ))}
+
                         </ul>
                     </div>
                 </div>

@@ -1,353 +1,159 @@
-import { Accordion, Button, Card, Col, Container, Form, FormControl, FormGroup, InputGroup, ListGroup, Row } from "react-bootstrap"
+import { Accordion, Card, Col, Container, Row } from "react-bootstrap"
 import './index.css'
-import Tours from "../../secciones/Tours"
 import CardTours from "../../componentes/CardTours"
-import { AiOutlineTeam } from "react-icons/ai"
 import { FaCheck, FaTimes } from "react-icons/fa";
 import { BsBackpack } from "react-icons/bs";
-
-
-import { GiDuration } from "react-icons/gi"
-
+import ToursData from '../../data/tours.json';
+import { useParams } from "react-router-dom"
+import ToursInfoSection from "../../componentes/ToursInfoSection";
+import CardFormulario from "../../componentes/CardFormulario";
+import TourInformation from "../../componentes/ToursInfoItems";
 
 
 function ToursPage() {
 
+    const params = useParams();
+    const tourId = parseInt(params.Id);
+    const tourData = ToursData.Search.find(tour => tour.Id === tourId);
+    const detallesTourDias = tourData.DetallesTourDias;
+
+
+    if (!tourData) {
+        return <div>El tour no existe.</div>;
+    }
+
     return (
         <>
-            <div className="hero-wrap js-mediumheight" style={{ backgroundImage: "url('../../../src/assets/images/bg_5.jpg')" }}>
+            <div className="hero-wrap js-mediumheight" style={{ backgroundImage: `url('${tourData.ImagenPrincipal}')` }}>
+                <div className="overlay-real"></div>
                 <div className="container p-3">
                     <div className="row no-gutters slider-text js-mediumheight align-items-center">
                         <div className="col-md-7 ">
-                            <span className="subheading">Bienvenido a vertigo  Travel</span>
-                            <p className="caps">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam nulla, ex nobis culpa iusto rem itaque consequatur illum fugiat dolore consequuntur saepe sapiente provident. Quod accusantium quidem fuga dolores architecto! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, voluptatibus alias. Sit nisi, tenetur voluptate recusandae esse numquam unde quo corporis ad laborum? Sed excepturi, tenetur odit fugiat libero molestiae?</p>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="ftco-section services-section">
+            <Container>
+                <ToursInfoSection
+                    titulo={tourData.Titulo}
+                    duracion={tourData.Duracion_del_Tour}
+                    precio={tourData.Precio}
+                    categoria={tourData.CategoriaTour}
+                />
+            </Container>
+            <div className="ftco-section services-section pt-4">
                 <div className="container p-4">
                     <div className="row d-flex">
                         <div className="col-md-4">
                             <div className="row gap-4">
-                                <Card>
-                                    <Card.Body>
-                                        <h3 className="box-title">Reserva con nosotros</h3>
-                                        <div className="div-formulario ">
-                                            <span>Fecha:</span>
-                                            <Form.Control type="date" placeholder="" className="input-formulario fs-12" />
-                                        </div>
-                                        <div className="div-formulario ">
-                                            <span>Celular:</span>
-                                            <Form.Control type="text" placeholder="+51 999 999 999" className="input-formulario fs-12" />
-                                        </div>
-                                        <div className="div-formulario ">
-                                            <span>E-mail:</span>
-                                            <Form.Control type="email" placeholder="info@vertigotravelperu.com" className="input-formulario fs-12" />
-                                        </div>
-                                        <div className="submit_group">
-                                            <button className="booking_form_submit"> Reservar Ahora</button>
-                                        </div>
-                                    </Card.Body>
-                                </Card>
-                                <Card>
-                                    <Card.Body>
-                                        <h3 className="box-title">Información del Tour</h3>
-                                        <div className="card-information-tour ">
-                                            <span className="icono-information-tour"><AiOutlineTeam /></span>
-                                            <div className="items-information d-grid">
-                                                <h5 className="item-tittle-information">Max. Personas</h5>
-                                                <h5 className="item-description-information">Descripcion</h5>
-                                            </div>
-                                        </div>
-                                        <div className="card-information-tour ">
-                                            <span className="icono-information-tour"><AiOutlineTeam /></span>
-                                            <div className="items-information d-grid">
-                                                <h5 className="item-tittle-information">Edad Minima</h5>
-                                                <h5 className="item-description-information">Descripcion</h5>
-                                            </div>
-                                        </div>
-                                        <div className="card-information-tour ">
-                                            <span className="icono-information-tour"><AiOutlineTeam /></span>
-                                            <div className="items-information d-grid">
-                                                <h5 className="item-tittle-information">Ubicacion del Tour</h5>
-                                                <h5 className="item-description-information">Descripcion</h5>
-                                            </div>
-                                        </div>
-                                        <div className="card-information-tour ">
-                                            <span className="icono-information-tour"><AiOutlineTeam /></span>
-                                            <div className="items-information d-grid">
-                                                <h5 className="item-tittle-information">Idiomas disponibles</h5>
-                                                <h5 className="item-description-information">Descripcion</h5>
-                                            </div>
-                                        </div>
-                                    </Card.Body>
-                                </Card>
-                                <Card>
-                                    <Card.Body>
-                                        <h3 className="box-title">Tours Relacionados</h3>
-                                        <div className="card-information-tour related-tour gap-2">
-                                            <img src='https://www.cuscoagency.com/assets/images/img-lugares/machupicchu-full-4.jpg' className='img-icono-tour-info-related' alt="" />
-                                            <div className="items-information d-grid">
-                                                <h5 className="item-description-information m-0 fs-18">Rainbow Mountain Red Valley</h5>
-                                                <h5 className="item-tittle-information">From <span className="prices-item-information"> $319.00 </span></h5>
-                                            </div>
-                                        </div>
-                                        <div className="card-information-tour related-tour gap-2">
-                                            <img src='https://www.cuscoagency.com/assets/images/img-lugares/machupicchu-full-4.jpg' className='img-icono-tour-info-related' alt="" />
-                                            <div className="items-information d-grid">
-                                                <h5 className="item-description-information m-0 fs-18">Rainbow Mountain Red Valley</h5>
-                                                <h5 className="item-tittle-information">From <span className="prices-item-information"> $319.00 </span></h5>
-                                            </div>
-                                        </div>
-                                        <div className="card-information-tour related-tour gap-2">
-                                            <img src='https://www.cuscoagency.com/assets/images/img-lugares/machupicchu-full-4.jpg' className='img-icono-tour-info-related' alt="" />
-                                            <div className="items-information d-grid">
-                                                <h5 className="item-description-information m-0 fs-18">Rainbow Mountain Red Valley</h5>
-                                                <h5 className="item-tittle-information">From <span className="prices-item-information"> $319.00 </span></h5>
-                                            </div>
-                                        </div>
-                                    </Card.Body>
-                                </Card>
+                                <CardFormulario />
+                                {tourData.Max_group || tourData.EdadMinima || tourData.Lugar_de_Recojo || tourData.UbicacionTour || (tourData.Idiomas_Disponibles && tourData.Idiomas_Disponibles.length > 0) ? (
+                                    <Card>
+                                        <Card.Body>
+                                            <h3 className="box-title">Información del Tour</h3>
+                                            <TourInformation tourData={tourData} />
+                                        </Card.Body>
+                                    </Card>
+                                ) : null}
                             </div>
                         </div>
                         <div className="col-md-8 heading-section">
                             <div className="w-100">
-                                <Container className="bg-primary border rounded">
-                                    <Row>
-                                        <Col>
-                                            <div className="icono-tour-cusco p-2">
-                                                <div className="icono-diarios">
-                                                    <img src='https://imgur.com./TjIIrcz.png' className='img-icono-tour-info' alt="" />
-                                                </div>
-                                                <div className="icono-diarios-text">
-                                                    <p className="m-0"><b>Dificultad</b></p>
-                                                    <span>Fácil</span>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                        <Col>
-                                            <div className="icono-tour-cusco p-2">
-                                                <div className="icono-diarios">
-                                                    <img src='https://imgur.com./TjIIrcz.png' className='img-icono-tour-info' alt="" />
-                                                </div>
-                                                <div className="icono-diarios-text">
-                                                    <p className="m-0"><b>Dificultad</b></p>
-                                                    <span>Fácil</span>
-                                                </div>
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                </Container>
-                                <Container className="mt-4 p-0">
-                                    <Accordion defaultActiveKey={['0']} alwaysOpen>
-                                        <Accordion.Item eventKey="0">
-                                            <Accordion.Header > <h6 className="fw-bold text-primary ">Dia 1: Recojo y bienvendia</h6></Accordion.Header>
-                                            <Accordion.Body>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                                culpa qui officia deserunt mollit anim id est laborum.
-                                            </Accordion.Body>
-                                        </Accordion.Item>
-                                        <Accordion.Item eventKey="1">
-                                            <Accordion.Header ><h6 className="fw-bold text-blue ">Dia 2: Llegada y visita de lugares arqueologicos</h6></Accordion.Header>
-                                            <Accordion.Body>
-                                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                                                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                                                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                                                culpa qui officia deserunt mollit anim id est laborum.
-                                            </Accordion.Body>
-                                        </Accordion.Item>
-                                    </Accordion>
-                                </Container>
-                                <Container className="mt-4 p-0">
-                                    <Card>
-                                        <Card.Body className="">
-                                            <h3 className="box-title m-0">Tour Incluye</h3>
-                                            <Row className="pt-4">
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-check"><FaCheck /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-check"><FaCheck /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-check"><FaCheck /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-check"><FaCheck /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-check"><FaCheck /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-check"><FaCheck /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-check"><FaCheck /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-check"><FaCheck /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-check"><FaCheck /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-check"><FaCheck /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-check"><FaCheck /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                            </Row>
-                                        </Card.Body>
-                                    </Card>
-                                </Container>
-                                <Container className="mt-4 p-0">
-                                    <Card>
-                                        <Card.Body className="">
-                                            <h3 className="box-title m-0">Tour No Incluye</h3>
-                                            <Row className="pt-4">
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-times"><FaTimes /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-times"><FaTimes /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-times"><FaTimes /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-times"><FaTimes /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-times"><FaTimes /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-times"><FaTimes /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-times"><FaTimes /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-times"><FaTimes /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-times"><FaTimes /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-times"><FaTimes /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-times"><FaTimes /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                            </Row>
-                                        </Card.Body>
-                                    </Card>
-                                </Container>
-                                <Container className="mt-4 p-0">
-                                    <Card>
-                                        <Card.Body className="">
-                                            <h3 className="box-title m-0">Que Llevar</h3>
-                                            <Row className="pt-4">
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-backpack"><BsBackpack /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-backpack"><BsBackpack /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-backpack"><BsBackpack /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-backpack"><BsBackpack /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-backpack"><BsBackpack /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-backpack"><BsBackpack /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-backpack"><BsBackpack /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-backpack"><BsBackpack /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-backpack"><BsBackpack /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-backpack"><BsBackpack /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                                <Col md={4} className="d-flex justify-content-center">
-                                                    <span className="icono-backpack"><BsBackpack /></span>
-                                                    <h5 className="item-tittle-information text-check">Ubicacion del Tour</h5>
-                                                </Col>
-                                            </Row>
-                                        </Card.Body>
-                                    </Card>
-                                </Container>
-                                <Container className="mt-4 p-0">
-                                    <Row >
-                                        <Col className="d-flex justify-content-center">
-                                            <Row>
-                                                <Col className="d-flex justify-content-center">
+                                {tourData.Titulo && tourData.Descripcion && (
+                                    <Container className="mt-4">
+                                        <h3 className="box-title m-0">{tourData.Titulo}</h3>
+                                        <p className="box-description">{tourData.Descripcion}</p>
+                                    </Container>
+                                )}
+                                {detallesTourDias && detallesTourDias.length > 0 && (
+                                    <Container className="mt-4 ">
+                                        <h3 className="box-title m-0">Itinerario</h3>
+                                        <Accordion defaultActiveKey={['0']} alwaysOpen className="pt-4">
+                                            {detallesTourDias && detallesTourDias.map((detalle, index) => (
+                                                <Accordion.Item key={index} eventKey={String(index)}>
+                                                    <Accordion.Header><h6 className="fw-bold text-primary">Día {index + 1}: {detalle.titulo}</h6></Accordion.Header>
+                                                    <Accordion.Body>
+                                                        {detalle.descripcion}
+                                                    </Accordion.Body>
+                                                </Accordion.Item>
+                                            ))}
+                                        </Accordion>
+                                    </Container>
+                                )}
+                                {tourData.Incluye && tourData.Incluye.length > 0 && (
+                                    <Container className="mt-4">
+                                        <Card>
+                                            <Card.Body className="">
+                                                <h3 className="box-title m-0">Incluye / No Incluye</h3>
+                                                <Row>
+                                                    <Col>
+                                                        <Row className="pt-4">
+                                                            {tourData.Incluye.map((item, index) => (
+                                                                <Col key={index} md={12} className="d-flex justify-content-left">
+                                                                    <span className="icono-check"><FaCheck /></span>
+                                                                    <h5 className="item-tittle-information text-check">{item}</h5>
+                                                                </Col>
+                                                            ))}
+                                                        </Row>
+                                                    </Col>
+                                                    {tourData.NoIncluye && tourData.NoIncluye.length > 0 && (
+                                                        <Col>
+                                                            <Row className="pt-4">
+                                                                {tourData.NoIncluye.map((item, index) => (
+                                                                    <Col key={index} md={12} className="d-flex justify-content-left">
+                                                                        <span className="icono-times"><FaTimes /></span>
+                                                                        <h5 className="item-tittle-information text-check">{item}</h5>
+                                                                    </Col>
+                                                                ))}
+                                                            </Row>
+                                                        </Col>
+                                                    )}
+                                                </Row>
+                                            </Card.Body>
+                                        </Card>
+                                    </Container>
+                                )}
+                                {tourData.QueLlevar && tourData.QueLlevar.length > 0 && (
+                                    <Container className="mt-4 ">
+                                        <Card>
+                                            <Card.Body className="">
+                                                <h3 className="box-title m-0">Qué Llevar</h3>
+                                                <Row className="pt-4">
+                                                    {tourData.QueLlevar.map((item, index) => (
+                                                        <Col key={index} md={4} className="d-flex justify-content-center">
+                                                            <span className="icono-backpack"><BsBackpack /></span>
+                                                            <h5 className="item-tittle-information text-check">{item}</h5>
+                                                        </Col>
+                                                    ))}
+                                                </Row>
+                                            </Card.Body>
+                                        </Card>
+                                    </Container>
+                                )}
+                                {tourData.galeria && tourData.galeria.length > 0 && (
+                                    <Container className="mt-4">
+                                        <h3 className="box-title m-0">Galería</h3>
+                                        <Row>
+                                            {tourData.galeria.map((imagenUrl, index) => (
+                                                <Col key={index} md={4} className="d-flex justify-content-center mb-4">
                                                     <Card className="border-0">
-                                                        <Card.Img variant="top" src="https://www.cuscoagency.com/assets/images/img-lugares/machupicchu-full-4.jpg" />
+                                                        <Card.Img variant="top" src={imagenUrl} className="galeria-imagen" />
                                                     </Card>
                                                 </Col>
-                                                <Col className="d-flex justify-content-center">
-                                                    <Card className="border-0">
-                                                        <Card.Img variant="top" src="https://www.cuscoagency.com/assets/images/img-lugares/machupicchu-full-4.jpg" />
-                                                    </Card>
-                                                </Col>
-                                            </Row>
-                                        </Col>
-                                    </Row>
-                                </Container>
+                                            ))}
+                                        </Row>
+                                    </Container>
+                                )}
                             </div>
                         </div>
                     </div>
                 </div>
+                <Container>
+                    <h3 className="box-title m-0">Tours Relacionados</h3>
+                    <Row className="pt-4">
+                        <CardTours />
+                    </Row>
+                </Container>
             </div >
         </>
     )

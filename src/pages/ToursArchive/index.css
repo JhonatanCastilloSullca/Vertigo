@@ -46,13 +46,6 @@
     width: 20px;
 }
 
-.box-description {
-    width: 90%;
-    padding: 20px;
-}
-
-.subheading {}
-
 .box-title {
     font-size: 20px;
     border-bottom: 1px solid #E2DFEB;
@@ -143,12 +136,6 @@
     padding: 0 10px;
 }
 
-.icono-check-white {
-    font-size: 14px;
-    padding: 0 10px;
-    color: var(--light) !important;
-}
-
 .icono-times {
     font-size: 14px;
     color: var(--danger);
@@ -184,19 +171,4 @@
     border-bottom: 1px solid #E2DFEB80;
     padding: 10px 0;
 
-}
-
-.info-row {
-    z-index: 9;
-    position: relative;
-    margin-top: -75px;
-}
-
-.overlay-real {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 50vh;
-    background: radial-gradient(circle, rgb(255 255 255 / 0%), black);
 }

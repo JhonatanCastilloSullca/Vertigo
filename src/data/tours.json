@@ -2,9 +2,9 @@
     "Search": [
         {
             "Id": 0,
-            "Precio": "$549.00",
+            "Precio": "549.00",
             "Titulo": "Vubadub Tour",
-            "CategoriaTour": "Cultural",
+            "CategoriaTour": "cultural",
             "ImagenPrincipal": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Machu_Picchu%2C_Peru_%282018%29.jpg",
             "Duracion_del_Tour": "3 días",
             "Max_group": "",
@@ -22,9 +22,9 @@
         },
         {
             "Id": 1,
-            "Precio": "$533.40",
+            "Precio": "533.40",
             "Titulo": "Aatiance Tour",
-            "CategoriaTour": "Histórico",
+            "CategoriaTour": "historico",
             "ImagenPrincipal": "http://placehold.it/500x500",
             "Duracion_del_Tour": "6 días",
             "Max_group": 9,
@@ -142,9 +142,9 @@
         },
         {
             "Id": 2,
-            "Precio": "$914.83",
+            "Precio": "914.83",
             "Titulo": "Setron Tour",
-            "CategoriaTour": "Aventura",
+            "CategoriaTour": "aventura",
             "ImagenPrincipal": "http://placehold.it/500x500",
             "Duracion_del_Tour": "5 días",
             "Max_group": 18,
@@ -260,9 +260,9 @@
         },
         {
             "Id": 3,
-            "Precio": "$285.34",
+            "Precio": "285.34",
             "Titulo": "Eerkle Tour",
-            "CategoriaTour": "Cultural",
+            "CategoriaTour": "cultural",
             "ImagenPrincipal": "http://placehold.it/500x500",
             "Duracion_del_Tour": "2 días",
             "Max_group": 6,

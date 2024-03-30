@@ -1,5 +1,6 @@
 import CardTours from '../../componentes/CardTours'
 import './index.css'
+import ToursData from '../../data/tours.json'
 
 function Tours() {
     return (
@@ -13,7 +14,7 @@ function Tours() {
                         </div>
                     </div>
                     <div className="row">
-                        <CardTours />
+                        <CardTours tours={ToursData.Search} />
                     </div>
                 </div>
             </div>

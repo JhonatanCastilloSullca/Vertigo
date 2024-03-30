@@ -5,8 +5,8 @@ import { AiOutlineTeam } from "react-icons/ai";
 
 
 
-function CardTours() {
-    const tours = ToursData.Search
+function CardTours({ tours }) {
+    //const tours = ToursData.Search
     const hasTours = tours?.length > 0
     return (
         <>

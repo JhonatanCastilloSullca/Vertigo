@@ -12,7 +12,7 @@
     --red: #dc3545;
     --orange: #fd7e14;
     --yellow: #ffc107;
-    --green: #28a745;
+    --green: #0f7026;
     --teal: #20c997;
     --cyan: #17a2b8;
     --white: #fff;
@@ -14621,4 +14621,28 @@ textarea.form-control {
 
 .text-light {
     color: var(--light);
+}
+
+
+input[type="range"]::-webkit-slider-thumb {
+    background: var(--primary) !important;
+}
+
+input[type="range"]::-moz-range-thumb {
+    background: var(--primary) !important;
+}
+
+input[type="range"]::-ms-thumb {
+    background: var(--primary) !important;
+}
+
+.form-check-input:checked {
+    background: var(--primary) !important;
+    border-color: var(--green);
+}
+
+.form-check-input:focus {
+    border-color: var(--green);
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(103 253 13 / 25%);
 }

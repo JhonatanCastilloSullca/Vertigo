@@ -2,28 +2,30 @@ import './index.css'
 import ToursData from '../../data/tours.json'
 import { GiDuration } from "react-icons/gi";
 import { AiOutlineTeam } from "react-icons/ai";
+import { NavLink } from 'react-router-dom';
 
 
 
 function CardTours({ tours }) {
-    //const tours = ToursData.Search
     const hasTours = tours?.length > 0
     return (
         <>
             {hasTours ? (
                 tours.map(tour => (
-                    <div key={tour.Id} className="col-md-4 ">
+                    <div key={tour.Id} className="col-md-4">
                         <div className="project-wrap">
-                            <a href="#" className="img" style={{ backgroundImage: `url(${tour.ImagenPrincipal})` }}>
+                            {/* Cambiado a NavLink */}
+                            <NavLink to={`/tours/${tour.Id}`} className="img" style={{ backgroundImage: `url(${tour.ImagenPrincipal})` }}>
                                 <span className="price">S/. {tour.Precio}</span>
-                            </a>
+                            </NavLink>
                             <div className="text p-4">
-                                <a href="#" target="_blank" rel="noopener noreferrer"> {tour.CategoriaTour}</a>
-                                <h3><a href="#">{tour.Titulo}</a></h3>
+                                {/* Cambiado a NavLink */}
+                                <NavLink to={`/tours/${tour.Id}`} className="category-link">{tour.CategoriaTour}</NavLink>
+                                <h3><NavLink to={`/tours/${tour.Id}`}>{tour.Titulo}</NavLink></h3>
                                 <p className="location mb-0"><span className="fa fa-map-marker"></span>{tour.LugarRecojo}</p>
                                 <ul>
-                                    <li><span className=""><AiOutlineTeam /></span> 2</li>
-                                    <li><span className=""><GiDuration /></span>3</li>
+                                    <li><span><AiOutlineTeam /></span> 2</li>
+                                    <li><span><GiDuration /></span>3 horas</li>
                                 </ul>
                             </div>
                         </div>

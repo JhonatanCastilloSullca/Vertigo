@@ -23,6 +23,7 @@ function ToursArchive() {
 
     const handleChange = (event) => {
         const newCategory = event.target.id;
+        setCategory(newCategory);
         setFilters(prevFilters => ({
             ...prevFilters,
             category: newCategory
@@ -48,15 +49,16 @@ function ToursArchive() {
     };
     const [tours] = useState(ToursData.Search)
     const filterTours = (tours) => {
-        return tours.filter(tours => {
-            console.log(filters.maxPrice)
+        return tours.filter(tour => {
+            const precio = Number(tour.Precio);
             return (
-                tours.Precio >= filters.maxPrice && (filters.category === 'all' || tours.CategoriaTour == filters.category) && tours.Titulo.toLowerCase().includes(filters.keyword.toLowerCase())
-            )
-        })
-    }
+                precio >= filters.maxPrice &&
+                (filters.category === 'all' || tour.CategoriaTour === filters.category) &&
+                tour.Titulo.toLowerCase().includes(filters.keyword.toLowerCase())
+            );
+        });
+    };
     const filteredTours = filterTours(tours)
-
     return (
         <>
             <div className="hero-wrap js-mediumheight" style={{ backgroundImage: "url('../../../src/assets/images/bg_5.jpg')" }}>
@@ -80,7 +82,6 @@ function ToursArchive() {
                                         <FormControl type="text" value={filters.keyword}
                                             onChange={handleChangeKeyword} className="input-formulario-filter fs-12" />
                                     </FormGroup>
-
                                     <FormGroup className="mb-3">
                                         <Form.Label className="form-control-sm m-0 font-weight-bolder">Características</Form.Label>
                                         <div>
@@ -130,13 +131,11 @@ function ToursArchive() {
                                             />
                                             <span>{maxPrice}</span>
                                         </div>
-
                                     </FormGroup>
                                 </Form>
                             </Card.Body>
                         </Card>
                     </Col>
-
                     <Col md={9}>
                         <Row>
                             <CardTours tours={filteredTours} />

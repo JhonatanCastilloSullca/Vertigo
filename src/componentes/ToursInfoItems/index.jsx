@@ -20,15 +20,14 @@ TourInformationItem.propTypes = {
     title: PropTypes.string.isRequired,
     description: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]).isRequired,
 };
-
 function TourInformation({ tourData }) {
     return (
         <>
             {tourData.Max_group && (
-                <TourInformationItem icon={<HiUserGroup />} title="Max. Personas" description={tourData.Max_group} />
+                <TourInformationItem icon={<HiUserGroup />} title="Max. Personas" description={tourData.Max_group.toString()} />
             )}
             {tourData.EdadMinima && (
-                <TourInformationItem icon={<FaBaby />} title="Edad Minima" description={tourData.EdadMinima} />
+                <TourInformationItem icon={<FaBaby />} title="Edad Minima" description={tourData.EdadMinima.toString()} />
             )}
             {tourData.Lugar_de_Recojo && (
                 <TourInformationItem icon={<FaMapPin />} title="Lugar de Recojo" description={tourData.Lugar_de_Recojo} />
@@ -40,12 +39,13 @@ function TourInformation({ tourData }) {
                 <TourInformationItem
                     icon={<FaLanguage />}
                     title="Idiomas disponibles"
-                    description={tourData.Idiomas_Disponibles}
+                    description={tourData.Idiomas_Disponibles.join(', ')} // Convierte el arreglo a string
                 />
             )}
         </>
     );
 }
+
 
 TourInformation.propTypes = {
     tourData: PropTypes.object.isRequired,

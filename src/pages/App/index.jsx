@@ -7,17 +7,18 @@ import ToursPage from '../Tours';
 import Header from '../../componentes/Header';
 import Footer from '../../componentes/Footer';
 import ToursArchive from '../ToursArchive';
+import { CartProvider } from '../../context/cart';
 function App() {
   return (
-    <>
+    <CartProvider>
       <Header></Header>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/tours' element={<ToursArchive />} />
-        <Route path='/tours/:Id' element={<ToursPage />} />
+        <Route path='/tours/:id' element={<ToursPage />} />
       </Routes>
       <Footer></Footer>
-    </>
+    </CartProvider>
   )
 }
 

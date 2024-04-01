@@ -2,17 +2,15 @@ import { useEffect, useState } from 'react'
 import './index.css'
 import { Link, NavLink } from 'react-router-dom';
 import ToursData from '../../data/tours.json';
+import Cart from '../Cart';
 
 
 function Header() {
 
     const [click, setClick] = useState(false);
-
     const [navbar, setNavbar] = useState(false);
-
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
-
     const changeBackground = () => {
         if (window.scrollY >= 80) {
             setNavbar(true);
@@ -52,14 +50,9 @@ function Header() {
                                     Tours
                                 </NavLink>
                             </li>
-                            {tours.map(tour => (
-                                <li className="nav-item" key={tour.Id}>
-                                    <NavLink to={`/tours/${tour.Id}`} className='nav-link' onClick={closeMobileMenu}>
-                                        {tour.Titulo}
-                                    </NavLink>
-                                </li>
-                            ))}
-
+                            <li>
+                                <Cart></Cart>
+                            </li>
                         </ul>
                     </div>
                 </div>

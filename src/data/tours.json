@@ -1,7 +1,7 @@
 {
     "Search": [
         {
-            "Id": 0,
+            "id": 0,
             "Precio": "549.00",
             "Titulo": "Vubadub Tour",
             "CategoriaTour": "cultural",
@@ -21,7 +21,7 @@
             "DetallesTourDias": []
         },
         {
-            "Id": 1,
+            "id": 1,
             "Precio": "533.40",
             "Titulo": "Aatiance Tour",
             "CategoriaTour": "historico",
@@ -141,7 +141,7 @@
             ]
         },
         {
-            "Id": 2,
+            "id": 2,
             "Precio": "914.83",
             "Titulo": "Setron Tour",
             "CategoriaTour": "aventura",
@@ -259,7 +259,7 @@
             ]
         },
         {
-            "Id": 3,
+            "id": 3,
             "Precio": "285.34",
             "Titulo": "Eerkle Tour",
             "CategoriaTour": "cultural",

@@ -10,8 +10,8 @@ function CardActividades() {
         <>
             {hasServicios ? (
                 servicios.map(servicio => (
-                    <div key={servicio.Id} className="col-md-12 col-lg-6 d-flex align-self-stretch ">
-                        <div className={`services color-${servicio.Id} services-1 d-block img`} style={{ backgroundImage: `url(${servicio.Poster})` }}>
+                    <div key={servicio.id} className="col-md-12 col-lg-6 d-flex align-self-stretch ">
+                        <div className={`services color-${servicio.id} services-1 d-block img`} style={{ backgroundImage: `url(${servicio.Poster})` }}>
                             <div className="icon d-flex align-items-center justify-content-center">
                                 <img src={servicio.Icono} className='img-icono' alt="" />
                             </div>

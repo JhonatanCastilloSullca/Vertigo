@@ -1,6 +1,15 @@
 import { Card, Form } from "react-bootstrap";
+import { useCart } from "../../Hook/useCart";
 
-function CardFormulario() {
+function CardFormulario({ tour }) {
+
+    const { addToCart, removeFromeCart, cart } = useCart()
+    console.log(cart);
+    const checkTourInCart = tour => {
+        return cart.some(item => item.id === tour.id)
+    }
+    const isToursInCart = checkTourInCart(tour)
+
     return (
         <>
             <Card>
@@ -19,13 +28,18 @@ function CardFormulario() {
                         <Form.Control type="email" placeholder="info@vertigotravelperu.com" className="input-formulario fs-12" />
                     </div>
                     <div className="submit_group">
-                        <button className="booking_form_submit"> Reservar Ahora</button>
+                        <button onClick={() => { isToursInCart ? removeFromeCart(tour) : addToCart(tour) }} className="booking_form_submit">
+                            {
+                                isToursInCart
+                                    ? "Quitar de la reserva"
+                                    : "Reservar Ahora"
+                            }
+                        </button>
                     </div>
                 </Card.Body>
             </Card>
         </>
     );
 }
-
 
 export default CardFormulario;

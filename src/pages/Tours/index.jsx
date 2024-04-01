@@ -13,8 +13,8 @@ import TourInformation from "../../componentes/ToursInfoItems";
 function ToursPage() {
 
     const params = useParams();
-    const tourId = parseInt(params.Id);
-    const tourData = ToursData.Search.find(tour => tour.Id === tourId);
+    const tourId = parseInt(params.id);
+    const tourData = ToursData.Search.find(tour => tour.id === tourId);
     const detallesTourDias = tourData.DetallesTourDias;
 
 
@@ -46,7 +46,7 @@ function ToursPage() {
                     <div className="row d-flex">
                         <div className="col-md-4">
                             <div className="row gap-4">
-                                <CardFormulario />
+                                <CardFormulario tour={tourData} />
                                 {tourData.Max_group || tourData.EdadMinima || tourData.Lugar_de_Recojo || tourData.UbicacionTour || (tourData.Idiomas_Disponibles && tourData.Idiomas_Disponibles.length > 0) ? (
                                     <Card>
                                         <Card.Body>

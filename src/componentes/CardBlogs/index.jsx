@@ -10,7 +10,7 @@ function CardBlogs() {
         <>
             {hasBlogs ? (
                 blogs.map(blog => (
-                    <div key={blog.Id} className="col-md-4 d-flex ">
+                    <div key={blog.id} className="col-md-4 d-flex ">
                         <div className="blog-entry justify-content-end">
                             <a href="blog-single.html" className="block-20" style={{ backgroundImage: "url('../../../src/assets/images/image_1.jpg')" }}>
                             </a>

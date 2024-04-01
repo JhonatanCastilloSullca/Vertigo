@@ -1,11 +1,15 @@
 
+import { useCart } from '../../Hook/useCart';
 import './index.css'
 import { Link, NavLink } from 'react-router-dom';
 
 function Footer() {
+    const { cart } = useCart()
 
     return (
         <>
+            <div className="footer-prueba">
+            </div>
             <footer className="ftco-footer bg-bottom ftco-no-pt" style={{ backgroundImage: "url('../../../src/assets/images/bg_3.jpg')" }}>
                 <div className="container">
                     <div className="row mb-5">

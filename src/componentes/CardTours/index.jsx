@@ -14,12 +14,10 @@ function CardTours({ tours }) {
                 tours.map(tour => (
                     <div key={tour.id} className="col-md-4">
                         <div className="project-wrap">
-                            {/* Cambiado a NavLink */}
                             <NavLink to={`/tours/${tour.id}`} className="img" style={{ backgroundImage: `url(${tour.ImagenPrincipal})` }}>
                                 <span className="price">S/. {tour.Precio}</span>
                             </NavLink>
                             <div className="text p-4">
-                                {/* Cambiado a NavLink */}
                                 <NavLink to={`/tours/${tour.id}`} className="category-link">{tour.CategoriaTour}</NavLink>
                                 <h3><NavLink to={`/tours/${tour.id}`}>{tour.Titulo}</NavLink></h3>
                                 <p className="location mb-0"><span className="fa fa-map-marker"></span>{tour.LugarRecojo}</p>

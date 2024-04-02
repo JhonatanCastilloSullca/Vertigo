@@ -12854,7 +12854,7 @@ h5,
     font-size: 18px;
     font-weight: 500;
     position: absolute;
-    top: 0;
+    top: 8px;
     left: 20px;
     margin-top: -8px;
     padding: 4px 10px;
@@ -13956,7 +13956,7 @@ textarea.form-control {
 
 .blog-entry .topp {
     position: absolute;
-    top: -7px;
+    top: 0px;
     left: 20px;
     padding: 5px 15px;
     background: #059d0a;

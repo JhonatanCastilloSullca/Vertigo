@@ -1,11 +1,7 @@
 
-import { useCart } from '../../Hook/useCart';
 import './index.css'
-import { Link, NavLink } from 'react-router-dom';
 
 function Footer() {
-    const { cart } = useCart()
-
     return (
         <>
             <div className="footer-prueba">

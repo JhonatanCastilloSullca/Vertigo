@@ -4,7 +4,6 @@ import { useCart } from "../../Hook/useCart";
 function CardFormulario({ tour }) {
 
     const { addToCart, removeFromeCart, cart } = useCart()
-    console.log(cart);
     const checkTourInCart = tour => {
         return cart.some(item => item.id === tour.id)
     }

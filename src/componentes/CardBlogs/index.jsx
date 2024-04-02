@@ -1,39 +1,60 @@
-import './index.css'
-import blogData from '../../data/blog.json'
+import React from 'react';
+import './index.css';
+import blogData from '../../data/blog.json';
+import BlogCard from '../BlogCard'; // Asegúrate de que la ruta de importación es correcta
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css'; // importa los estilos de Swiper
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Autoplay, Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 function CardBlogs() {
-    const blogs = blogData.Search
-    const hasBlogs = blogs?.length > 0
-
+    const blogs = blogData.Search;
+    const hasBlogs = blogs && blogs.length > 0;
 
     return (
         <>
             {hasBlogs ? (
-                blogs.map(blog => (
-                    <div key={blog.id} className="col-md-4 d-flex ">
-                        <div className="blog-entry justify-content-end">
-                            <a href="blog-single.html" className="block-20" style={{ backgroundImage: "url('../../../src/assets/images/image_1.jpg')" }}>
-                            </a>
-                            <div className="text">
-                                <div className="d-flex align-items-center mb-4 topp">
-                                    <div className="">
-                                        <span className="mos">{blog.fecha}</span>
-                                    </div>
-                                </div>
-                                <h3 className="heading"><a href="#">{blog.Titulo}</a></h3>
-                                <div className="descripcion-corta-container"> {/* Contenedor con ancho fijo */}
-                                    <p>{blog.descripcionCorta}</p>
-                                </div>
-                                <p><a href="#" className="btn btn-primary">Read more</a></p>
-                            </div>
-                        </div>
-                    </div>
-
-                ))
+                <Swiper
+                    modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
+                    spaceBetween={50}
+                    slidesPerView={1}
+                    centeredSlides={true}
+                    grabCursor={true}
+                    autoplay={{
+                        delay: 1000,
+                        disableOnInteraction: false,
+                    }}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    breakpoints={{
+                        640: {
+                            slidesPerView: 2,
+                            spaceBetween: 20,
+                        },
+                        768: {
+                            slidesPerView: 3,
+                            spaceBetween: 40,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 50,
+                        },
+                    }}
+                    className="mySwiperDestiny"
+                >
+                    {blogs.map(blog => (
+                        <SwiperSlide key={blog.id}>
+                            <BlogCard blog={blog} />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
             ) : (
-                <p>*No se encontraron resultados</p>
+                <p>No se encontraron resultados</p>
             )}
         </>
-    )
+    );
 }
-export default CardBlogs
+
+export default CardBlogs;

@@ -1,8 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import './index.css'
 import { Link, NavLink } from 'react-router-dom';
-import ToursData from '../../data/tours.json';
 import Cart from '../Cart';
+import { Dropdown } from 'react-bootstrap';
+import ToursData from '../../data/tours.json';
+
 
 
 function Header() {
@@ -30,8 +32,9 @@ function Header() {
         <>
             <nav className={navbar ? 'navbar active navbar-expand-lg' : 'navbar navbar-expand-lg'}  >
                 <div className="container">
+
                     <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-                        VERTIGO
+                        {navbar ? <img src="../src/assets/images/vertigo-logo-horizontal-2.webp" alt="logo-vertigo" /> : <img className='img-header-logo' src="../src/assets/images/vertigologo2.webp" alt="logo-vertigo" />}
                     </Link>
                     <div className='menu-icon' onClick={handleClick}>
                         x
@@ -45,10 +48,21 @@ function Header() {
                                     Home
                                 </NavLink>
                             </li>
-                            <li className="nav-item">
-                                <NavLink to='/tours' className='nav-link'>
-                                    Tours
-                                </NavLink>
+                            <li className="nav-item d-flex align-items-center text-white">
+                                <Dropdown>
+                                    <Dropdown.Toggle as={NavLink} to='/tours' variant="transparent" id="dropdown-basic" className="nav-link p-0">
+                                        Tours
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu>
+                                        {tours.map((tour) => (
+                                            <Dropdown.Item as="div" key={tour.id}>
+                                                <NavLink to={`/tours/${tour.id}`} className='nav-link' onClick={closeMobileMenu}>
+                                                    {tour.Titulo}
+                                                </NavLink>
+                                            </Dropdown.Item>
+                                        ))}
+                                    </Dropdown.Menu>
+                                </Dropdown>
                             </li>
                             <li>
                                 <Cart></Cart>

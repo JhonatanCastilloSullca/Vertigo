@@ -1,5 +1,5 @@
 .navbar {
-    background: transparent !important;
+    background-image: linear-gradient(180deg, #000 0%, #FFFFFF00 100%) !important;
     height: 80px !important;
     width: 100% !important;
     position: fixed !important;
@@ -7,7 +7,7 @@
 }
 
 .navbar.active {
-    background: linear-gradient(90deg, rgba(66, 2, 194, 0.097)0%, rgb(0, 194, 39) 100%) !important;
+    background: linear-gradient(180deg, #059d0ac7 0%, #059d0a 100%) !important
 }
 
 .navbar-logo {
@@ -17,6 +17,13 @@
     cursor: pointer !important;
     text-decoration: none !important;
     font-size: 2rem !important;
+    width: 100px;
+    padding: 10px;
+}
+
+.img-header-logo {
+    margin-top: 80px;
+    width: 100px;
 }
 
 .navbar-collapse {
@@ -44,7 +51,7 @@
     list-style: none !important;
 }
 
-.navbar-nav>.nav-item>.nav-link {
+.nav-item>.nav-link {
     font-size: 15px !important;
     padding-top: 1.5rem !important;
     padding-bottom: 1.5rem !important;
@@ -71,6 +78,10 @@
     color: #fff !important;
 }
 
+.nav-link {
+    color: var(--white);
+}
+
 .nav-links-mobile {
     display: none !important;
 }
@@ -80,8 +91,17 @@
 }
 
 .nav-link.active {
-    color: #f15d30 !important;
+    color: var(--orange) !important;
     font-weight: bold !important;
+}
+
+.nav-link:focus,
+.nav-link:hover {
+    color: var(--orange);
+}
+
+.dropdown-item>.nav-link {
+    color: var(--dark);
 }
 
 

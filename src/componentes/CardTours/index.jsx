@@ -1,5 +1,4 @@
 import './index.css'
-import ToursData from '../../data/tours.json'
 import { GiDuration } from "react-icons/gi";
 import { AiOutlineTeam } from "react-icons/ai";
 import { NavLink } from 'react-router-dom';

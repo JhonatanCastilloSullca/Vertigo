@@ -1,9 +1,8 @@
-import React from 'react';
 import './index.css';
 import blogData from '../../data/blog.json';
-import BlogCard from '../BlogCard'; // Asegúrate de que la ruta de importación es correcta
+import BlogCard from '../BlogCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css'; // importa los estilos de Swiper
+import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Autoplay, Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';

@@ -104,16 +104,35 @@
     color: var(--dark);
 }
 
+.flags {
+    width: 20px;
+    height: 10px;
+}
+
+
+.btn:focus,
+.btn.focus {
+    outline: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.btn-check:checked+.btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check)+.btn:active {
+    color: transparent !important;
+    background-color: transparent !important;
+    border-color: none !important;
+}
 
 
 
-
-
-
-
-
-
-
+#language-selector.dropdown-toggle,
+btn.btn-transparent::after {
+    color: #FFF;
+}
 
 
 

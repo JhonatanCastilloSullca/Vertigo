@@ -2,13 +2,19 @@ import { useState } from 'react'
 import './index.css'
 import { Link, NavLink } from 'react-router-dom';
 import Cart from '../Cart';
-import { Dropdown } from 'react-bootstrap';
+import { Dropdown, DropdownButton } from 'react-bootstrap';
 import ToursData from '../../data/tours.json';
+import { useTranslation } from 'react-i18next';
+
 
 
 
 function Header() {
-
+    const { i18n } = useTranslation();
+    const handleChangeLng = (lng) => {
+        i18n.changeLanguage(lng);
+        localStorage.setItem('lng', lng);
+    }
     const [click, setClick] = useState(false);
     const [navbar, setNavbar] = useState(false);
     const handleClick = () => setClick(!click);
@@ -20,19 +26,12 @@ function Header() {
             setNavbar(false);
         }
     }
-
     const tours = ToursData.Search;
-
-
-
-
     window.addEventListener('scroll', changeBackground);
-
     return (
         <>
             <nav className={navbar ? 'navbar active navbar-expand-lg' : 'navbar navbar-expand-lg'}  >
                 <div className="container">
-
                     <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
                         {navbar ? <img src="../src/assets/images/vertigo-logo-horizontal-2.webp" alt="logo-vertigo" /> : <img className='img-header-logo' src="../src/assets/images/vertigologo2.webp" alt="logo-vertigo" />}
                     </Link>
@@ -41,7 +40,7 @@ function Header() {
                     </div>
                     <div className="collapse navbar-collapse">
                         <ul className="navbar-nav ml-auto d-flex flex-row">
-                            <li className="nav-item">
+                            <li className="nav-item d-flex align-items-center text-white">
                                 <NavLink to='/' className={({ isActive }) => {
                                     return isActive ? 'nav-link active' : ' nav-link'
                                 }} onClick={closeMobileMenu}>
@@ -64,7 +63,22 @@ function Header() {
                                     </Dropdown.Menu>
                                 </Dropdown>
                             </li>
-                            <li>
+                            <li className="nav-item d-flex align-items-center text-white">
+                                <DropdownButton
+                                    id="language-selector"
+                                    variant="transparent"
+                                    className="nav-link p-0 bg-transparent"
+                                    title={<><span className="ml-2">{i18n.language === 'es' ? <img src="../../src/assets/images/iconos/pe.svg" className='flags text-white' alt="Perú" /> : <img src="../../src/assets/images/iconos/us.svg" className='flags' alt="Estados Unidos" />}</span></>}
+                                >
+                                    <Dropdown.Item onClick={() => handleChangeLng('es')}>
+                                        <img src="../../src/assets/images/iconos/pe.svg" className='flags' alt="Perú" />Español
+                                    </Dropdown.Item>
+                                    <Dropdown.Item onClick={() => handleChangeLng('en')}>
+                                        <img src="../../src/assets/images/iconos/us.svg" className='flags' alt="Estados Unidos" />English
+                                    </Dropdown.Item>
+                                </DropdownButton>
+                            </li>
+                            <li className="nav-item d-flex align-items-center text-white">
                                 <Cart></Cart>
                             </li>
                         </ul>

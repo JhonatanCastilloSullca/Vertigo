@@ -14654,3 +14654,10 @@ input[type="range"]::-ms-thumb {
     bottom: 0;
     background: #333;
 }
+
+.dropdown-item.active,
+.dropdown-item:active {
+    color: #fff !important;
+    text-decoration: none;
+    background-color: var(--primary) !important;
+}

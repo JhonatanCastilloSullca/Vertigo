@@ -4,18 +4,20 @@ import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import i18next from 'i18next'
 import { initReactI18next } from 'react-i18next'
+import es from './translations/es/es.json'
+import en from './translations/en/en.json'
 
 i18next.use(initReactI18next).init({
-  lng: "es",
+  lng: localStorage.getItem('lng') || "es",
   interpolation: {
     escapeValue: false,
   },
   resources: {
     es: {
-      translation: "",
+      translation: es,
     },
     en: {
-      translation: "",
+      translation: en,
     }
   }
 

@@ -5,9 +5,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
-
-
-
 function Destinos() {
     return (
         <>
@@ -29,7 +26,7 @@ function Destinos() {
                                 centeredSlides={true}
                                 grabCursor={true}
                                 autoplay={{
-                                    delay: 8000,
+                                    delay: 800,
                                     disableOnInteraction: false,
                                 }}
                                 pagination={{

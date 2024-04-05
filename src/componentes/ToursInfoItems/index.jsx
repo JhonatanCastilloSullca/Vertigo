@@ -26,9 +26,7 @@ function TourInformation({ tourData }) {
             {tourData.Max_group && (
                 <TourInformationItem icon={<HiUserGroup />} title="Max. Personas" description={tourData.Max_group.toString()} />
             )}
-            {tourData.EdadMinima && (
-                <TourInformationItem icon={<FaBaby />} title="Edad Minima" description={tourData.EdadMinima.toString()} />
-            )}
+            <TourInformationItem icon={<FaBaby />} title="Edad Minima" description="6 Años" />
             {tourData.Lugar_de_Recojo && (
                 <TourInformationItem icon={<FaMapPin />} title="Lugar de Recojo" description={tourData.Lugar_de_Recojo} />
             )}

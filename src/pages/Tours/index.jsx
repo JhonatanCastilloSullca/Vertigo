@@ -14,7 +14,7 @@ function ToursPage() {
 
     const params = useParams();
     const tourId = parseInt(params.id);
-    const tourData = ToursData.Search.find(tour => tour.id === tourId);
+    const tourData = ToursData.find(tour => tour.id === tourId);
     const detallesTourDias = tourData.DetallesTourDias;
 
 
@@ -35,10 +35,10 @@ function ToursPage() {
             </div>
             <Container>
                 <ToursInfoSection
-                    titulo={tourData.Titulo}
-                    duracion={tourData.Duracion_del_Tour}
-                    precio={tourData.Precio}
-                    categoria={tourData.CategoriaTour}
+                    titulo={tourData.nombre}
+                    duracion={tourData.duracion}
+                    precio={tourData.precio}
+                    categoria={tourData.categoria.nombre}
                 />
             </Container>
             <div className="ftco-section services-section pt-4">
@@ -47,7 +47,7 @@ function ToursPage() {
                         <div className="col-md-4">
                             <div className="row gap-4">
                                 <CardFormulario tour={tourData} />
-                                {tourData.Max_group || tourData.EdadMinima || tourData.Lugar_de_Recojo || tourData.UbicacionTour || (tourData.Idiomas_Disponibles && tourData.Idiomas_Disponibles.length > 0) ? (
+                                {tourData.Max_group || tourData.Lugar_de_Recojo || tourData.UbicacionTour || (tourData.Idiomas_Disponibles && tourData.Idiomas_Disponibles.length > 0) ? (
                                     <Card>
                                         <Card.Body>
                                             <h3 className="box-title">Información del Tour</h3>

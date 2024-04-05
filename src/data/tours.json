@@ -1,382 +1,84 @@
-{
-    "Search": [
-        {
-            "id": 0,
-            "Precio": "549.00",
-            "Titulo": "Vubadub Tour",
-            "CategoriaTour": "cultural",
-            "ImagenPrincipal": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Machu_Picchu%2C_Peru_%282018%29.jpg",
-            "Duracion_del_Tour": "3 días",
-            "Max_group": "",
-            "EdadMinima": "",
-            "Disponibilidad": "Todo el año",
-            "Lugar_de_Recojo": "",
-            "UbicacionTour": "",
-            "Idiomas_Disponibles": [],
-            "Incluye": [],
-            "NoIncluye": [],
-            "Descripcion": "Excepteur Lorem do ullamco aliqua. Velit elit est consequat ad fugiat excepteur est non amet non reprehenderit occaecat non culpa. Proident in in cupidatat do excepteur sit duis.\r\n",
-            "galeria": [],
-            "QueLlevar": [],
-            "DetallesTourDias": []
-        },
-        {
+[
+    {
+        "id": 2,
+        "nombre": "MONTAÑA DE COLORES",
+        "descripcion": "<p>asfasfasf</p>",
+        "resumen": null,
+        "imagenprincipal": "es-montana-de-colores.jpg",
+        "imagen_mapa": null,
+        "tamaño_grupo": 10,
+        "slug": "montana-de-colores",
+        "duracion": 1,
+        "unidad": "DIA(S)",
+        "inicio": "18:22:00",
+        "incluye": "<p>asfasfas</p>",
+        "noincluye": "<p>asfasfasf</p>",
+        "recomendaciones": "<p>fasasfasf</p>",
+        "precio": "50.00",
+        "precio_confidencial": "50.00",
+        "categoria_id": 1,
+        "entrada_id": null,
+        "language_id": 1,
+        "voucher": null,
+        "web": "0",
+        "estado": "1",
+        "created_at": "2024-04-04T23:31:10.000000Z",
+        "updated_at": "2024-04-04T23:31:10.000000Z",
+        "video": "https://www.youtube.com/watch?v=h8JgnWLZHvU&list=RDQmxS1OrfUJ4&index=2",
+        "destacado": "1",
+        "categoria": {
             "id": 1,
-            "Precio": "533.40",
-            "Titulo": "Aatiance Tour",
-            "CategoriaTour": "historico",
-            "ImagenPrincipal": "http://placehold.it/500x500",
-            "Duracion_del_Tour": "6 días",
-            "Max_group": 9,
-            "EdadMinima": "5 años",
-            "Disponibilidad": "Verano",
-            "Lugar_de_Recojo": "669 Mill Road, Macdona, Massachusetts, 2580",
-            "UbicacionTour": "Dalton, Palau, Guinea-Bissau",
-            "Idiomas_Disponibles": [
-                "Japonés",
-                "Chino",
-                "Chino",
-                "Chino"
-            ],
-            "Incluye": [
-                "Transporte",
-                "Guía turístico"
-            ],
-            "NoIncluye": [
-                "Comida",
-                "Entradas a museos"
-            ],
-            "Descripcion": "Consequat nostrud excepteur velit proident velit consequat enim dolore occaecat mollit consectetur in qui. Voluptate voluptate in sint tempor ad dolore nulla eiusmod tempor. Lorem tempor nisi nisi occaecat nisi ea do dolor. Mollit duis esse proident ipsum anim sit est minim proident ea mollit enim esse. Consectetur irure anim ex excepteur pariatur incididunt consequat proident dolor amet irure.\r\n",
-            "galeria": [
-                "http://placehold.it/800x600",
-                "http://placehold.it/800x600",
-                "http://placehold.it/800x600"
-            ],
-            "QueLlevar": [
-                "id",
-                "ad",
-                "laborum"
-            ],
-            "DetallesTourDias": [
-                {
-                    "titulo": "ad enim eiusmod",
-                    "descripcion": "Magna est excepteur pariatur est sit."
-                },
-                {
-                    "titulo": "pariatur qui id",
-                    "descripcion": "Esse nulla eu dolore sit deserunt sint amet aliquip."
-                },
-                {
-                    "titulo": "Lorem labore do",
-                    "descripcion": "Pariatur reprehenderit quis cillum exercitation."
-                },
-                {
-                    "titulo": "culpa cupidatat mollit",
-                    "descripcion": "Incididunt anim irure irure ex laborum laboris occaecat exercitation qui laboris officia commodo."
-                },
-                {
-                    "titulo": "dolor ex commodo",
-                    "descripcion": "Eu labore minim enim nulla pariatur ut irure ea eiusmod magna reprehenderit commodo aliquip."
-                },
-                {
-                    "titulo": "aute sit cillum",
-                    "descripcion": "Non dolore voluptate ut occaecat nostrud culpa nostrud ipsum nostrud ullamco."
-                },
-                {
-                    "titulo": "incididunt eiusmod ea",
-                    "descripcion": "Laboris exercitation in ea veniam ullamco adipisicing officia velit pariatur anim ut laboris nulla anim."
-                },
-                {
-                    "titulo": "velit eiusmod dolor",
-                    "descripcion": "Anim elit anim elit consequat deserunt deserunt magna velit velit."
-                },
-                {
-                    "titulo": "sunt aute incididunt",
-                    "descripcion": "Do exercitation dolore cillum aliqua tempor veniam labore Lorem esse laborum pariatur et."
-                },
-                {
-                    "titulo": "esse magna nisi",
-                    "descripcion": "Laboris id sunt elit ut Lorem est minim est id elit."
-                },
-                {
-                    "titulo": "cillum aliqua cupidatat",
-                    "descripcion": "Velit eiusmod nisi quis fugiat consequat ullamco minim consectetur irure consectetur."
-                },
-                {
-                    "titulo": "deserunt ex cillum",
-                    "descripcion": "Incididunt Lorem quis do sit aute laboris."
-                },
-                {
-                    "titulo": "adipisicing veniam aliqua",
-                    "descripcion": "Do tempor exercitation id fugiat elit adipisicing duis sunt ut voluptate ut."
-                },
-                {
-                    "titulo": "officia occaecat in",
-                    "descripcion": "Velit voluptate adipisicing cupidatat magna ullamco occaecat veniam sit amet proident."
-                },
-                {
-                    "titulo": "nostrud enim exercitation",
-                    "descripcion": "Laboris nulla nulla excepteur elit anim."
-                },
-                {
-                    "titulo": "dolor dolor exercitation",
-                    "descripcion": "Elit cillum eiusmod commodo pariatur sint officia ipsum reprehenderit ullamco proident enim."
-                },
-                {
-                    "titulo": "aliqua eu esse",
-                    "descripcion": "Tempor veniam qui voluptate aliqua ea laboris dolore reprehenderit sint reprehenderit exercitation veniam non."
-                },
-                {
-                    "titulo": "commodo eu occaecat",
-                    "descripcion": "Sint exercitation ipsum in ullamco id."
-                },
-                {
-                    "titulo": "sint ullamco laborum",
-                    "descripcion": "Excepteur ex sit velit voluptate aliquip proident eiusmod nisi aliquip aliquip."
-                },
-                {
-                    "titulo": "dolor consectetur labore",
-                    "descripcion": "Excepteur officia occaecat sunt pariatur eu nostrud."
-                }
-            ]
+            "nombre": "AVENTURA",
+            "slug": "aventura",
+            "descripcion": "aventuraaaaaaaaa",
+            "language_id": 1,
+            "created_at": "2024-04-03T01:22:13.000000Z",
+            "updated_at": "2024-04-03T01:22:13.000000Z"
         },
-        {
-            "id": 2,
-            "Precio": "914.83",
-            "Titulo": "Setron Tour",
-            "CategoriaTour": "aventura",
-            "ImagenPrincipal": "http://placehold.it/500x500",
-            "Duracion_del_Tour": "5 días",
-            "Max_group": 18,
-            "EdadMinima": "10 años",
-            "Disponibilidad": "Verano",
-            "Lugar_de_Recojo": "654 Minna Street, Muse, District Of Columbia, 9153",
-            "UbicacionTour": "Kipp, New York, US Minor Outlying Islands",
-            "Idiomas_Disponibles": [
-                "Español",
-                "Chino"
-            ],
-            "Incluye": [
-                "Transporte",
-                "Guía turístico"
-            ],
-            "NoIncluye": [
-                "Comida",
-                "Entradas a museos"
-            ],
-            "Descripcion": "Qui enim irure consectetur occaecat reprehenderit id eu aliqua proident sit officia non nulla cillum. Ad eu exercitation ad qui cupidatat laborum irure enim nostrud veniam deserunt mollit aute est. Eiusmod nostrud veniam veniam ex minim sit laboris dolore ut ex ex do exercitation.\r\n",
-            "galeria": [
-                "http://placehold.it/800x600",
-                "http://placehold.it/800x600",
-                "http://placehold.it/800x600"
-            ],
-            "QueLlevar": [
-                "nisi",
-                "exercitation",
-                "ad"
-            ],
-            "DetallesTourDias": [
-                {
-                    "titulo": "nulla id pariatur",
-                    "descripcion": "Excepteur ipsum do in veniam incididunt incididunt excepteur Lorem consectetur minim adipisicing duis."
-                },
-                {
-                    "titulo": "nulla sit fugiat",
-                    "descripcion": "Dolore magna magna laborum do cupidatat laborum ad velit proident non irure."
-                },
-                {
-                    "titulo": "laboris eu cillum",
-                    "descripcion": "Dolore aute dolore officia consequat nulla cillum ea."
-                },
-                {
-                    "titulo": "commodo aliquip exercitation",
-                    "descripcion": "Veniam laboris est adipisicing cupidatat nostrud."
-                },
-                {
-                    "titulo": "nisi id eu",
-                    "descripcion": "Labore id culpa culpa laboris mollit in Lorem sit ullamco sit id adipisicing eu."
-                },
-                {
-                    "titulo": "commodo aliquip veniam",
-                    "descripcion": "Duis dolor nulla ad laborum veniam."
-                },
-                {
-                    "titulo": "excepteur adipisicing consequat",
-                    "descripcion": "Qui aliqua veniam ea qui deserunt sint laboris irure velit ad."
-                },
-                {
-                    "titulo": "deserunt aute incididunt",
-                    "descripcion": "Deserunt eiusmod labore in ea incididunt."
-                },
-                {
-                    "titulo": "ea eiusmod Lorem",
-                    "descripcion": "Aliqua nostrud sint deserunt magna sint voluptate non ad minim dolor."
-                },
-                {
-                    "titulo": "sunt cupidatat nisi",
-                    "descripcion": "Proident Lorem tempor labore nisi dolore dolor ullamco anim pariatur ullamco."
-                },
-                {
-                    "titulo": "culpa enim sit",
-                    "descripcion": "Fugiat reprehenderit mollit excepteur excepteur eu proident velit deserunt."
-                },
-                {
-                    "titulo": "esse pariatur culpa",
-                    "descripcion": "Tempor proident quis ex minim mollit sit et dolor officia qui irure labore."
-                },
-                {
-                    "titulo": "cupidatat reprehenderit consectetur",
-                    "descripcion": "Pariatur elit elit adipisicing eu voluptate veniam do labore esse veniam culpa reprehenderit."
-                },
-                {
-                    "titulo": "labore dolor do",
-                    "descripcion": "Proident ut pariatur ut eiusmod anim do sunt."
-                },
-                {
-                    "titulo": "nostrud id amet",
-                    "descripcion": "Veniam minim exercitation sint laboris."
-                },
-                {
-                    "titulo": "cupidatat incididunt commodo",
-                    "descripcion": "Adipisicing incididunt laboris in quis ipsum sint enim velit cupidatat ad sit adipisicing tempor fugiat."
-                },
-                {
-                    "titulo": "commodo irure mollit",
-                    "descripcion": "Sit tempor ullamco ea commodo cupidatat."
-                },
-                {
-                    "titulo": "duis fugiat non",
-                    "descripcion": "Labore ipsum est incididunt et consequat adipisicing excepteur commodo do reprehenderit."
-                },
-                {
-                    "titulo": "dolore consequat adipisicing",
-                    "descripcion": "Minim commodo dolor ipsum nostrud."
-                },
-                {
-                    "titulo": "velit ea enim",
-                    "descripcion": "Tempor fugiat nisi in voluptate dolor non aute nisi sit ipsum."
+        "itinerarios": null,
+        "images": [
+            {
+                "id": 7,
+                "nombre": "es-montana-de-colores-0.jpg",
+                "imageable_type": "App\\Models\\Tour",
+                "imageable_id": 2,
+                "created_at": "2024-04-04T23:31:10.000000Z",
+                "updated_at": "2024-04-04T23:31:10.000000Z",
+                "url_link": null
+            },
+            {
+                "id": 8,
+                "nombre": "es-montana-de-colores-1.jpg",
+                "imageable_type": "App\\Models\\Tour",
+                "imageable_id": 2,
+                "created_at": "2024-04-04T23:31:10.000000Z",
+                "updated_at": "2024-04-04T23:31:10.000000Z",
+                "url_link": null
+            },
+            {
+                "id": 9,
+                "nombre": "es-montana-de-colores-2.jpg",
+                "imageable_type": "App\\Models\\Tour",
+                "imageable_id": 2,
+                "created_at": "2024-04-04T23:31:10.000000Z",
+                "updated_at": "2024-04-04T23:31:10.000000Z",
+                "url_link": null
+            }
+        ],
+        "ubicaciones": [
+            {
+                "id": 3,
+                "nombre": "CUSCO",
+                "slug": "cusco",
+                "descripcion": null,
+                "language_id": 1,
+                "created_at": "2024-04-04T23:31:10.000000Z",
+                "updated_at": "2024-04-04T23:31:10.000000Z",
+                "pivot": {
+                    "tour_id": 2,
+                    "ubicacion_id": 3
                 }
-            ]
-        },
-        {
-            "id": 3,
-            "Precio": "285.34",
-            "Titulo": "Eerkle Tour",
-            "CategoriaTour": "cultural",
-            "ImagenPrincipal": "http://placehold.it/500x500",
-            "Duracion_del_Tour": "2 días",
-            "Max_group": 6,
-            "EdadMinima": "9 años",
-            "Disponibilidad": "Todo el año",
-            "Lugar_de_Recojo": "350 Ludlam Place, Hobucken, Virginia, 8490",
-            "UbicacionTour": "Westphalia, Minnesota, Estonia",
-            "Idiomas_Disponibles": [
-                "Español",
-                "Italiano"
-            ],
-            "Incluye": [
-                "Transporte",
-                "Guía turístico"
-            ],
-            "NoIncluye": [
-                "Comida",
-                "Entradas a museos"
-            ],
-            "Descripcion": "Dolor irure do ad magna excepteur proident irure. Exercitation quis et deserunt magna mollit reprehenderit duis quis ea do sunt. Esse consequat adipisicing irure qui officia non eu. Consequat voluptate excepteur Lorem consequat qui consectetur ad proident Lorem occaecat. Qui irure ex enim reprehenderit veniam duis. Anim proident nostrud dolore tempor mollit ex occaecat amet cupidatat laboris Lorem do.\r\n",
-            "galeria": [
-                "http://placehold.it/800x600",
-                "http://placehold.it/800x600",
-                "http://placehold.it/800x600"
-            ],
-            "QueLlevar": [
-                "incididunt",
-                "tempor",
-                "reprehenderit"
-            ],
-            "DetallesTourDias": [
-                {
-                    "titulo": "quis labore voluptate",
-                    "descripcion": "Qui culpa pariatur et qui est."
-                },
-                {
-                    "titulo": "sint aliquip laboris",
-                    "descripcion": "Magna nisi cupidatat id consequat magna adipisicing est nisi."
-                },
-                {
-                    "titulo": "Lorem dolor mollit",
-                    "descripcion": "Sit eiusmod pariatur quis exercitation id irure commodo velit reprehenderit proident magna anim mollit incididunt."
-                },
-                {
-                    "titulo": "sint consequat ex",
-                    "descripcion": "Officia aute commodo deserunt tempor."
-                },
-                {
-                    "titulo": "magna et sunt",
-                    "descripcion": "Consectetur tempor proident sint cupidatat ut esse eiusmod commodo proident cillum."
-                },
-                {
-                    "titulo": "qui id amet",
-                    "descripcion": "Ea labore est do adipisicing incididunt nostrud laborum voluptate cupidatat esse consectetur ut ad occaecat."
-                },
-                {
-                    "titulo": "ad nulla irure",
-                    "descripcion": "Anim exercitation do laborum dolor aliqua esse quis quis pariatur duis qui excepteur est officia."
-                },
-                {
-                    "titulo": "amet et esse",
-                    "descripcion": "Ea ex ex voluptate quis excepteur sunt ullamco sint eu."
-                },
-                {
-                    "titulo": "cupidatat consectetur anim",
-                    "descripcion": "Incididunt magna amet Lorem nostrud enim ipsum."
-                },
-                {
-                    "titulo": "nulla irure eiusmod",
-                    "descripcion": "Anim qui sit qui nisi exercitation fugiat dolore proident Lorem officia ut deserunt duis."
-                },
-                {
-                    "titulo": "sunt elit aliqua",
-                    "descripcion": "Ullamco aliqua fugiat laboris et sint voluptate nisi."
-                },
-                {
-                    "titulo": "exercitation velit pariatur",
-                    "descripcion": "Adipisicing qui nostrud tempor consequat."
-                },
-                {
-                    "titulo": "ipsum occaecat ea",
-                    "descripcion": "Commodo aliqua sunt qui sit nisi."
-                },
-                {
-                    "titulo": "exercitation id eiusmod",
-                    "descripcion": "Minim ipsum ex elit tempor adipisicing."
-                },
-                {
-                    "titulo": "sit magna ut",
-                    "descripcion": "Exercitation nisi et id est sint tempor velit."
-                },
-                {
-                    "titulo": "sunt Lorem nisi",
-                    "descripcion": "Anim ex exercitation laboris dolor nostrud quis sit non in tempor consectetur officia qui."
-                },
-                {
-                    "titulo": "eu amet elit",
-                    "descripcion": "Aliquip ex ullamco ad labore voluptate qui."
-                },
-                {
-                    "titulo": "magna commodo dolore",
-                    "descripcion": "Duis magna adipisicing id incididunt aute veniam do laborum dolore pariatur nisi Lorem cupidatat."
-                },
-                {
-                    "titulo": "ut quis mollit",
-                    "descripcion": "Minim ipsum ullamco cupidatat quis veniam ad non in ut."
-                },
-                {
-                    "titulo": "minim ex excepteur",
-                    "descripcion": "Minim fugiat magna laborum ipsum excepteur."
-                }
-            ]
-        }
-    ],
-    "totalResults": "4",
-    "Response": "True"
-}
+            }
+        ]
+    }
+]

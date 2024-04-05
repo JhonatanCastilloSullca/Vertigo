@@ -44,7 +44,7 @@ function ToursArchive() {
         }));
     };
 
-    const [tours] = useState(ToursData.Search)
+    const [tours] = useState(ToursData)
     const filterTours = (tours) => {
         return tours.filter(tour => {
             const precio = Number(tour.Precio);

@@ -3,9 +3,17 @@ import serviciosData from '../../data/servicios.json'
 import { FaBus, FaPersonHiking } from 'react-icons/fa6'
 import { FaPlaneDeparture } from 'react-icons/fa'
 import { RiVipLine } from "react-icons/ri";
+import { useFetch } from '../../Hook/useFetch';
 
 function CardActividades() {
-    const servicios = serviciosData.Search
+
+
+    const { data, loading, error } = useFetch("https://mocki.io/v1/03aec26a-c562-40d2-9339-7457ffc00512");
+    const servicios = data;
+    if (loading) return <div>Cargando...</div>;
+    if (error) return <div>Error: {error.message}</div>;
+    if (!servicios) return <div>No se encontraron Servicios</div>;
+
     const hasServicios = servicios?.length > 0
 
 

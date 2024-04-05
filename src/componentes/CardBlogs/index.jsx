@@ -1,14 +1,19 @@
 import './index.css';
-import blogData from '../../data/blog.json';
 import BlogCard from '../BlogCard';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Autoplay, Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { useFetch } from '../../Hook/useFetch';
 
 function CardBlogs() {
-    const blogs = blogData.Search;
+    const { data, loading, error } = useFetch("https://mocki.io/v1/857c2ea2-9c06-4b08-8bfb-203f332482d5");
+    const blogs = data;
+    if (loading) return <div>Cargando...</div>;
+    if (error) return <div>Error: {error.message}</div>;
+    if (!blogs) return <div>No se encontraron Blogs</div>;
+
     const hasBlogs = blogs && blogs.length > 0;
 
     return (

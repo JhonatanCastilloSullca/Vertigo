@@ -3,7 +3,7 @@ import parallaxData from '../../data/parallax.json';
 
 
 function Parallax() {
-    const parallax = parallaxData.Search[0];
+    const parallax = parallaxData[0];
     return (
         <>
             <div className="ftco-section ftco-about img" style={{ backgroundImage: `url(${parallax.imagen})` }}>

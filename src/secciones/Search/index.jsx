@@ -1,89 +1,77 @@
 import { Button, Col, Container, Form, Nav, Row, Tab } from 'react-bootstrap'
 import './index.css'
+import { FaSearch } from 'react-icons/fa'
+import ToursData from '../../data/tours.json'
+import { useState } from "react"
+
+
+const SearchResultList = () => (
+    <>
+        <Row className='result-item p-0 m-0'>
+            <Col md={2} className='p-0 m-0'>
+                <img src="http://placehold.it/500x500" alt="" className='h-100 w-100 object-fit-cover p-4' />
+            </Col>
+            <Col md={10} className="d-flex align-items-center p-0 m-0">
+                <div className="d-grid">
+                    <div className="titulo-search ">
+                        Tour Valle sagrado
+                    </div>
+                    <div className="categorias-search ">
+                        Aventura
+                    </div>
+                </div>
+            </Col>
+        </Row>
+        <Row className='result-item p-0 m-0'>
+            <Col md={2} className='p-0 m-0'>
+                <img src="http://placehold.it/500x500" alt="" className='h-100 w-100 object-fit-cover p-4' />
+            </Col>
+            <Col md={10} className="d-flex align-items-center p-0 m-0">
+                <div className="d-grid">
+                    <div className="titulo-search ">
+                        Tour Valle sagrado
+                    </div>
+                    <div className="categorias-search ">
+                        Aventura
+                    </div>
+                </div>
+            </Col>
+        </Row>
+    </>
+)
+
 
 function Search() {
+    const [tours] = useState(ToursData.Search)
+    const [input, setInput] = useState("");
+    const handleChange = (value) => {
+        setInput(value);
+    }
+
     return (
         <>
-
             <div className="ftco-section ftco-no-pb ftco-no-pt">
                 <Container>
                     <Row>
                         <Col md={12}>
                             <div className="ftco-search d-flex justify-content-center">
-                                <Row>
-                                    <Col md={12} className="nav-link-wrap">
-                                        <Nav className="nav-pills text-center" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                                            <Nav.Item>
-                                                <Nav.Link className="nav-link active mr-md-1" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1">Search Tour</Nav.Link>
-                                            </Nav.Item>
-                                        </Nav>
-                                    </Col>
+                                <Row className='w-100'>
                                     <Col md={12} className="tab-wrap">
                                         <Tab.Content id="v-pills-tabContent">
                                             <Tab.Pane active id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
                                                 <Form className="search-property-1">
-                                                    <Row>
+                                                    <Row >
                                                         <Col md className="d-flex">
-                                                            <div className="form-group p-4 border-0">
-                                                                <Form.Label>Destination</Form.Label>
-                                                                <div className="form-field">
-                                                                    <div className="icon"><span className="fa fa-search"></span></div>
-                                                                    <Form.Control type="text" placeholder="Search place" />
-                                                                </div>
-                                                            </div>
-                                                        </Col>
-                                                        <Col md className="d-flex">
-                                                            <div className="form-group p-4">
-                                                                <Form.Label>Check-in date</Form.Label>
-                                                                <div className="form-field">
-                                                                    <div className="icon"><span className="fa fa-calendar"></span></div>
-                                                                    <Form.Control type="text" className="checkin_date" placeholder="Check In Date" />
-                                                                </div>
-                                                            </div>
-                                                        </Col>
-                                                        <Col md className="d-flex">
-                                                            <div className="form-group p-4">
-                                                                <Form.Label>Check-out date</Form.Label>
-                                                                <div className="form-field">
-                                                                    <div className="icon"><span className="fa fa-calendar"></span></div>
-                                                                    <Form.Control type="text" className="checkout_date" placeholder="Check Out Date" />
-                                                                </div>
-                                                            </div>
-                                                        </Col>
-                                                        <Col md className="d-flex">
-                                                            <div className="form-group p-4">
-                                                                <Form.Label>Price Limit</Form.Label>
-                                                                <div className="form-field">
-                                                                    <div className="select-wrap">
-                                                                        <div className="icon"><span className="fa fa-chevron-down"></span></div>
-                                                                        <Form.Control as="select" className="form-control">
-                                                                            <option value="">$100</option>
-                                                                            <option value="">$10,000</option>
-                                                                            <option value="">$50,000</option>
-                                                                            <option value="">$100,000</option>
-                                                                            <option value="">$200,000</option>
-                                                                            <option value="">$300,000</option>
-                                                                            <option value="">$400,000</option>
-                                                                            <option value="">$500,000</option>
-                                                                            <option value="">$600,000</option>
-                                                                            <option value="">$700,000</option>
-                                                                            <option value="">$800,000</option>
-                                                                            <option value="">$900,000</option>
-                                                                            <option value="">$1,000,000</option>
-                                                                            <option value="">$2,000,000</option>
-                                                                        </Form.Control>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </Col>
-                                                        <Col md className="d-flex">
-                                                            <div className="form-group d-flex w-100 border-0">
-                                                                <div className="form-field w-100 align-items-center d-flex">
-                                                                    <Button type="submit" className="align-self-stretch form-control btn btn-primary">Search</Button>
+                                                            <div className="form-group px-4 py-2 border-0">
+                                                                <div className="form-field d-flex h2 m-0">
+                                                                    <FaSearch className='icon-search' ></FaSearch>
+                                                                    <Form.Control type="text" placeholder="Search place" className='h1 m-0 text-search' onChange={(e) => { e.target.value }} />
+
                                                                 </div>
                                                             </div>
                                                         </Col>
                                                     </Row>
+                                                    <SearchResultList />
                                                 </Form>
                                             </Tab.Pane>
                                         </Tab.Content>
@@ -94,7 +82,6 @@ function Search() {
                     </Row>
                 </Container>
             </div>
-
         </>
     )
 }

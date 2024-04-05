@@ -1,11 +1,6 @@
-import { Accordion, Button, Card, Col, Container, Form, FormControl, FormGroup, InputGroup, ListGroup, Row } from "react-bootstrap"
+import { Card, Col, Container, Form, FormControl, FormGroup, Row } from "react-bootstrap"
 import './index.css'
-import Tours from "../../secciones/Tours"
 import CardTours from "../../componentes/CardTours"
-import { AiOutlineTeam } from "react-icons/ai"
-import { FaCheck, FaTimes } from "react-icons/fa";
-import { BsBackpack } from "react-icons/bs";
-import { GiDuration } from "react-icons/gi"
 import ToursData from '../../data/tours.json'
 import { useState } from "react"
 
@@ -14,6 +9,7 @@ function ToursArchive() {
 
     const [category, setCategory] = useState('');
     const [maxPrice, setMaxPrice] = useState(0);
+    const [keyword, setKeyWord] = useState('');
     const [filters, setFilters] = useState({
         category: 'all',
         maxPrice: 0,
@@ -39,14 +35,15 @@ function ToursArchive() {
             maxPrice: newMaxPrice
         }));
     };
-
     const handleChangeKeyword = (event) => {
-        const newKeyword = event.target.value;
+        const newKeyWord = event.target.value;
+        setKeyWord(newKeyWord);
         setFilters(prevFilters => ({
             ...prevFilters,
-            keyword: newKeyword
+            keyword: newKeyWord
         }));
     };
+
     const [tours] = useState(ToursData.Search)
     const filterTours = (tours) => {
         return tours.filter(tour => {

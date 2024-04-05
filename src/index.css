@@ -14661,3 +14661,25 @@ input[type="range"]::-ms-thumb {
     text-decoration: none;
     background-color: var(--primary) !important;
 }
+
+.text-search {
+    font-size: 20px !important;
+}
+
+.icon-search {
+    color: #bcbcbc;
+}
+
+.titulo-search {
+    font-size: 26px !important;
+}
+
+.categorias-search {
+    font-weight: bold;
+    font-size: 20px;
+    color: var(--primary);
+}
+
+.result-item:hover {
+    background-color: var(--light);
+}

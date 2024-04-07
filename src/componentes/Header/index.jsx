@@ -34,7 +34,6 @@ function Header() {
         body: JSON.stringify({
         })
     };
-
     const { data, loading, error } = useFetch("http://192.168.1.32/api/tours", requestOptions);
     const tours = data;
 

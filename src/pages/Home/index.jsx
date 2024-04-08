@@ -20,10 +20,7 @@ function Home() {
                             <p className="caps">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam nulla, ex nobis culpa iusto rem itaque consequatur illum fugiat dolore consequuntur saepe sapiente provident. Quod accusantium quidem fuga dolores architecto! Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, voluptatibus alias. Sit nisi, tenetur voluptate recusandae esse numquam unde quo corporis ad laborum? Sed excepturi, tenetur odit fugiat libero molestiae?</p>
                         </div>
                         <div className="col-md-5">
-                            <a href="https://vimeo.com/45830194"
-                                className="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
-                                <span className="fa fa-play"></span>
-                            </a>
+
                         </div>
                     </div>
                 </div>

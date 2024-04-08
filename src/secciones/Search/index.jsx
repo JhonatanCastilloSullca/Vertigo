@@ -3,6 +3,7 @@ import './index.css'
 import { FaSearch } from 'react-icons/fa'
 import ToursData from '../../data/tours.json'
 import { useState } from "react"
+import { NavLink } from 'react-router-dom'
 
 const SearchResultList = ({ results }) => {
     console.log(results);
@@ -13,22 +14,25 @@ const SearchResultList = ({ results }) => {
 
     return (
         <>
+
             {results.map((result) => (
-                <Row className='result-item p-0 m-0' key={result.id}>
-                    <Col md={2} className='p-0 m-0'>
-                        <img src={result.ImagenPrincipal} alt="" className='h-100 w-100 object-fit-cover p-4' />
-                    </Col>
-                    <Col md={10} className="d-flex align-items-center p-0 m-0">
-                        <div className="d-grid">
-                            <div className="titulo-search ">
-                                {result.Titulo}
+                <NavLink to={`/tours/${result.id}`} key={result.id} className="nav-link">
+                    <Row className='result-item p-0 m-0'>
+                        <Col md={2} className='p-0 m-0'>
+                            <img src={result.imagenprincipal} alt="" className='h-100 w-100 object-fit-cover p-4' />
+                        </Col>
+                        <Col md={10} className="d-flex align-items-center p-0 m-0">
+                            <div className="d-grid">
+                                <div className="titulo-search text-dark">
+                                    {result.nombre}
+                                </div>
+                                <div className="categorias-search">
+                                    {result.categoria.nombre}
+                                </div>
                             </div>
-                            <div className="categorias-search ">
-                                {result.CategoriaTour}
-                            </div>
-                        </div>
-                    </Col>
-                </Row>
+                        </Col>
+                    </Row>
+                </NavLink>
             ))}
         </>
     );
@@ -40,21 +44,41 @@ function Search() {
     const [tours] = useState(ToursData)
 
     const [input, setInput] = useState("");
-    const [results, setResults] = useState("");
-    const fetchData = (value) => {
+    const [results, setResults] = useState(""); const fetchData = (value) => {
         if (value.trim() === '') {
             setResults([]);
             return;
         }
-        fetch("https://mocki.io/v1/5d81f8bb-cb3b-4f82-a534-b8d5bee34b70")
-            .then((response) => response.json())
+
+        const headers = {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI1IiwianRpIjoiNmJjZWFhNWFlYWRkZTQyNDY3ZDZkYmJmMTVlMDhkMmVjMjZkZGM4Yjc5ZDZlZWM5NGIwODliOWRlMDUzNTdlMmE5YWUyOTc4ZjVhYzM5MTQiLCJpYXQiOjE2OTEwMDUwMDMuMjI5NzQzLCJuYmYiOjE2OTEwMDUwMDMuMjI5NzQ2LCJleHAiOjE3MjI2Mjc0MDMuMTA4MzU0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.VPsULN8PnrW5EzFxiYlyn5R8ML4w0le-FvZFf1IxMOj2o2NVMUg-EERqJdKV3YWn2NquVgW8-SOPkmCtWJ4kfA_UZdaJ2JUkm0qo39cSNLt2AylXP8s4_pBK6cVBI8xo98fTkcoXgj-hDk6B04t4S2wIu7ddxSfgVdcWbVorN4Woac4i40d3xf6Iu-DnOfs6m5RKGDpOrzExQDrIn6A5_efpcNf1-I3rGgf00aAar2vKtdtZjFAzcVpDKMLm36Q-A0Yl54uEuC_e2RI2nsRhjtK7P0CwSPXzYyz29lU_k47WWJp4nVb0prt_-D5OHHk81LkFZqTiuiw5AB88_l3q65PG20oo8HSTW2c3hV1XPFHwhdVsjLncFX3TWhHUyHAIN48qBOiXl9JVmfeUj6t6uTurjRnaH-kykSke2dUPE77gCiMsLDUYA1dMD8EU42Y3F1tLWs4_CoXiwpjR2TGdjACY4FBHPwOAyrBpLIUKypeBcx3xrWcU2uZS7iTtQS_C2uhGyeMy0xSeBr0S0GICoJmiHmRUMc9gEHzlv40ObZpncXmw7VX1Txc5-DS6Y-GgjKjIPmmVQOWSJbjU7OqMtSaGyjmOTtECwgtlmFpfwEi0_g8L8T2OzgZVYOOROkzxOYnuCB1NLfj2N-NFcZ1cXUvB915l8C-v5ZD9Uulmxmsi'
+
+        };
+
+        fetch("http://192.168.1.32/api/tours", {
+            method: 'POST',
+            headers: headers,
+        })
+            .then((response) => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
             .then((json) => {
+                console.log(json);
                 const result = json.filter((tour) => {
-                    return tour && tour.Titulo && tour.Titulo.toLowerCase().includes(value.toLowerCase());
-                })
+                    return tour && tour.nombre && tour.nombre.toLowerCase().includes(value.toLowerCase());
+                });
                 setResults(result);
             })
+            .catch((error) => {
+                // Manejar errores
+                console.error('Error fetching data:', error);
+            });
     }
+
     const handleChange = (value) => {
         setInput(value);
         fetchData(value);

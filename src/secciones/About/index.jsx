@@ -1,9 +1,15 @@
+import { useContext } from 'react';
 import './index.css'
+import { GeneralContext } from '../../context/general';
 
 function About() {
+    const { general } = useContext(GeneralContext);
+    const GeneralData = general.nosotros[0];
+    console.log(GeneralData.titulo);
+
     return (
         <>
-            <div className="ftco-section ftco-about ftco-no-pt img">
+            <div className="ftco-section ftco-about ftco-no-pt img mb-2">
                 <div className="container">
                     <div className="row d-flex">
                         <div className="col-md-12 about-intro">
@@ -16,12 +22,8 @@ function About() {
                                     <div className="row justify-content-start pb-3">
                                         <div className="col-md-12 heading-section">
                                             <span className="subheading">Sobre Nosotros</span>
-                                            <h2 className="mb-4">Subtitulo</h2>
-                                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Omnis magni reprehenderit eum obcaecati.
-                                                Velit maiores dolor quod unde reiciendis vitae qui aliquid. Sed, placeat exercitationem nam laboriosam facilis esse ducimus.
-                                                orem ipsum dolor sit amet consectetur adipisicing elit. Facilis ducimus voluptates voluptatibus veritatis nemo alias nulla recusandae,
-                                                cumque autem perferendis? Distinctio repudiandae corrupti minus architecto voluptatem maxime iste sed vero!</p>
-                                            <p><a href="#" className="btn btn-primary">Reserva con nosotros</a></p>
+                                            <div className="incluye-tours" dangerouslySetInnerHTML={{ __html: GeneralData.descripcion }}></div>
+
                                         </div>
                                     </div>
                                 </div>

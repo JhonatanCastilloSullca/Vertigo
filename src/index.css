@@ -14683,3 +14683,11 @@ input[type="range"]::-ms-thumb {
 .result-item:hover {
     background-color: var(--light);
 }
+
+.mainloader {
+    height: 100vh;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+}

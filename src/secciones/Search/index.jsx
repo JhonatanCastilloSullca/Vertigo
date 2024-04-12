@@ -6,7 +6,6 @@ import { useState } from "react"
 import { NavLink } from 'react-router-dom'
 
 const SearchResultList = ({ results }) => {
-    console.log(results);
 
     if (!Array.isArray(results)) {
         return <div></div>;
@@ -67,7 +66,6 @@ function Search() {
                 return response.json();
             })
             .then((json) => {
-                console.log(json);
                 const result = json.filter((tour) => {
                     return tour && tour.nombre && tour.nombre.toLowerCase().includes(value.toLowerCase());
                 });
@@ -90,7 +88,7 @@ function Search() {
                 <Container>
                     <Row>
                         <Col md={12}>
-                            <div className="ftco-search d-flex justify-content-center">
+                            <div className="ftco-search d-flex justify-content-center z-3">
                                 <Row className='w-100'>
                                     <Col md={12} className="tab-wrap">
                                         <Tab.Content id="v-pills-tabContent">

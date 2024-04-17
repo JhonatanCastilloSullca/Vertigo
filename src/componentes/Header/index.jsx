@@ -1,11 +1,15 @@
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import './index.css'
 import { Link, NavLink } from 'react-router-dom';
 import Cart from '../Cart';
 import { Card, Col, Container, Dropdown, DropdownButton, Row } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { useFetch } from '../../Hook/useFetch';
+import { GeneralContext } from '../../context/general';
 function Header() {
+    const { general } = useContext(GeneralContext);
+    const GeneralData = general.menus;
+
     const { i18n } = useTranslation();
     const handleChangeLng = (lng) => {
         i18n.changeLanguage(lng);
@@ -34,11 +38,14 @@ function Header() {
     if (loading) return <div>Cargando...</div>;
     if (error) return <div>Error: {error.message}</div>;
     if (!categorias) return <div>No se encontraron tours</div>;
+
+
+
     return (
         <>
             <nav className={navbar ? 'navbar active navbar-expand-lg' : 'navbar navbar-expand-lg'}  >
                 <div className="container">
-                    <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+                    <Link to='/' className='navbar-logo' >
                         {navbar ? <img src="../src/assets/images/vertigo-logo-horizontal-2.webp" alt="logo-vertigo" /> : <img className='img-header-logo' src="../src/assets/images/vertigologo2.webp" alt="logo-vertigo" />}
                     </Link>
                     <div className='menu-icon' onClick={handleClick}>
@@ -49,29 +56,48 @@ function Header() {
                             <li className="nav-item d-flex align-items-center text-white">
                                 <NavLink to='/' className={({ isActive }) => {
                                     return isActive ? 'nav-link active' : ' nav-link'
-                                }} onClick={closeMobileMenu}>
+                                }}>
                                     Home
                                 </NavLink>
                             </li>
-                            {categorias.map((tour) => (
-                                <li className="nav-item d-flex align-items-center text-white" key={tour.id}>
+                            {GeneralData.map((menu) => (
+                                <li className="nav-item d-flex align-items-center text-white" key={menu.id}>
                                     <Dropdown>
-                                        <Dropdown.Toggle variant="transparent" id={`dropdown-${tour.id}`} className="nav-link p-0">
-                                            {tour.nombre} {/* Asumiendo que quieres mostrar el nombre del tour aquí */}
+                                        <Dropdown.Toggle variant="transparent" id={`dropdown-${menu.id}`} className="nav-link p-0">
+                                            <div className="nav-item">
+                                                <NavLink to='/tours' className={({ isActive }) => {
+                                                    return isActive ? 'nav-link active' : ' nav-link'
+                                                }}>
+                                                    {menu.nombre ? menu.nombre : 'Nombre no disponible'}
+                                                </NavLink>
+                                            </div>
                                         </Dropdown.Toggle>
                                         <Dropdown.Menu className='drpwdpwm-menu'>
                                             <div className="menuvertigo">
                                                 <Container className='p-4'>
                                                     <Row className='w-100'>
                                                         <Col md={8}>
-                                                            <Row >
-                                                                {tour.tours.map((categoria) => (
-                                                                    <Col key={categoria.id}>
-                                                                        <NavLink to={`/tours/${categoria.id}`} className='nav-link tittle-categoria-header w-100' onClick={closeMobileMenu} >
-                                                                            {categoria.nombre}
-                                                                        </NavLink>
-                                                                    </Col>
-                                                                ))}
+                                                            <Row>
+                                                                {menu.detalles && menu.detalles.length > 0 ? (
+                                                                    menu.detalles.map((categoria) => (
+                                                                        <Col key={categoria.id}>
+                                                                            <span className='nav-link tittle-categoria-header w-100'>
+                                                                                {categoria.categoria.nombre}
+                                                                            </span>
+                                                                            <Row>
+                                                                                <Col className='d-grid gap-2'>
+                                                                                    {categoria.categoria.tours.map((tour) => (
+                                                                                        <NavLink to={`/tours/${tour.id}`} className=' w-100' key={tour.id}>
+                                                                                            {tour.nombre}
+                                                                                        </NavLink>
+                                                                                    ))}
+                                                                                </Col>
+                                                                            </Row>
+                                                                        </Col>
+                                                                    ))
+                                                                ) : (
+                                                                    <Col>No hay categorías disponibles</Col>
+                                                                )}
                                                             </Row>
                                                         </Col>
                                                         <Col md={4}>
@@ -89,28 +115,11 @@ function Header() {
                                 </li>
                             ))}
                             <li className="nav-item d-flex align-items-center text-white">
-                                <Dropdown>
-                                    <Dropdown.Toggle as={NavLink} to='/tours' variant="transparent" id="dropdown-basic" className="nav-link p-0">
-                                        Tours
-                                    </Dropdown.Toggle>
-                                    <Container>
-                                        <Dropdown.Menu as="div" className='drpwdpwm-menu'>
-                                            <div className="menuvertigo ">
-                                                <Dropdown.Item>
-                                                    <Row>
-                                                        {categorias.map((tour) => (
-                                                            <Col md={3} key={tour.id}>
-                                                                <NavLink to={`/tours/${tour.id}`} className='nav-link' onClick={closeMobileMenu}>
-                                                                    {tour.nombre}
-                                                                </NavLink>
-                                                            </Col>
-                                                        ))}
-                                                    </Row>
-                                                </Dropdown.Item>
-                                            </div>
-                                        </Dropdown.Menu>
-                                    </Container>
-                                </Dropdown>
+                                <NavLink to='/tours' className={({ isActive }) => {
+                                    return isActive ? 'nav-link active' : ' nav-link'
+                                }}>
+                                    Tours
+                                </NavLink>
                             </li>
                             <li className="nav-item d-flex align-items-center text-white">
                                 <DropdownButton

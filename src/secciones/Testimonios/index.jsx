@@ -15,8 +15,8 @@ function Testimonios() {
                 <div className="container">
                     <div className="row justify-content-center pb-4">
                         <div className="col-md-7 text-center heading-section heading-section-white ">
-                            <span className="subheading">Testimonial</span>
-                            <h2 className="mb-4">Tourist Feedback</h2>
+                            <span className="subheading">Testimonios</span>
+                            <h2 className="mb-4">Comentarios Turisticos</h2>
                         </div>
                     </div>
                     <div className="row ">
@@ -24,7 +24,6 @@ function Testimonios() {
                             modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
                             spaceBetween={50}
                             slidesPerView={1}
-                            centeredSlides={true}
                             grabCursor={true}
                             autoplay={{
                                 delay: 1000,
@@ -35,15 +34,15 @@ function Testimonios() {
                             }}
                             breakpoints={{
                                 640: {
-                                    slidesPerView: 1,
+                                    slidesPerView: 2,
                                     spaceBetween: 20,
                                 },
                                 768: {
-                                    slidesPerView: 1,
+                                    slidesPerView: 2,
                                     spaceBetween: 40,
                                 },
                                 1024: {
-                                    slidesPerView: 1,
+                                    slidesPerView: 2,
                                     spaceBetween: 50,
                                 },
                             }}

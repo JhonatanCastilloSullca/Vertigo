@@ -208,7 +208,7 @@
 
 .description-tours {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     gap: 10px;
     /* Espacio entre elementos */
 }
@@ -220,4 +220,41 @@
 
 .descriptio-tour-container p {
     color: #6c6c6c;
+}
+
+.swiper-button-next {
+    background-color: white;
+    border-radius: 3px;
+}
+
+.swiper-button-prev {
+    background-color: white;
+    border-radius: 3px;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    font-family: swiper-icons;
+    font-size: 1rem;
+    font-weight: bolder;
+    text-transform: none !important;
+    letter-spacing: 0;
+    font-variant: initial;
+    line-height: 1;
+    color: var(--primary);
+}
+
+.swiper-pagination-bullet-active {
+    opacity: var(--swiper-pagination-bullet-opacity, 1);
+    background: var(--primary)
+}
+
+.img-galery-tour {
+    border-radius: 8px;
+}
+
+.hero-wrap {
+    width: 100% !important;
+    background-size: cover !important;
+    background-position-y: center !important;
 }

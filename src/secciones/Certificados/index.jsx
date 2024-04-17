@@ -12,7 +12,6 @@ function Certificados() {
 
     const { general: GeneralData } = useContext(GeneralContext);
     const cabeceraTipo = GeneralData.certificados[0];
-    console.log(cabeceraTipo);
     return (
         <>
             <div className="ftco-section pt-0 pb-0">

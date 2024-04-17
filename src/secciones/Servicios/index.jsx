@@ -8,7 +8,6 @@ import { GeneralContext } from '../../context/general';
 function Servicios() {
     const { general } = useContext(GeneralContext);
     const GeneralData = general.nosotros[0];
-    console.log(GeneralData.titulo);
 
     return (
         <>
@@ -17,7 +16,8 @@ function Servicios() {
                     <div className="row d-flex">
                         <div className="col-md-6">
                             <div className="row">
-                                <CardActividades />
+                                <div className="img d-flex w-100 align-items-center justify-content-center imgservicios" style={{ backgroundImage: "url('../../../src/assets/images/Vertigo-nosotros.webp')" }}>
+                                </div>
                             </div>
                         </div>
                         <div className="col-md-6 order-md-last heading-section pl-md-5 d-flex align-items-center">
@@ -30,7 +30,6 @@ function Servicios() {
                     </div>
                 </div>
             </div>
-
         </>
     )
 }

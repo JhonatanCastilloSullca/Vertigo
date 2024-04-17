@@ -9,6 +9,11 @@ import ToursInfoSection from "../../componentes/ToursInfoSection";
 import CardFormulario from "../../componentes/CardFormulario";
 import TourInformation from "../../componentes/ToursInfoItems";
 import { useFetch } from "../../Hook/useFetch";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import { Autoplay, Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
 
 function ToursPage() {
@@ -69,9 +74,92 @@ function ToursPage() {
                                     </Card>
                                 ) : null}
                             </div>
+                            <div className="row gap-4 mt-4">
+                                <Card>
+                                    <Card.Body>
+                                        <h3 className="box-title m-0">Incluye</h3>
+                                        <Row>
+                                            <Col>
+                                                <Row className="pt-4">
+                                                    <div className="incluye-tours" dangerouslySetInnerHTML={{ __html: tourData.incluye }}></div>
+                                                </Row>
+                                            </Col>
+                                        </Row>
+                                        <h3 className="box-title m-0 mt-2">No Incluye</h3>
+                                        <Row>
+                                            {tourData.noincluye && (
+                                                <Col>
+                                                    <Row className="pt-4">
+                                                        <div className="noincluye-tours" dangerouslySetInnerHTML={{ __html: tourData.noincluye }}></div>
+                                                    </Row>
+                                                </Col>
+                                            )}
+                                        </Row>
+                                    </Card.Body>
+                                </Card>
+                            </div>
+                            <div className="row gap-4 mt-4 p-0">
+                                {tourData.recomendaciones && (
+                                    <Container className="mt-4 ">
+                                        <Card>
+                                            <Card.Body className="">
+                                                <h3 className="box-title m-0">Qué Llevar</h3>
+                                                <Row className="pt-4">
+                                                    <div className="description-tours recomendation-tours" dangerouslySetInnerHTML={{ __html: tourData.recomendaciones }}>
+                                                    </div>
+                                                </Row>
+                                            </Card.Body>
+                                        </Card>
+                                    </Container>
+                                )}
+                            </div>
+
+
+
+
                         </div>
                         <div className="col-md-8 heading-section">
                             <div className="w-100">
+                                <Container className="mt-4">
+                                    <Swiper
+                                        modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
+                                        spaceBetween={50}
+                                        slidesPerView={1}
+                                        grabCursor={true}
+                                        loop={true}
+                                        navigation={true}
+                                        autoplay={{
+                                            delay: 10000,
+                                            disableOnInteraction: false,
+                                        }}
+                                        pagination={{
+                                            clickable: true,
+                                        }}
+                                        breakpoints={{
+                                            640: {
+                                                slidesPerView: 2,
+                                                spaceBetween: 20,
+                                            },
+                                            768: {
+                                                slidesPerView: 2,
+                                                spaceBetween: 40,
+                                            },
+                                            1024: {
+                                                slidesPerView: 2,
+                                                spaceBetween: 50,
+                                            },
+                                        }}
+                                        className="mySwiperDestiny"
+                                    >
+
+
+                                        {tourData.images.map(tour => (
+                                            <SwiperSlide key={tour.id}>
+                                                <img data-lazyloaded="1" src={tour.nombre} width="320" height="280" className="img-galery-tour"></img>
+                                            </SwiperSlide>
+                                        ))}
+                                    </Swiper>
+                                </Container>
                                 {tourData.nombre && tourData.descripcion && (
                                     <Container className="mt-4">
                                         <h3 className="box-title m-0">{tourData.nombre}</h3>
@@ -93,42 +181,7 @@ function ToursPage() {
                                         </Accordion>
                                     </Container>
                                 )}
-                                {tourData.incluye && (
-                                    <Container className="mt-4">
-                                        <Card>
-                                            <Card.Body className="">
-                                                <h3 className="box-title m-0">Incluye / No Incluye</h3>
-                                                <Row>
-                                                    <Col>
-                                                        <Row className="pt-4">
-                                                            <div className="incluye-tours" dangerouslySetInnerHTML={{ __html: tourData.incluye }}></div>
-                                                        </Row>
-                                                    </Col>
-                                                    {tourData.noincluye && (
-                                                        <Col>
-                                                            <Row className="pt-4">
-                                                                <div className="noincluye-tours" dangerouslySetInnerHTML={{ __html: tourData.noincluye }}></div>
-                                                            </Row>
-                                                        </Col>
-                                                    )}
-                                                </Row>
-                                            </Card.Body>
-                                        </Card>
-                                    </Container>
-                                )}
-                                {tourData.recomendaciones && (
-                                    <Container className="mt-4 ">
-                                        <Card>
-                                            <Card.Body className="">
-                                                <h3 className="box-title m-0">Qué Llevar</h3>
-                                                <Row className="pt-4">
-                                                    <div className="description-tours recomendation-tours" dangerouslySetInnerHTML={{ __html: tourData.recomendaciones }}>
-                                                    </div>
-                                                </Row>
-                                            </Card.Body>
-                                        </Card>
-                                    </Container>
-                                )}
+
                                 {tourData.galeria && tourData.galeria.length > 0 && (
                                     <Container className="mt-4">
                                         <h3 className="box-title m-0">Galería</h3>

@@ -25,7 +25,7 @@ function Home() {
             <Parallax />
             <About />
             <Testimonios />
-            <Blog />
+            {/* <Blog /> */}
             <Certificados />
         </>
     )

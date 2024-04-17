@@ -5,7 +5,6 @@ import { GeneralContext } from '../../context/general';
 function About() {
     const { general } = useContext(GeneralContext);
     const GeneralData = general.nosotros[0];
-    console.log(GeneralData.titulo);
 
     return (
         <>

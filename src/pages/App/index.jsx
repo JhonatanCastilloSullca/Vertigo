@@ -9,6 +9,7 @@ import Footer from '../../componentes/Footer';
 import ToursArchive from '../ToursArchive';
 import { CartProvider } from '../../context/cart';
 import PaquetePage from '../Paquete';
+import CheckOutPage from '../CheckOut';
 function App() {
   return (
     <CartProvider>
@@ -18,6 +19,7 @@ function App() {
         <Route path='/tours' element={<ToursArchive />} />
         <Route path='/tours/:id' element={<ToursPage />} />
         <Route path='/paquete/:id' element={<PaquetePage />} />
+        <Route path='/checkout' element={<CheckOutPage />} />
       </Routes>
       <Footer></Footer>
     </CartProvider>

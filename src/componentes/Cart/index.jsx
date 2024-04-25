@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Button, Dropdown, Form, ListGroup } from "react-bootstrap"
 import { MdDelete } from "react-icons/md"
 import './index.css'
-import { FaCartShopping } from "react-icons/fa6"
+import { FaCartShopping, FaMoneyBill } from "react-icons/fa6"
 import { useCart } from "../../Hook/useCart"
 
 function CartItem({ imagenprincipal, precio, nombre, removeFromeCart }) {
@@ -65,9 +65,10 @@ function Cart() {
                     )}
                 </ListGroup>
                 <Dropdown.Divider />
-                <Dropdown.Item className="text-center">
-                    <Button className="button-cart text-white" onClick={clearCart}>Vaciar Carrito</Button>
-                </Dropdown.Item>
+                <div className="d-flex gap-2 justify-content-center">
+                    <Button className="button-cart text-white" onClick={clearCart}><MdDelete />Vaciar Carrito</Button>
+                    <Button className="button-cart text-white" ><FaMoneyBill /> Pagar</Button>
+                </div>
             </Dropdown.Menu>
         </Dropdown>
     );

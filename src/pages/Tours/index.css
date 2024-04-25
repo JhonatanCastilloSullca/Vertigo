@@ -129,6 +129,13 @@
     font-weight: 500;
 }
 
+.producto-tittle-information {
+    font-size: 20px;
+    margin: 0 0 2px;
+    color: var(--plomo-oscuro);
+    font-weight: bold;
+}
+
 .item-description-information {
     color: var(--dark);
     font-weight: 700;

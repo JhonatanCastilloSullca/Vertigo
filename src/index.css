@@ -12737,9 +12737,9 @@ h5,
 }
 
 .btn.btn-primary {
-    background: #059d0a !important;
-    border: 1px solid #059d0a !important;
-    color: #fff !important;
+    background: #059d0a;
+    border: 1px solid #059d0a;
+    color: #fff;
 }
 
 .btn.btn-primary:hover {
@@ -14654,4 +14654,18 @@ input[type="range"]::-ms-thumb {
     align-content: center;
     justify-content: center;
     align-items: center;
+}
+
+.div-formulario {
+    display: flex;
+    align-items: start;
+    /* Alinea los elementos a la izquierda */
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    align-self: start;
+    /* Alinea el mensaje de error a la izquierda */
 }

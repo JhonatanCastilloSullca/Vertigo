@@ -19,7 +19,7 @@ import { Autoplay, Navigation, Pagination, Scrollbar, A11y } from 'swiper/module
 function ToursPage() {
 
     const params = useParams();
-    const tourId = parseInt(params.id);
+    const tourId = params.id;
 
     const requestOptions = {
         method: 'POST',
@@ -27,7 +27,8 @@ function ToursPage() {
     };
 
 
-    const { data: tourData, loading, error } = useFetch(`http://192.168.1.32/api/tour-id?id=${tourId}`, requestOptions);
+    const { data: tourData, loading, error } = useFetch(`http://192.168.1.32/api/tour-slug?slug=${tourId}`, requestOptions);
+
 
 
     if (loading) return <div>Cargando...</div>;

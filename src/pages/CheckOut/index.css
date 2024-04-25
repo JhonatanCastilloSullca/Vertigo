@@ -67,6 +67,76 @@
 
 
 
+.Booking-box {
+    width: 100% !important;
+}
+
+.cardInfo {
+    margin: 0 !important;
+    padding: 30px 0 0 15px !important;
+}
+
+.login-box {
+    margin-bottom: 0 !important;
+}
+
+.Booking-box {
+    border-top: 3px solid var(--primary) !important;
+    box-shadow: none !important;
+    border: 1px solid #eee;
+}
+
+.thanksYou .cardInfo {
+    margin: 0 !important;
+    padding: 30px 0 30px 0px !important;
+}
+
+.login-box .cardInfo {
+    margin-bottom: 30px !important;
+}
+
+.login-box .cardInfo h3 {
+    padding: 0 0 0 0 !important;
+}
+
+
+
+
+
+
+
+
+
+
+/* Progress Steps */
+.text-center.mb-3 {
+    margin-bottom: 30px;
+    overflow: hidden;
+    color: lightgrey;
+}
+
+.progress-bar-success {
+    background-color: #38ab6e;
+}
+
+.progress-bar-light {
+    background-color: lightgray;
+}
+
+/* Icons */
+.progress-bar .fa-user:before {
+    content: "\f007";
+}
+
+.progress-bar .fa-info:before {
+    content: "\f023";
+}
+
+.progress-bar .fa-dollar-sign:before {
+    content: "\f09d";
+}
+
+
 
 
 

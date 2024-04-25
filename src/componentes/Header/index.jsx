@@ -43,7 +43,7 @@ function Header() {
                                                     <Row>
                                                         <Col className='d-grid gap-2 height-menu '>
                                                             {categoria.categoria.tours.map((tour) => (
-                                                                <NavLink to={`/tours/${tour.id}`} className=' w-100 border-bot-menu p-0' key={tour.id}>
+                                                                <NavLink to={`/tours/${tour.slug}`} className=' w-100 border-bot-menu p-0' key={tour.id}>
                                                                     <div className="menu-title-nav pt-2">{tour.nombre}</div>
                                                                 </NavLink>
                                                             ))}

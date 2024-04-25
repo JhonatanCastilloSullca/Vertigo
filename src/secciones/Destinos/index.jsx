@@ -5,7 +5,13 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
+import { useContext } from 'react';
+import { GeneralContext } from '../../context/general';
 function Destinos() {
+    const { general } = useContext(GeneralContext);
+    const GeneralData = general.categorias;
+    console.log(GeneralData[0].image);
+
     return (
         <>
             <div className="ftco-section img ftco-select-destination" style={{ backgroundImage: "url('../../../src/assets/images/bg_3.jpg')" }}>
@@ -26,7 +32,7 @@ function Destinos() {
                                 centeredSlides={true}
                                 grabCursor={true}
                                 autoplay={{
-                                    delay: 800,
+                                    delay: 1800,
                                     disableOnInteraction: false,
                                 }}
                                 pagination={{
@@ -48,54 +54,23 @@ function Destinos() {
                                 }}
                                 className="mySwiperDestiny"
                             >
-                                <SwiperSlide>
-                                    <div className="item">
-                                        <div className="project-destination">
-                                            <a href="#" className="img" style={{ backgroundImage: "url('../../../src/assets/images/place-1.jpg')" }}>
-                                                <div className="text">
-                                                    <h3>Philippines</h3>
-                                                    <span>8 Tours</span>
+                                {
+                                    GeneralData.map((categoria) => (
+                                        <SwiperSlide key={categoria.id}>
+                                            <div className="item">
+                                                <div className="project-destination">
+                                                    <a href="#" className="img" style={{ backgroundImage: `url(${categoria.image ? categoria.image.nombre : ''})` }}>
+                                                        <div className="text">
+                                                            <h3>{categoria.nombre}</h3>
+                                                            <span>{categoria.tours_count} Tours</span>
+                                                        </div>
+                                                    </a>
                                                 </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <div className="item">
-                                        <div className="project-destination">
-                                            <a href="#" className="img" style={{ backgroundImage: "url('../../../src/assets/images/place-1.jpg')" }}>
-                                                <div className="text">
-                                                    <h3>Philippines</h3>
-                                                    <span>8 Tours</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <div className="item">
-                                        <div className="project-destination">
-                                            <a href="#" className="img" style={{ backgroundImage: "url('../../../src/assets/images/place-1.jpg')" }}>
-                                                <div className="text">
-                                                    <h3>Philippines</h3>
-                                                    <span>8 Tours</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
-                                <SwiperSlide>
-                                    <div className="item">
-                                        <div className="project-destination">
-                                            <a href="#" className="img" style={{ backgroundImage: "url('../../../src/assets/images/place-1.jpg')" }}>
-                                                <div className="text">
-                                                    <h3>Philippines</h3>
-                                                    <span>8 Tours</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </SwiperSlide>
+                                            </div>
+                                        </SwiperSlide>
+                                    ))
+
+                                }
                             </Swiper>
                         </div>
                     </div>

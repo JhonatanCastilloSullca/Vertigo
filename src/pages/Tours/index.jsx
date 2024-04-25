@@ -75,91 +75,92 @@ function ToursPage() {
                                 ) : null}
                             </div>
                             <div className="row gap-4 mt-4">
-                                <Card>
-                                    <Card.Body>
-                                        <h3 className="box-title m-0">Incluye</h3>
-                                        <Row>
-                                            <Col>
-                                                <Row className="pt-4">
-                                                    <div className="incluye-tours" dangerouslySetInnerHTML={{ __html: tourData.incluye }}></div>
-                                                </Row>
-                                            </Col>
-                                        </Row>
-                                        <h3 className="box-title m-0 mt-2">No Incluye</h3>
-                                        <Row>
-                                            {tourData.noincluye && (
+                                <Accordion defaultActiveKey="0" className="p-0">
+                                    <Accordion.Item eventKey="0">
+                                        <Accordion.Header className="incluye-accordion "><h3 className="box-title border-0 mb-0">Incluye</h3></Accordion.Header>
+                                        <Accordion.Body>
+                                            <Row>
                                                 <Col>
                                                     <Row className="pt-4">
-                                                        <div className="noincluye-tours" dangerouslySetInnerHTML={{ __html: tourData.noincluye }}></div>
+                                                        <div className="incluye-tours" dangerouslySetInnerHTML={{ __html: tourData.incluye }}></div>
                                                     </Row>
                                                 </Col>
-                                            )}
-                                        </Row>
-                                    </Card.Body>
-                                </Card>
+                                            </Row>
+                                        </Accordion.Body>
+                                    </Accordion.Item>
+                                </Accordion>
                             </div>
-                            <div className="row gap-4 mt-4 p-0">
-                                {tourData.recomendaciones && (
-                                    <Container className="mt-4 ">
-                                        <Card>
-                                            <Card.Body className="">
-                                                <h3 className="box-title m-0">Qué Llevar</h3>
-                                                <Row className="pt-4">
-                                                    <div className="description-tours recomendation-tours" dangerouslySetInnerHTML={{ __html: tourData.recomendaciones }}>
-                                                    </div>
-                                                </Row>
-                                            </Card.Body>
-                                        </Card>
-                                    </Container>
-                                )}
+                            <div className="row gap-4 mt-4">
+                                <Accordion defaultActiveKey="0" className="p-0">
+                                    <Accordion.Item eventKey="0">
+                                        <Accordion.Header className="incluye-accordion "><h3 className="box-title border-0 mb-0">No Incluye</h3></Accordion.Header>
+                                        <Accordion.Body>
+                                            <Row>
+                                                {tourData.noincluye && (
+                                                    <Col>
+                                                        <Row className="pt-4">
+                                                            <div className="noincluye-tours" dangerouslySetInnerHTML={{ __html: tourData.noincluye }}></div>
+                                                        </Row>
+                                                    </Col>
+                                                )}
+                                            </Row>
+                                        </Accordion.Body>
+                                    </Accordion.Item>
+                                </Accordion>
                             </div>
-
-
-
-
+                            <div className="row gap-4 mt-4">
+                                <Accordion defaultActiveKey="0" className="p-0">
+                                    <Accordion.Item eventKey="0">
+                                        <Accordion.Header className="incluye-accordion "><h3 className="box-title border-0 mb-0">Qué Llevar</h3></Accordion.Header>
+                                        <Accordion.Body>
+                                            <Row className="pt-4">
+                                                <div className="description-tours recomendation-tours" dangerouslySetInnerHTML={{ __html: tourData.recomendaciones }}>
+                                                </div>
+                                            </Row>
+                                        </Accordion.Body>
+                                    </Accordion.Item>
+                                </Accordion>
+                            </div>
                         </div>
                         <div className="col-md-8 heading-section">
                             <div className="w-100">
-                                <Container className="mt-4">
-                                    <Swiper
-                                        modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
-                                        spaceBetween={50}
-                                        slidesPerView={1}
-                                        grabCursor={true}
-                                        loop={true}
-                                        navigation={true}
-                                        autoplay={{
-                                            delay: 10000,
-                                            disableOnInteraction: false,
-                                        }}
-                                        pagination={{
-                                            clickable: true,
-                                        }}
-                                        breakpoints={{
-                                            640: {
-                                                slidesPerView: 2,
-                                                spaceBetween: 20,
-                                            },
-                                            768: {
-                                                slidesPerView: 2,
-                                                spaceBetween: 40,
-                                            },
-                                            1024: {
-                                                slidesPerView: 2,
-                                                spaceBetween: 50,
-                                            },
-                                        }}
-                                        className="mySwiperDestiny"
-                                    >
+                                <Swiper
+                                    modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
+                                    spaceBetween={50}
+                                    slidesPerView={1}
+                                    grabCursor={true}
+                                    loop={true}
+                                    navigation={true}
+                                    autoplay={{
+                                        delay: 10000,
+                                        disableOnInteraction: false,
+                                    }}
+                                    pagination={{
+                                        clickable: true,
+                                    }}
+                                    breakpoints={{
+                                        640: {
+                                            slidesPerView: 2,
+                                            spaceBetween: 20,
+                                        },
+                                        768: {
+                                            slidesPerView: 2,
+                                            spaceBetween: 40,
+                                        },
+                                        1024: {
+                                            slidesPerView: 2,
+                                            spaceBetween: 50,
+                                        },
+                                    }}
+                                    className="mySwiperDestiny"
+                                >
+                                    {tourData.images.map(tour => (
+                                        <SwiperSlide key={tour.id}>
+                                            <img data-lazyloaded="1" src={tour.nombre} width="320" height="280" className="img-galery-tour"></img>
+                                        </SwiperSlide>
+                                    ))}
+                                </Swiper>
 
-
-                                        {tourData.images.map(tour => (
-                                            <SwiperSlide key={tour.id}>
-                                                <img data-lazyloaded="1" src={tour.nombre} width="320" height="280" className="img-galery-tour"></img>
-                                            </SwiperSlide>
-                                        ))}
-                                    </Swiper>
-                                </Container>
                                 {tourData.nombre && tourData.descripcion && (
                                     <Container className="mt-4">
                                         <h3 className="box-title m-0">{tourData.nombre}</h3>
@@ -169,10 +170,12 @@ function ToursPage() {
                                 {detallesTourDias && detallesTourDias.length > 0 && (
                                     <Container className="mt-4 ">
                                         <h3 className="box-title m-0">Itinerario</h3>
-                                        <Accordion defaultActiveKey={['0']} alwaysOpen className="pt-4">
+                                        <Accordion defaultActiveKey="0" className="pt-4">
                                             {detallesTourDias && detallesTourDias.map((detalle, index) => (
                                                 <Accordion.Item key={index} eventKey={String(index)}>
-                                                    <Accordion.Header><h6 className="fw-bold text-primary">Día {index + 1}: {detalle.titulo}</h6></Accordion.Header>
+                                                    <Accordion.Header>
+                                                        <h6 className="fw-bold text-primary">Día {index + 1}: {detalle.titulo}</h6>
+                                                    </Accordion.Header>
                                                     <Accordion.Body>
                                                         <div className="incluye-tours" dangerouslySetInnerHTML={{ __html: detalle.descripcion }}></div>
                                                     </Accordion.Body>

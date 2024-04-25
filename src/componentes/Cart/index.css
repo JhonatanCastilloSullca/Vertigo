@@ -12,14 +12,6 @@
     padding-bottom: 16px;
 }
 
-.cart-button {
-    align-items: center;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    z-index: 9999;
-}
 
 
 
@@ -36,24 +28,4 @@
     position: absolute;
     bottom: 10px;
     width: 100%;
-}
-
-.btn-check:checked+.btn,
-.btn.active,
-.btn.show,
-.btn:first-child:active,
-:not(.btn-check)+.btn:active {
-    color: #FFF !important;
-    background-color: transparent !important;
-    border-color: transparent !important;
-}
-
-#dropdown-cart::after {
-    display: none !important;
-    /* Oculta la flecha */
-}
-
-.dropdown-toggle::after {
-    content: none !important;
-    /* Asegura que la flecha se oculte también */
 }

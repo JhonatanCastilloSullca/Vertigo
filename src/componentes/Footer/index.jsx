@@ -6,7 +6,8 @@ function Footer() {
         <>
             <div className="footer-prueba">
             </div>
-            <footer className="ftco-footer bg-bottom ftco-no-pt" style={{ backgroundImage: "url('../../../src/assets/images/bg_3.jpg')" }}>
+            <div className="vertigo-trekking-quote"></div>
+            <footer className="ftco-footer bg-bottom ftco-no-pt">
                 <div className="container">
                     <div className="row mb-5">
                         <div className="col-md pt-5">

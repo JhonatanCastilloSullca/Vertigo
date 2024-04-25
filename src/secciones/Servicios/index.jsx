@@ -24,7 +24,7 @@ function Servicios() {
                             <div className="w-100">
                                 <span className="subheading">{GeneralData.titulo}</span>
                                 <div className="incluye-tours" dangerouslySetInnerHTML={{ __html: GeneralData.subtitulo }}></div>
-                                <p><a href="#" className="btn btn-primary py-3 px-4">Revisa nuestros tours</a></p>
+                                <a href="#" className="btn btn-primary py-3 px-4 mt-4">Revisa nuestros tours</a>
                             </div>
                         </div>
                     </div>

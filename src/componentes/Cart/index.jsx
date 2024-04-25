@@ -5,14 +5,16 @@ import './index.css'
 import { FaCartShopping } from "react-icons/fa6"
 import { useCart } from "../../Hook/useCart"
 
-function CartItem({ ImagenPrincipal, Precio, Titulo, removeFromeCart }) {
+function CartItem({ imagenprincipal, precio, nombre, removeFromeCart }) {
     return (
         <ListGroup.Item className="">
-            <div className="card-information-tour related-tour gap-2 bg-white p-2 rounded">
-                <img src={ImagenPrincipal} className='img-icono-tour-info-related' alt="" />
-                <div className="items-information d-grid">
-                    <h5 className="item-description-information m-0 fs-18">{Titulo}</h5>
-                    <h5 className="item-tittle-information">From <span className="prices-item-information"> {Precio} </span></h5>
+            <div className="card-information-tour related-tour gap-2 bg-white p-2 rounded d-flex justify-content-between">
+                <div className="d-flex gap-2">
+                    <img src={imagenprincipal} className='img-icono-tour-info-related' alt="" />
+                    <div className="items-information d-grid">
+                        <h5 className="item-description-information m-0 fs-18">{nombre}</h5>
+                        <h5 className="item-tittle-information">S/. <span className="prices-item-information"> {precio} </span></h5>
+                    </div>
                 </div>
                 <Button variant="" className="button-cart text-white" onClick={removeFromeCart}>
                     <MdDelete />
@@ -22,7 +24,7 @@ function CartItem({ ImagenPrincipal, Precio, Titulo, removeFromeCart }) {
     )
 }
 function Cart() {
-    const { cart, clearCart, removeFromCart } = useCart();
+    const { cart, clearCart, removeFromeCart } = useCart();
     const [showDropdown, setShowDropdown] = useState(false);
     const toggleCartDropdown = () => setShowDropdown(!showDropdown);
     return (
@@ -53,12 +55,10 @@ function Cart() {
                 <ListGroup variant="flush">
                     {cart.length > 0 ? (
                         cart.map((item) => (
-                            <Dropdown.Item key={item.id}>
-                                <CartItem
-                                    removeFromCart={() => removeFromCart(item)}
-                                    {...item}
-                                />
-                            </Dropdown.Item>
+                            <CartItem key={item.id}
+                                removeFromeCart={() => removeFromeCart(item)}
+                                {...item}
+                            />
                         ))
                     ) : (
                         <Dropdown.Item>Tu carrito está vacío</Dropdown.Item>

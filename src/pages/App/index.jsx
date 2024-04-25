@@ -8,6 +8,7 @@ import Header from '../../componentes/Header';
 import Footer from '../../componentes/Footer';
 import ToursArchive from '../ToursArchive';
 import { CartProvider } from '../../context/cart';
+import PaquetePage from '../Paquete';
 function App() {
   return (
     <CartProvider>
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/tours' element={<ToursArchive />} />
         <Route path='/tours/:id' element={<ToursPage />} />
+        <Route path='/paquete/:id' element={<PaquetePage />} />
       </Routes>
       <Footer></Footer>
     </CartProvider>

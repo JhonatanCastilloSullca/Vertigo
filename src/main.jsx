@@ -29,6 +29,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <GeneralProvider>
       <App />
     </GeneralProvider>
-
   </BrowserRouter>
 )

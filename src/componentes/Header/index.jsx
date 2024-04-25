@@ -9,14 +9,73 @@ import { GeneralContext } from '../../context/general';
 function Header() {
     const { general } = useContext(GeneralContext);
     const GeneralData = general.menus;
-
     const { i18n } = useTranslation();
     const handleChangeLng = (lng) => {
         i18n.changeLanguage(lng);
         localStorage.setItem('lng', lng);
     }
+
     const [click, setClick] = useState(false);
     const [navbar, setNavbar] = useState(false);
+    const [activeMenu, setActiveMenu] = useState(null);
+    const handleMouseEnter = (menuId) => {
+        setActiveMenu(menuId);
+    };
+    const handleMouseLeave = () => {
+        setActiveMenu(null);
+    };
+
+    const renderMenu = (menu) => {
+        if (activeMenu === menu.id) {
+            return (
+                <Container className='container-menu'>
+                    <div className="drpwdpwm-menu">
+                        <Row >
+                            <Container className=' d-flex justify-content-center align-items-start'>
+                                <Col md={8}  >
+                                    <Row className=' d-flex justify-content-center align-items-start'>
+                                        {menu.detalles && menu.detalles.length > 0 ? (
+                                            menu.detalles.map((categoria) => (
+                                                <Col key={categoria.id} className='p-0'>
+                                                    <span className='nav-link tittle-categoria-header w-100'>
+                                                        {categoria.categoria.nombre}
+                                                    </span>
+                                                    <Row>
+                                                        <Col className='d-grid gap-2 height-menu '>
+                                                            {categoria.categoria.tours.map((tour) => (
+                                                                <NavLink to={`/tours/${tour.id}`} className=' w-100 border-bot-menu p-0' key={tour.id}>
+                                                                    <div className="menu-title-nav pt-2">{tour.nombre}</div>
+                                                                </NavLink>
+                                                            ))}
+                                                        </Col>
+                                                    </Row>
+                                                </Col>
+                                            ))
+                                        ) : (
+                                            <li>No hay categorías disponibles</li>
+                                        )}
+                                    </Row>
+                                </Col>
+                                <Col md={4} className='d-flex justify-content-center align-items-center'>
+                                    <div className='d-flex justify-content-center rounded'>
+                                        <img
+                                            src="https://vertigotravelperu.com/wp-content/uploads/2022/09/manu1.png"
+                                            alt="imagen"
+                                            className='img-fluid p-4 img-menu '
+                                        />
+                                    </div>
+                                </Col>
+                            </Container>
+                        </Row >
+                    </div >
+                </Container >
+            );
+        }
+        return null;
+    };
+
+
+
     const handleClick = () => setClick(!click);
     const closeMobileMenu = () => setClick(false);
     const changeBackground = () => {
@@ -60,63 +119,31 @@ function Header() {
                                     Home
                                 </NavLink>
                             </li>
+
                             {GeneralData.map((menu) => (
-                                <li className="nav-item d-flex align-items-center text-white" key={menu.id}>
-                                    <Dropdown>
-                                        <Dropdown.Toggle variant="transparent" id={`dropdown-${menu.id}`} className="nav-link p-0">
-                                            <div className="nav-item">
-                                                <NavLink to='/tours' className={({ isActive }) => {
-                                                    return isActive ? 'nav-link active' : ' nav-link'
-                                                }}>
-                                                    {menu.nombre ? menu.nombre : 'Nombre no disponible'}
-                                                </NavLink>
-                                            </div>
-                                        </Dropdown.Toggle>
-                                        <Dropdown.Menu className='drpwdpwm-menu'>
-                                            <div className="menuvertigo">
-                                                <Container className='p-4'>
-                                                    <Row className='w-100'>
-                                                        <Col md={8}>
-                                                            <Row>
-                                                                {menu.detalles && menu.detalles.length > 0 ? (
-                                                                    menu.detalles.map((categoria) => (
-                                                                        <Col key={categoria.id}>
-                                                                            <span className='nav-link tittle-categoria-header w-100'>
-                                                                                {categoria.categoria.nombre}
-                                                                            </span>
-                                                                            <Row>
-                                                                                <Col className='d-grid gap-2'>
-                                                                                    {categoria.categoria.tours.map((tour) => (
-                                                                                        <NavLink to={`/tours/${tour.id}`} className=' w-100' key={tour.id}>
-                                                                                            {tour.nombre}
-                                                                                        </NavLink>
-                                                                                    ))}
-                                                                                </Col>
-                                                                            </Row>
-                                                                        </Col>
-                                                                    ))
-                                                                ) : (
-                                                                    <Col>No hay categorías disponibles</Col>
-                                                                )}
-                                                            </Row>
-                                                        </Col>
-                                                        <Col md={4}>
-                                                            <Container className='d-flex justify-content-center'>
-                                                                <Card style={{ width: '18rem' }}>
-                                                                    <Card.Img variant="top" src="https://vertigotravelperu.com/wp-content/uploads/2022/09/manu1.png" />
-                                                                </Card>
-                                                            </Container>
-                                                        </Col>
-                                                    </Row>
-                                                </Container>
-                                            </div>
-                                        </Dropdown.Menu>
-                                    </Dropdown>
+                                <li
+                                    className="nav-item d-flex align-items-center text-white"
+                                    key={menu.id}
+                                >
+                                    <div
+                                        className="nav-item"
+                                        onMouseEnter={() => handleMouseEnter(menu.id)}
+                                        onMouseLeave={() => handleMouseLeave(menu.id)}
+                                    >
+                                        <NavLink
+                                            className={({ isActive }) => {
+                                                return isActive ? 'nav-link ' : ' nav-link active '
+                                            }}
+                                        >
+                                            {menu.nombre ? menu.nombre : 'Nombre no disponible'}
+                                        </NavLink>
+                                        {renderMenu(menu)}
+                                    </div>
                                 </li>
                             ))}
                             <li className="nav-item d-flex align-items-center text-white">
                                 <NavLink to='/tours' className={({ isActive }) => {
-                                    return isActive ? 'nav-link active' : ' nav-link'
+                                    return isActive ? 'nav-link active' : ' nav-link '
                                 }}>
                                     Tours
                                 </NavLink>

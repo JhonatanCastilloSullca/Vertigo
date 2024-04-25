@@ -1,3 +1,4 @@
+import './index.css'
 import { Col, Row } from 'react-bootstrap';
 import { FaCircleDollarToSlot } from "react-icons/fa6";
 import { MdTour } from "react-icons/md";
@@ -7,7 +8,7 @@ function ToursInfoSection({ titulo, duracion, precio, categoria }) {
     return (
         <Row className="info-row">
             <Col md={5} className=" d-flex align-items-center justify-content-center">
-                <h2 className="subheading font-weight-bold text-light">{titulo}</h2>
+                <h2 className="subheading-tours font-weight-bold text-light">{titulo}</h2>
             </Col>
             <Col md={7}>
                 <Row>

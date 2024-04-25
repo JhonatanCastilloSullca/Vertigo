@@ -26,9 +26,11 @@ export function CartProvider({ children }) {
         ]))
     }
     const removeFromeCart = tour => {
+        console.log('324');
         setCart(prevState => prevState.filter(item => item.id != tour.id))
     }
     const clearCart = () => {
+        console.log('eliminar');
         setCart([])
     }
     return (

@@ -21,3 +21,17 @@
     background-repeat: repeat-x;
     background-position: bottom center;
 }
+
+.copy-text-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.copy-text-footer>p {
+    padding: 10px;
+    margin: 0;
+    color: var(--light);
+    font-size: 14px;
+    font-weight: 200;
+}

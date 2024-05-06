@@ -10,11 +10,13 @@ export function CartProvider({ children }) {
     useEffect(() => {
         localStorage.setItem("cart", JSON.stringify(cart))
     }, [cart])
-    const addToCart = (tour, fecha, pax) => {
+    const addToCart = (tour, fecha, pax, price) => {
+
         const tourInCartIndex = cart.findIndex(item => item.id === tour.id);
         if (tourInCartIndex >= 0) {
             const newCart = structuredClone(cart);
             newCart[tourInCartIndex].quantity += 1;
+            newCart[tourInCartIndex].price += price;
             return setCart(newCart);
         }
         setCart(prevState => ([
@@ -23,20 +25,33 @@ export function CartProvider({ children }) {
                 ...tour,
                 quantity: 1,
                 fecha,
-                pax
+                pax,
+                price,
             }
         ]));
     }
+
     const removeFromeCart = tour => {
-        console.log('324');
         setCart(prevState => prevState.filter(item => item.id != tour.id))
     }
     const clearCart = () => {
-        console.log('eliminar');
         setCart([])
     }
+
+    const updatePax = (productId, newPax, newPrice) => {
+        const updatedCart = cart.map(item => {
+            if (item.id === productId) {
+                return { ...item, pax: newPax, price: newPrice };
+            }
+            return item;
+        });
+        setCart(updatedCart);
+    };
+    const calculateSubtotal = () => {
+        return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+    };
     return (
-        <CartContext.Provider value={{ cart, addToCart, clearCart, removeFromeCart }}>
+        <CartContext.Provider value={{ cart, addToCart, clearCart, removeFromeCart, updatePax, calculateSubtotal }}>
             {children}
         </CartContext.Provider>
     )

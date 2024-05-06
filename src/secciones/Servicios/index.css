@@ -35,7 +35,7 @@
     font-size: 30px;
     display: block;
     margin-bottom: 5px;
-    color: #f15d30;
+    color: var(--primary);
     font-family: 'Source Sans 3', sans-serif;
     font-weight: 900;
 
@@ -65,7 +65,7 @@
     height: 80px;
     margin-left: -35px;
     margin-bottom: 10px;
-    background: #f15d30;
+    background: var(--primary);
     position: relative;
 }
 
@@ -76,7 +76,7 @@
 
 .services.services-1 {
     width: 100%;
-    background: #f15d30;
+    background: var(--primary);
     padding: 30px;
     background-size: cover;
     background-repeat: no-repeat;

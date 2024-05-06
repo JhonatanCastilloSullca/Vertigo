@@ -5,6 +5,7 @@ import { BeatLoader, DotLoader } from "react-spinners";
 
 export const GeneralContext = createContext();
 
+
 const useGeneralData = (url, requestOptions) => {
     const { data, loading, error } = useFetch(url, requestOptions);
     const [general, setGeneral] = useState(null);
@@ -26,13 +27,18 @@ export const GeneralProvider = ({ children }) => {
         body: {
             language_id: 1
         }
-
     };
-    const { data, loading, error } = useFetch("http://192.168.1.32/api/general", requestOptions);
+    const { data, loading, error } = useFetch("http://192.168.1.9/api/general", requestOptions);
     const general = data;
 
     if (loading) {
-        return <div>Cargando...</div>;
+        <>
+            <div className="mainloader">
+                <div style={{ textAlign: 'center', marginTop: '20px' }}>
+                    <DotLoader color="#28a745" loading={true} size={100} />
+                </div>
+            </div>
+        </>
     }
 
     if (error && !error.message) {

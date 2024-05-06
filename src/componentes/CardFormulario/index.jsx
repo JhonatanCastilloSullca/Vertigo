@@ -39,7 +39,9 @@ function CardFormulario({ tour }) {
             if (isToursInCart) {
                 removeFromeCart(tour);
             } else {
-                addToCart(tour, fecha, pax);
+
+                const price = tour.precio * pax;
+                addToCart(tour, fecha, pax, price);
             }
         }
     }
@@ -50,7 +52,7 @@ function CardFormulario({ tour }) {
                     <h3 className="box-title">Reserva con nosotros</h3>
                     <div>
                         <h2 className="producto-tittle-information text-center text-primary">{tour.nombre}</h2>
-                        <p className="text-muted text-center"><span className="text-danger h2 fw-bolder">$35.00</span> x pax</p>
+                        <p className="text-muted text-center"><span className="text-danger h2 fw-bolder">{tour.precio}</span> x pax</p>
                         <div className="d-flex flex-column">
                             <div className="div-formulario">
                                 <span>Fecha:</span>

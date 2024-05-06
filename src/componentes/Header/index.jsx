@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import './index.css'
 import { Link, NavLink } from 'react-router-dom';
 import Cart from '../Cart';
@@ -6,14 +6,19 @@ import { Card, Col, Container, Dropdown, DropdownButton, Row } from 'react-boots
 import { useTranslation } from 'react-i18next';
 import { useFetch } from '../../Hook/useFetch';
 import { GeneralContext } from '../../context/general';
+import { DotLoader } from 'react-spinners';
 function Header() {
     const { general } = useContext(GeneralContext);
     const GeneralData = general.menus;
+
     const { i18n } = useTranslation();
+
     const handleChangeLng = (lng) => {
         i18n.changeLanguage(lng);
         localStorage.setItem('lng', lng);
-    }
+        window.location.reload();
+    };
+
 
     const [click, setClick] = useState(false);
     const [navbar, setNavbar] = useState(false);
@@ -91,11 +96,19 @@ function Header() {
         body: JSON.stringify({
         })
     };
-    const { data, loading, error } = useFetch("http://192.168.1.32/api/categorias", requestOptions);
+    const { data, loading, error } = useFetch("http://192.168.1.9/api/categorias", requestOptions);
     const categorias = data;
     window.addEventListener('scroll', changeBackground);
-    if (loading) return <div>Cargando...</div>;
-    if (error) return <div>Error: {error.message}</div>;
+    if (loading) return <div className="mainloader">
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            <DotLoader color="#28a745" loading={true} size={100} />
+        </div>
+    </div>;
+    if (error) return <div className="mainloader">
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            <DotLoader color="#ff0011" loading={true} size={100} />
+        </div>
+    </div>;
     if (!categorias) return <div>No se encontraron tours</div>;
 
 
@@ -105,7 +118,7 @@ function Header() {
             <nav className={navbar ? 'navbar active navbar-expand-lg' : 'navbar navbar-expand-lg'}  >
                 <div className="container">
                     <Link to='/' className='navbar-logo' >
-                        {navbar ? <img src="../src/assets/images/vertigo-logo-horizontal-2.webp" alt="logo-vertigo" /> : <img className='img-header-logo' src="../src/assets/images/vertigologo2.webp" alt="logo-vertigo" />}
+                        {navbar ? <img src="../src/assets/images/vertigologo2.webp" alt="logo-vertigo" className='logo-hor' /> : <img className='img-header-logo' src="../src/assets/images/vertigologo2.webp" alt="logo-vertigo" />}
                     </Link>
                     <div className='menu-icon' onClick={handleClick}>
                         x
@@ -119,8 +132,7 @@ function Header() {
                                     Home
                                 </NavLink>
                             </li>
-
-                            {GeneralData.map((menu) => (
+                            {GeneralData.filter(menu => menu.tipo === '1').map((menu) => (
                                 <li
                                     className="nav-item d-flex align-items-center text-white"
                                     key={menu.id}
@@ -146,6 +158,20 @@ function Header() {
                                     return isActive ? 'nav-link active' : ' nav-link '
                                 }}>
                                     Tours
+                                </NavLink>
+                            </li>
+                            <li className="nav-item d-flex align-items-center text-white">
+                                <NavLink to='/nosotros' className={({ isActive }) => {
+                                    return isActive ? 'nav-link active' : ' nav-link '
+                                }}>
+                                    Nosotros
+                                </NavLink>
+                            </li>
+                            <li className="nav-item d-flex align-items-center text-white">
+                                <NavLink to='/contacto' className={({ isActive }) => {
+                                    return isActive ? 'nav-link active' : ' nav-link '
+                                }}>
+                                    Contacto
                                 </NavLink>
                             </li>
                             <li className="nav-item d-flex align-items-center text-white">

@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 
 function CardTours({ tours }) {
     const hasTours = tours?.length > 0;
-    console.log(tours)
     return (
         <>
             {hasTours ? (

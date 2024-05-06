@@ -6,6 +6,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Autoplay, Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { useFetch } from '../../Hook/useFetch';
+import { DotLoader } from 'react-spinners';
 
 function CardBlogs() {
     const requestOptions = {
@@ -15,11 +16,19 @@ function CardBlogs() {
         })
     };
 
-    const { data, loading, error } = useFetch("http://192.168.1.32/api/tours", requestOptions);
+    const { data, loading, error } = useFetch("http://192.168.1.9/api/tours", requestOptions);
 
     const blogs = data;
-    if (loading) return <div>Cargando...</div>;
-    if (error) return <div>Error: {error.message}</div>;
+    if (loading) return <div className="mainloader">
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            <DotLoader color="#28a745" loading={true} size={100} />
+        </div>
+    </div>;
+    if (error) return <div className="mainloader">
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            <DotLoader color="#ff0011" loading={true} size={100} />
+        </div>
+    </div>;
     if (!blogs) return <div>No se encontraron tours</div>;
 
     const hasBlogs = blogs && blogs.length > 0;

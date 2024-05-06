@@ -9,6 +9,7 @@ import { useContext } from 'react';
 import { GeneralContext } from '../../context/general';
 import { useFetch } from '../../Hook/useFetch';
 import { NavLink } from 'react-router-dom';
+import { DotLoader } from 'react-spinners';
 function Destinos() {
 
     const requestOptions = {
@@ -19,12 +20,20 @@ function Destinos() {
         }
     };
 
-    const { data, loading, error } = useFetch("http://192.168.1.32/api/ubicaciones", requestOptions);
+    const { data, loading, error } = useFetch("http://192.168.1.9/api/ubicaciones", requestOptions);
 
 
     const GeneralData = data;
-    if (loading) return <div>Cargando...</div>;
-    if (error) return <div>Error: {error.message}</div>;
+    if (loading) return <div className="mainloader">
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            <DotLoader color="#28a745" loading={true} size={100} />
+        </div>
+    </div>;
+    if (error) return <div className="mainloader">
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            <DotLoader color="#ff0011" loading={true} size={100} />
+        </div>
+    </div>;
     if (!GeneralData) return <div>No se encontraron tours</div>;
 
 

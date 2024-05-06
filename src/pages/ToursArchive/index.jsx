@@ -4,10 +4,11 @@ import CardTours from "../../componentes/CardTours"
 import { useContext, useEffect, useState } from "react"
 import { useFetch } from "../../Hook/useFetch"
 import { GeneralContext } from "../../context/general"
+import { DotLoader } from "react-spinners"
 
 function ToursArchive() {
-    const { general } = useContext(GeneralContext);
-    const GeneralData = general.categorias;
+
+
 
     const requestOptions = {
         method: 'POST',
@@ -17,7 +18,9 @@ function ToursArchive() {
         }
     };
 
-    const { data, loading, error } = useFetch("http://192.168.1.32/api/tours", requestOptions);
+    const { data: GeneralData, loading: generalLoading, error: generalError } = useFetch("http://192.168.1.9/api/categorias", requestOptions);
+    const { data: tourData, loading: tourLoading, error: tourError } = useFetch("http://192.168.1.9/api/tours", requestOptions);
+
 
     const [filteredCount, setFilteredCount] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
@@ -32,11 +35,11 @@ function ToursArchive() {
     });
     const [toursData, setToursData] = useState([]);
     useEffect(() => {
-        if (data) {
-            setToursData(data);
-            updateFilteredCount(data); // Actualiza el contador de tours filtrados
+        if (tourData) {
+            setToursData(tourData);
+            updateFilteredCount(tourData);
         }
-    }, [data, filters]);
+    }, [tourData, filters]);
     const paginate = (array, page_size, page_number) => {
         return array.slice((page_number - 1) * page_size, page_number * page_size);
     };
@@ -105,8 +108,12 @@ function ToursArchive() {
         </li>
     ));
 
-    if (loading) return <div>Cargando...</div>;
-    if (error) return <div>Error: {error.message}</div>;
+    if (tourLoading) return <div className="mainloader">
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            <DotLoader color="#28a745" loading={true} size={100} />
+        </div>
+    </div>;
+    if (tourError) return <div>Error: {tourError.message}</div>;
     if (!toursData) return <div>No se encontraron tours</div>;
 
 

@@ -4,6 +4,7 @@ import { MdDelete } from "react-icons/md"
 import './index.css'
 import { FaCartShopping, FaMoneyBill } from "react-icons/fa6"
 import { useCart } from "../../Hook/useCart"
+import { NavLink } from "react-router-dom"
 
 function CartItem({ imagenprincipal, precio, nombre, removeFromeCart }) {
     return (
@@ -67,7 +68,10 @@ function Cart() {
                 <Dropdown.Divider />
                 <div className="d-flex gap-2 justify-content-center">
                     <Button className="button-cart text-white" onClick={clearCart}><MdDelete />Vaciar Carrito</Button>
-                    <Button className="button-cart text-white" ><FaMoneyBill /> Pagar</Button>
+                    <NavLink to='/checkout'>
+                        <Button className="button-cart text-white" ><FaMoneyBill /> Pagar</Button>
+                    </NavLink>
+
                 </div>
             </Dropdown.Menu>
         </Dropdown>

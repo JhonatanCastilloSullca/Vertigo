@@ -1,3 +1,4 @@
+import { DotLoader } from 'react-spinners';
 import { useFetch } from '../../Hook/useFetch';
 import CardTours from '../../componentes/CardTours'
 import './index.css'
@@ -26,12 +27,20 @@ function Tours() {
         }
     };
 
-    const { data, loading, error } = useFetch("http://192.168.1.32/api/tours", requestOptions);
+    const { data, loading, error } = useFetch("http://192.168.1.9/api/tours", requestOptions);
 
 
     const ToursData = data;
-    if (loading) return <div>Cargando...</div>;
-    if (error) return <div>Error: {error.message}</div>;
+    if (loading) return <div className="mainloader">
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            <DotLoader color="#28a745" loading={true} size={100} />
+        </div>
+    </div>;
+    if (error) return <div className="mainloader">
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            <DotLoader color="#ff0011" loading={true} size={100} />
+        </div>
+    </div>;
     if (!ToursData) return <div>No se encontraron tours</div>;
 
     return (

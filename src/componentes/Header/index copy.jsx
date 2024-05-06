@@ -6,6 +6,7 @@ import { Card, Col, Container, Dropdown, DropdownButton, Row } from 'react-boots
 import { useTranslation } from 'react-i18next';
 import { useFetch } from '../../Hook/useFetch';
 import { GeneralContext } from '../../context/general';
+import { DotLoader } from 'react-spinners';
 function Header() {
     const { general } = useContext(GeneralContext);
     const GeneralData = general.menus;
@@ -35,11 +36,19 @@ function Header() {
         body: JSON.stringify({
         })
     };
-    const { data, loading, error } = useFetch("http://192.168.1.32/api/categorias", requestOptions);
+    const { data, loading, error } = useFetch("http://192.168.1.9/api/categorias", requestOptions);
     const categorias = data;
     window.addEventListener('scroll', changeBackground);
-    if (loading) return <div>Cargando...</div>;
-    if (error) return <div>Error: {error.message}</div>;
+    if (loading) return <div className="mainloader">
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            <DotLoader color="#28a745" loading={true} size={100} />
+        </div>
+    </div>;
+    if (error) return <div className="mainloader">
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            <DotLoader color="#ff0011" loading={true} size={100} />
+        </div>
+    </div>;
     if (!categorias) return <div>No se encontraron tours</div>;
 
 

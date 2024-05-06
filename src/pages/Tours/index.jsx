@@ -14,6 +14,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Autoplay, Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
+import { DotLoader } from "react-spinners";
 
 
 function ToursPage() {
@@ -27,12 +28,18 @@ function ToursPage() {
     };
 
 
-    const { data: tourData, loading, error } = useFetch(`http://192.168.1.32/api/tour-slug?slug=${tourId}`, requestOptions);
+    const { data: tourData, loading, error } = useFetch(`http://192.168.1.9/api/tour-slug?slug=${tourId}`, requestOptions);
 
-
-
-    if (loading) return <div>Cargando...</div>;
-    if (error) return <div>Error: {error.message}</div>;
+    if (loading) return <div className="mainloader">
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            <DotLoader color="#28a745" loading={true} size={100} />
+        </div>
+    </div>;
+    if (error) return <div className="mainloader">
+        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+            <DotLoader color="#ff0011" loading={true} size={100} />
+        </div>
+    </div>;
     if (!tourData) return <div>No se encontró el tour</div>;
     const detallesTourDias = tourData.itinerarios;
 

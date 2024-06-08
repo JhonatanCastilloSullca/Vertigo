@@ -1,29 +1,28 @@
 import './index.css'
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Autoplay, Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { useContext, useEffect, useState } from "react";
 import { GeneralContext } from "../../context/general";
 import CertificadoCarousel from "../../componentes/CertificadoCarousel";
 import { useCart } from "../../Hook/useCart";
-import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
-import { FaGlobe, FaMapMarker, FaPaperPlane, FaPhone } from 'react-icons/fa';
+import { Button, Col, Container, Form, FormCheck, FormGroup, Row } from 'react-bootstrap';
+import { FaPhone } from 'react-icons/fa';
 import { FaLocationDot } from 'react-icons/fa6';
 import { MdMarkEmailRead } from 'react-icons/md';
+import { useTranslation } from 'react-i18next';
+import { NavLink } from 'react-router-dom';
 
 
 
 function ContactPage() {
+    const { t } = useTranslation();
 
-    const { clearCart } = useCart();
-    useEffect(() => {
-        clearCart();
-    }, []);
+
+
     const { general } = useContext(GeneralContext);
     const GeneralData = general.nosotros;
-    const cabeceraTipo = general.certificados[0];
+    const cabeceraTipo = general.certificados;
     const [validated, setValidated] = useState(false);
 
     const handleSubmit = (event) => {
@@ -42,7 +41,7 @@ function ContactPage() {
                 <Container className="position-relative">
                     <Row className="js-mediumheight d-flex justify-content-center align-items-center">
                         <div className="principal-hero-title d-flex flex-column justify-content-center align-items-center">
-                            <h1>Contactanos</h1>
+                            <h1>{t("contacto.contactanos")}</h1>
                             <p className="principal-hero-text">{GeneralData.titulo}</p>
                         </div>
                     </Row>
@@ -53,28 +52,28 @@ function ContactPage() {
                     <Row className="d-flex justify-content-center contact-info gap-4">
                         <Col md={3} className="d-flex justify-content-center border-primary border rounded">
                             <div className="align-self-stretch box p-4 text-center">
-                                <div className="icon-contact d-flex align-items-center justify-content-center">
+                                <a href="https://maps.app.goo.gl/u8bvUGj9BcU3UnWc8" target="_blank" rel="noopener noreferrer" className="icon-contact d-flex align-items-center justify-content-center">
                                     <FaLocationDot className='icon-fa' />
-                                </div>
-                                <h3 className="mb-2">Ubicanos en Nuestro Local</h3>
+                                </a>
+                                <h3 className="mb-2">{t("contacto.ubicacion-nuestro-local")}</h3>
                                 <p>C. Plateros 394, Cusco, Perú</p>
                             </div>
                         </Col>
                         <Col md={3} className="d-flex justify-content-center border-primary border rounded">
-                            <div className="align-self-stretch box p-4 text-center">
+                            <div className="align-self-stretch box p-4 text-center" onClick={() => window.location.href = 'tel:+51990757584'}>
                                 <div className="icon-contact d-flex align-items-center justify-content-center">
                                     <FaPhone className='icon-fa' />
                                 </div>
-                                <h3 className="mb-2">Numero de Contacto</h3>
+                                <h3 className="mb-2">{t("contacto.numero-contacto")}</h3>
                                 <p>+51 990 757 584</p>
                             </div>
                         </Col>
                         <Col md={3} className="d-flex justify-content-center border-primary border rounded">
                             <div className="align-self-stretch box p-4 text-center">
-                                <div className="icon-contact d-flex align-items-center justify-content-center">
+                                <a href="mailto:info@vertigotravelperu.com" className="icon-contact d-flex align-items-center justify-content-center">
                                     <MdMarkEmailRead className='icon-fa' />
-                                </div>
-                                <h3 className="mb-2">Dirección de Email</h3>
+                                </a>
+                                <h3 className="mb-2">{t("contacto.direaccion-email")}</h3>
                                 <p>info@vertigotravelperu.com</p>
                             </div>
                         </Col>
@@ -87,36 +86,39 @@ function ContactPage() {
                         <Col md={6}>
                             <Form noValidate validated={validated} onSubmit={handleSubmit}>
                                 <Form.Group controlId="formNombre">
-                                    <Form.Label>Nombre</Form.Label>
+                                    <Form.Label>{t("formulario.nombre")}</Form.Label>
                                     <Form.Control type="text" placeholder="Nombre" required />
                                     <Form.Control.Feedback type="invalid">
                                         Por favor, ingresa tu nombre.
                                     </Form.Control.Feedback>
                                 </Form.Group>
                                 <Form.Group controlId="formEmail">
-                                    <Form.Label>Email</Form.Label>
+                                    <Form.Label>{t("formulario.email")}</Form.Label>
                                     <Form.Control type="email" placeholder="Email" />
                                 </Form.Group>
                                 <Form.Group controlId="formCelular">
-                                    <Form.Label>Celular</Form.Label>
+                                    <Form.Label>{t("formulario.celular")}</Form.Label>
                                     <Form.Control type="tel" placeholder="Celular" required />
                                     <Form.Control.Feedback type="invalid">
                                         Por favor, ingresa tu número de celular.
                                     </Form.Control.Feedback>
                                 </Form.Group>
                                 <Form.Group controlId="formAsunto">
-                                    <Form.Label>Asunto</Form.Label>
+                                    <Form.Label>{t("formulario.asunto")}</Form.Label>
                                     <Form.Control type="text" placeholder="Asunto" required />
                                     <Form.Control.Feedback type="invalid">
                                         Por favor, ingresa el asunto.
                                     </Form.Control.Feedback>
                                 </Form.Group>
                                 <Form.Group controlId="formMensaje">
-                                    <Form.Label>Mensaje</Form.Label>
+                                    <Form.Label>{t("formulario.mensaje")}</Form.Label>
                                     <Form.Control as="textarea" rows={3} placeholder="Mensaje" />
                                 </Form.Group>
+                                <FormGroup controlId="formCheckbox">
+                                    <FormCheck required label="Acepto los términos y condiciones" />
+                                </FormGroup>
                                 <Button variant="primary" type="submit" className='mt-4'>
-                                    Enviar Mensaje
+                                    {t("formulario.enviar-mensaje")}
                                 </Button>
                             </Form>
                         </Col>
@@ -131,7 +133,7 @@ function ContactPage() {
                     <Row className="mb-4">
                         <div className="d-flex flex-column justify-content-center align-items-center">
                             <p className="section-description">
-                                Somos una empresa cusqueña dinámica que genera experiencias turísticas de calidad en turismo cultural, de naturaleza, de aventura y comunitario. Con más de 10 años diseñando productos turísticos en el sur del Perú, ofrecemos una oferta diversificada y contribuimos a la preservación cultural y natural de nuestro país. Además capacitamos constantemente a nuestro personal y aliados estratégicos en nuestros diferentes destinos, lo que nos permite garantizar altos estándares de calidad.
+                                {t("testimonios.mensaje-testimonio")}
                             </p>
                         </div>
                     </Row>

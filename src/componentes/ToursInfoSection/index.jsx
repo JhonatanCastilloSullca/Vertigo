@@ -16,7 +16,7 @@ function ToursInfoSection({ titulo, duracion, precio, categoria }) {
                         <InfoItem icono={<IoTimerSharp />} titulo="Duración" contenido={duracion + " Dia(s)"} />
                     </Col>
                     <Col>
-                        <InfoItem icono={<FaCircleDollarToSlot />} titulo="Precio" contenido={"S/. " + precio} />
+                        <InfoItem icono={<FaCircleDollarToSlot />} titulo="Precio" contenido={"$ " + precio} />
                     </Col>
                     <Col>
                         <InfoItem icono={<MdTour />} titulo="Categoría" contenido={categoria} />

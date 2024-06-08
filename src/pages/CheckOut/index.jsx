@@ -1,27 +1,16 @@
-import { Accordion, Button, Card, Col, Container, Form, FormControl, Image, InputGroup, ProgressBar, Row } from "react-bootstrap"
+import { Button, Card, Col, Container, Form, FormControl, InputGroup, Row } from "react-bootstrap"
 import './index.css'
-import CardTours from "../../componentes/CardTours"
-import { FaCheck, FaCreditCard, FaShoppingCart, FaTimes, FaUserCircle } from "react-icons/fa";
-import { BsBackpack } from "react-icons/bs";
-import ToursData from '../../data/tours.json';
-import { useParams } from "react-router-dom"
-import ToursInfoSection from "../../componentes/ToursInfoSection";
-import CardFormulario from "../../componentes/CardFormulario";
-import TourInformation from "../../componentes/ToursInfoItems";
-import { useFetch } from "../../Hook/useFetch";
-import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { Autoplay, Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-import Certificados from "../../secciones/Certificados";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { GeneralContext } from "../../context/general";
 import CertificadoCarousel from "../../componentes/CertificadoCarousel";
 import { useCart } from "../../Hook/useCart";
-import { FaCircleUser, FaList, FaRegCreditCard } from "react-icons/fa6";
+import { FaCreditCard, FaList } from "react-icons/fa6";
 import { MdDelete } from "react-icons/md";
 import PaymentButton from "../../componentes/PaymentButton";
+import { FaShoppingCart, FaUserCircle } from "react-icons/fa";
 
 
 function CheckOutPage() {
@@ -30,7 +19,7 @@ function CheckOutPage() {
     const mtoReserva = subtotal / 2;
     const { general } = useContext(GeneralContext);
     const GeneralData = general.nosotros;
-    const cabeceraTipo = general.certificados[0];
+    const cabeceraTipo = general.certificados;
     const paises = general.paises;
     const handleIncrement = (item) => {
         updatePax(item.id, Number(Number(item.pax) + 1), (Number(Number(item.pax) + 1) * Number(item.precio)));
@@ -117,7 +106,7 @@ function CheckOutPage() {
                     cliente: formData,
                     total: subtotal
                 };
-                const response = await fetch('http://192.168.1.9/api/niubiz', {
+                const response = await fetch('https://admin.vertigotravelperu.com/api/niubiz', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

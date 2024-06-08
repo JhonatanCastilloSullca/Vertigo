@@ -4,38 +4,27 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Autoplay, Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { GeneralContext } from "../../context/general";
 import CertificadoCarousel from "../../componentes/CertificadoCarousel";
 import { useCart } from "../../Hook/useCart";
-import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap';
-import { FaGlobe, FaMapMarker, FaMedal, FaPaperPlane, FaPhone, FaUserGraduate } from 'react-icons/fa';
-import { FaClockRotateLeft, FaLocationDot } from 'react-icons/fa6';
-import { MdMarkEmailRead } from 'react-icons/md';
+import { Col, Container, Row } from 'react-bootstrap';
+import { FaMedal, FaUserGraduate } from 'react-icons/fa';
+import { FaClockRotateLeft } from 'react-icons/fa6';
 import About from '../../secciones/About';
 import Testimonios from '../../secciones/Testimonios';
+import { useTranslation } from 'react-i18next';
 
 
 
 function NosotrosPage() {
+    const { t } = useTranslation();
 
-    const { clearCart } = useCart();
-    useEffect(() => {
-        clearCart();
-    }, []);
+
+
     const { general } = useContext(GeneralContext);
     const GeneralData = general.nosotros;
-    const cabeceraTipo = general.certificados[0];
-    const [validated, setValidated] = useState(false);
-
-    const handleSubmit = (event) => {
-        const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-        }
-        setValidated(true);
-    };
+    const cabeceraTipo = general.certificados;
 
     return (
         <>
@@ -44,41 +33,76 @@ function NosotrosPage() {
                 <Container className="position-relative">
                     <Row className="js-mediumheight d-flex justify-content-center align-items-center">
                         <div className="principal-hero-title d-flex flex-column justify-content-center align-items-center">
-                            <h1>Nosotros</h1>
+                            <h1>{t("nosotros.nosotros")}</h1>
                             <p className="principal-hero-text">{GeneralData.titulo}</p>
                         </div>
                     </Row>
                 </Container>
             </div>
             <About />
-            <div className="ftco-section services-section pt-4 descriptio-tour-container">
+            <div className="ftco-section services-section descriptio-tour-container pt-20">
                 <Container>
                     <Row>
-                        <Col md={6}>
-                            <div className="d-grid gap-4">
-                                <div className="w-100 d-flex justify-content-between align-items-center gap-4 pt-2 px-4 border border-4 rounded-2">
-                                    <FaMedal className="icono-nosotros text-dark" />
-                                    <div className="text-nosotros px-2">
-                                        En Vertigo Travel, con orgullo, compartimos que hemos sido galardonados con prestigiosos premios, medallas y certificaciones que respaldan nuestra dedicación a ofrecerte lo mejor en cada viaje
-                                    </div>
-                                </div>
-                                <div className="w-100 d-flex justify-content-between align-items-center gap-4 pt-2 px-4 border border-4 rounded-2">
-                                    <div className="text-nosotros px-2">
-                                        Con guías profesionales graduados y un equipo completamente capacitado, cada viaje con nosotros es una experiencia única y memorable.
-                                    </div>
-                                    <FaUserGraduate className="icono-nosotros text-dark" />
-                                </div>
-                                <div className="w-100 d-flex justify-content-between align-items-center gap-4 pt-2 px-4 border border-4 rounded-2">
-                                    <FaClockRotateLeft className="icono-nosotros text-dark" />
-                                    <div className="text-nosotros px-2">
-                                        Tu comodidad y tranquilidad son nuestra prioridad, y estamos listos para brindarte el apoyo que necesitas en cualquier momento del día o de la noche. ¡Confía en nosotros para hacer de cada momento una experiencia sin preocupaciones!
+                        <Col md={12}>
+                            <Row className='align-items-center'>
+                                <Col md={6}>
+                                    <div className="d-grid gap-4">
+                                        <div className="w-100 d-flex justify-content-between align-items-center gap-4 pt-2 px-4 border border-4 rounded-2">
+                                            <FaMedal className="icono-nosotros text-dark" />
+                                            <div className="text-nosotros px-2" dangerouslySetInnerHTML={{ __html: GeneralData.descripcion1 }}>
 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Col>
+                                <Col md={6}>
+                                    <div className="d-grid gap-4">
+
+                                        <img src={'https://admin.vertigotravelperu.com/storage/img/nosotros/es-principal-bienvenidos-a-vertigo-travel.webp'} alt="Vertigo-travel-nosotros" className='w-100 border rounded' />
 
                                     </div>
-                                </div>
-                            </div>
+                                </Col>
+                            </Row>
+                            <Row className='align-items-center'>
+                                <Col md={6}>
+                                    <div className="d-grid gap-4">
+
+                                        <img src={'https://admin.vertigotravelperu.com/storage/img/nosotros/es-principal-bienvenidos-a-vertigo-travel.webp'} alt="Vertigo-travel-nosotros" className='w-100 border rounded' />
+
+                                    </div>
+                                </Col>
+                                <Col md={6}>
+                                    <div className="d-grid gap-4">
+                                        <div className="w-100 d-flex justify-content-between align-items-center gap-4 pt-2 px-4 border border-4 rounded-2">
+                                            <FaClockRotateLeft className="icono-nosotros text-dark" />
+                                            <div className="text-nosotros px-2" dangerouslySetInnerHTML={{ __html: GeneralData.descripcion2 }}>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Col>
+                            </Row>
+                            <Row className='align-items-center'>
+                                <Col md={6}>
+                                    <div className="d-grid gap-4">
+                                        <div className="w-100 d-flex justify-content-between align-items-center gap-4 pt-2 px-4 border border-4 rounded-2">
+                                            <FaUserGraduate className="icono-nosotros text-dark" />
+                                            <div className="text-nosotros px-2" dangerouslySetInnerHTML={{ __html: GeneralData.descripcion3 }}>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Col>
+                                <Col md={6}>
+                                    <div className="d-grid gap-4">
+
+                                        <img src={'https://admin.vertigotravelperu.com/storage/img/nosotros/es-principal-bienvenidos-a-vertigo-travel.webp'} alt="Vertigo-travel-nosotros" className='w-100 border rounded' />
+
+                                    </div>
+                                </Col>
+                            </Row>
                         </Col>
-                        <Col md={6} className='d-flex align-items-center'>
+                        <Col md={12} className='d-flex align-items-center'>
                             <div className="w-100">
                                 <Swiper
                                     modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
@@ -110,24 +134,11 @@ function NosotrosPage() {
                                     }}
                                     className="mySwiperDestiny"
                                 >
-                                    <SwiperSlide >
-                                        <img src="https://media.istockphoto.com/id/903568822/photo/call-center-workers.jpg?s=612x612&w=0&k=20&c=wGoPEMHmgnB7zwGl0pUaWP1nl_S3dOhnFxTNkQQhtiI=" alt="Contacto" className='w-100 border rounded' />
-                                    </SwiperSlide>
-                                    <SwiperSlide >
-                                        <img src="https://media.istockphoto.com/id/903568822/photo/call-center-workers.jpg?s=612x612&w=0&k=20&c=wGoPEMHmgnB7zwGl0pUaWP1nl_S3dOhnFxTNkQQhtiI=" alt="Contacto" className='w-100 border rounded' />
-                                    </SwiperSlide>
-                                    <SwiperSlide >
-                                        <img src="https://media.istockphoto.com/id/903568822/photo/call-center-workers.jpg?s=612x612&w=0&k=20&c=wGoPEMHmgnB7zwGl0pUaWP1nl_S3dOhnFxTNkQQhtiI=" alt="Contacto" className='w-100 border rounded' />
-                                    </SwiperSlide>
-                                    <SwiperSlide >
-                                        <img src="https://media.istockphoto.com/id/903568822/photo/call-center-workers.jpg?s=612x612&w=0&k=20&c=wGoPEMHmgnB7zwGl0pUaWP1nl_S3dOhnFxTNkQQhtiI=" alt="Contacto" className='w-100 border rounded' />
-                                    </SwiperSlide>
-                                    <SwiperSlide >
-                                        <img src="https://media.istockphoto.com/id/903568822/photo/call-center-workers.jpg?s=612x612&w=0&k=20&c=wGoPEMHmgnB7zwGl0pUaWP1nl_S3dOhnFxTNkQQhtiI=" alt="Contacto" className='w-100 border rounded' />
-                                    </SwiperSlide>
-                                    <SwiperSlide >
-                                        <img src="https://media.istockphoto.com/id/903568822/photo/call-center-workers.jpg?s=612x612&w=0&k=20&c=wGoPEMHmgnB7zwGl0pUaWP1nl_S3dOhnFxTNkQQhtiI=" alt="Contacto" className='w-100 border rounded' />
-                                    </SwiperSlide>
+                                    {GeneralData.images.map((images, index) => (
+                                        <SwiperSlide key={index}>
+                                            <img src={images.nombre} alt="Vertigo-travel-nosotros" className='w-100 border rounded' />
+                                        </SwiperSlide>
+                                    ))}
                                 </Swiper>
                             </div>
                         </Col>

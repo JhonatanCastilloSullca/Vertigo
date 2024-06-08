@@ -1,19 +1,36 @@
-
-import { useContext } from 'react';
-import { GeneralContext } from '../../context/general';
 import './index.css'
 import { NavLink } from 'react-router-dom';
-import { FaFacebook } from 'react-icons/fa';
+import { FaEnvelope, FaFacebook, FaTripadvisor } from 'react-icons/fa';
 import { Row } from 'react-bootstrap';
+import { useTranslation } from 'react-i18next';
+import { FloatingWhatsApp } from 'react-floating-whatsapp';
+import { useContext } from 'react';
+import { GeneralContext } from '../../context/general';
+import { FaLocationDot, FaPhone } from 'react-icons/fa6';
 
 function Footer() {
+
+    const { t } = useTranslation();
     const { general } = useContext(GeneralContext);
+    const GeneralData = general.whatsapp;
     return (
         <>
-            <div className="footer-prueba">
+            <FloatingWhatsApp
+                phoneNumber={GeneralData[0]?.numero}
+                accountName={GeneralData[0]?.nombre}
+                avatar="https://www.w3schools.com/howto/img_avatar.png"
+                chatMessage="Hola soy un agente de Vertigo Travel Perú"
+                darkMode={false}
+                allowClickAway={true}
+                allowEsc={true}
+                size="56px"
+                backgroundColor="#25D366"
+                iconColor="#FFFFFF"
+            />
+            <div className="footer-prueba ">
             </div>
-            <div className="vertigo-trekking-quote"></div>
-            <footer className="ftco-footer bg-bottom ftco-no-pt pb-0">
+            <div className="vertigo-trekking-quote "></div>
+            <footer className="ftco-footer bg-bottom ftco-no-pt pb-0 footer-top">
                 <div className="container">
                     <div className="row">
                         <div className="col-md pt-5">
@@ -22,7 +39,10 @@ function Footer() {
                                 <p>Con los más altos estándares de calidad, ofrecemos una respuesta cálida, rápida y precisa a sus requerimientos para garantizar el éxito de sus programas.
                                 </p>
                                 <ul className="ftco-footer-social list-unstyled float-md-left float-lft">
-                                    <li ><a href="https://www.facebook.com/vertigotravelperuEIRL" className='d-flex justify-content-center align-items-center' ><FaFacebook /></a></li>
+                                    <li ><a target="_blank"
+                                        rel="noopener noreferrer" href="https://www.facebook.com/vertigotravelperuEIRL" className='d-flex justify-content-center align-items-center' ><FaFacebook /></a></li>
+                                    <li ><a target="_blank"
+                                        rel="noopener noreferrer" href="https://www.tripadvisor.com.pe/Attraction_Review-g294314-d7187588-Reviews-Vertigo_Travel_Peru-Cusco_Cusco_Region.html" className='d-flex justify-content-center align-items-center' ><FaTripadvisor /></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -32,27 +52,32 @@ function Footer() {
                                 <ul className="list-unstyled">
                                     <li>
                                         <NavLink to='/' className="py-2 d-block">
-                                            Home
+                                            {t("header.home")}
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/tours' className="py-2 d-block">
+                                            TOURS
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/nosotros' className="py-2 d-block">
+                                            {t("header.about")}
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to='/contacto' className="py-2 d-block">
+                                            {t("header.contact")}
                                         </NavLink>
                                     </li>
                                     <li>
                                         <NavLink to='/' className="py-2 d-block">
-                                            Tours
+                                            {t("header.cart")}
                                         </NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to='/' className="py-2 d-block">
-                                            Nosotros
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink to='/' className="py-2 d-block">
-                                            Contacto
-                                        </NavLink>
-                                    </li>
-                                    <li>
-                                        <NavLink to='/' className="py-2 d-block">
-                                            Carrito
+                                        <NavLink to='/terminos' className="py-2 d-block">
+                                            TERMINOS Y CONDICIONES
                                         </NavLink>
                                     </li>
                                 </ul>
@@ -63,16 +88,16 @@ function Footer() {
                                 <h2 className="ftco-heading-2">Contactanos</h2>
                                 <div className="block-23 mb-3">
                                     <ul>
-                                        <li><span className="icon fa fa-map-marker"></span><span className="text">C. Plateros 394, Cusco, Perú</span></li>
-                                        <li><span className="icon fa fa-phone"></span><span className="text">+51 990 757 584</span></li>
-                                        <li><span className="icon fa fa-paper-plane"></span><span className="text">info@vertigotravel.com</span></li>
+                                        <li><FaLocationDot className='text-white ' /><span className="text px-2">C. Plateros 394, Cusco, Perú</span></li>
+                                        <li><FaPhone className='text-white ' /><span className="text px-2">+51 990 757 584</span></li>
+                                        <li><FaEnvelope className='text-white ' /><span className="text px-2">info@vertigotravel.com</span></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </footer>
+            </footer >
 
             <Row className='m-0 p-0 bg-dark'>
                 <div className="col-md-12 text-center copy-text-footer">

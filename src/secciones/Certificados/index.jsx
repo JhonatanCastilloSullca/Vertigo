@@ -1,8 +1,7 @@
 
 import './index.css'
 import { GeneralContext } from '../../context/general';
-import { useContext, useState } from 'react';
-import ImageModal from '../../componentes/ImageModal';
+import { useContext } from 'react';
 import TituloSection from '../../componentes/TituloSection';
 import CertificadoCarousel from '../../componentes/CertificadoCarousel';
 
@@ -10,10 +9,12 @@ function Certificados() {
 
 
     const { general: GeneralData } = useContext(GeneralContext);
-    const cabeceraTipo = GeneralData.certificados[0];
+    const cabeceraTipo = GeneralData.certificados;
+
+
     return (
         <>
-            <div className="ftco-section">
+            <div className="ftco-section ">
                 <div className="container">
                     <TituloSection titulo={cabeceraTipo.titulo} subtitulo={cabeceraTipo.subtitulo} />
                     <CertificadoCarousel general={cabeceraTipo} />

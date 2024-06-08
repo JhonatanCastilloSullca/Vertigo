@@ -1,28 +1,12 @@
-import { Accordion, Button, Card, Col, Container, Form, FormControl, Image, InputGroup, ProgressBar, Row } from "react-bootstrap"
+import { Card, Container, Row } from "react-bootstrap"
 import './index.css'
-import CardTours from "../../componentes/CardTours"
-import { FaCheck, FaCreditCard, FaShoppingCart, FaTimes, FaUserCircle } from "react-icons/fa";
-import { BsBackpack } from "react-icons/bs";
-import ToursData from '../../data/tours.json';
-import { useLocation, useParams } from "react-router-dom"
-import ToursInfoSection from "../../componentes/ToursInfoSection";
-import CardFormulario from "../../componentes/CardFormulario";
-import TourInformation from "../../componentes/ToursInfoItems";
-import { useFetch } from "../../Hook/useFetch";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { Autoplay, Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-import Certificados from "../../secciones/Certificados";
-import { useContext, useEffect, useState } from "react";
-import { GeneralContext } from "../../context/general";
-import CertificadoCarousel from "../../componentes/CertificadoCarousel";
-import { useCart } from "../../Hook/useCart";
-import { FaCircleUser, FaList, FaRegCreditCard } from "react-icons/fa6";
-import { MdDelete } from "react-icons/md";
-import PaymentButton from "../../componentes/PaymentButton";
-import { DotLoader } from "react-spinners";
+import { useLocation } from "react-router-dom"
+import { useFetch } from "../../Hook/useFetch"
+import { useContext } from "react"
+import { GeneralContext } from "../../context/general"
+import CertificadoCarousel from "../../componentes/CertificadoCarousel"
+import { useCart } from "../../Hook/useCart"
+import { DotLoader } from "react-spinners"
 
 
 function CheckOutInvalid() {
@@ -33,14 +17,14 @@ function CheckOutInvalid() {
     const { clearCart } = useCart();
     const { general } = useContext(GeneralContext);
     const GeneralData = general.nosotros;
-    const cabeceraTipo = general.certificados[0];
+    const cabeceraTipo = general.certificados;
     const requestOptions = {
         method: 'POST',
         token: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiI1IiwianRpIjoiNmJjZWFhNWFlYWRkZTQyNDY3ZDZkYmJmMTVlMDhkMmVjMjZkZGM4Yjc5ZDZlZWM5NGIwODliOWRlMDUzNTdlMmE5YWUyOTc4ZjVhYzM5MTQiLCJpYXQiOjE2OTEwMDUwMDMuMjI5NzQzLCJuYmYiOjE2OTEwMDUwMDMuMjI5NzQ2LCJleHAiOjE3MjI2Mjc0MDMuMTA4MzU0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.VPsULN8PnrW5EzFxiYlyn5R8ML4w0le-FvZFf1IxMOj2o2NVMUg-EERqJdKV3YWn2NquVgW8-SOPkmCtWJ4kfA_UZdaJ2JUkm0qo39cSNLt2AylXP8s4_pBK6cVBI8xo98fTkcoXgj-hDk6B04t4S2wIu7ddxSfgVdcWbVorN4Woac4i40d3xf6Iu-DnOfs6m5RKGDpOrzExQDrIn6A5_efpcNf1-I3rGgf00aAar2vKtdtZjFAzcVpDKMLm36Q-A0Yl54uEuC_e2RI2nsRhjtK7P0CwSPXzYyz29lU_k47WWJp4nVb0prt_-D5OHHk81LkFZqTiuiw5AB88_l3q65PG20oo8HSTW2c3hV1XPFHwhdVsjLncFX3TWhHUyHAIN48qBOiXl9JVmfeUj6t6uTurjRnaH-kykSke2dUPE77gCiMsLDUYA1dMD8EU42Y3F1tLWs4_CoXiwpjR2TGdjACY4FBHPwOAyrBpLIUKypeBcx3xrWcU2uZS7iTtQS_C2uhGyeMy0xSeBr0S0GICoJmiHmRUMc9gEHzlv40ObZpncXmw7VX1Txc5-DS6Y-GgjKjIPmmVQOWSJbjU7OqMtSaGyjmOTtECwgtlmFpfwEi0_g8L8T2OzgZVYOOROkzxOYnuCB1NLfj2N-NFcZ1cXUvB915l8C-v5ZD9Uulmxmsi',
         body: JSON.stringify({
         })
     };
-    const { data, loading, error } = useFetch(`http://192.168.1.9/api/confirmar-pago?id=${id}`, requestOptions);
+    const { data, loading, error } = useFetch(`https://admin.vertigotravelperu.com/api/confirmar-pago?id=${id}`, requestOptions);
 
     const blogs = data;
     if (loading) return <div className="mainloader">

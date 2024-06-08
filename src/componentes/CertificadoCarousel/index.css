@@ -6,3 +6,42 @@
     text-overflow: ellipsis;
     max-width: 400px;
 }
+
+.icon-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.icon-image {
+    max-width: 100px;
+    cursor: pointer;
+    filter: grayscale(2);
+    transition: filter 0.3s ease-in-out;
+}
+
+.icon-image:hover {
+    filter: sepia(0);
+}
+
+.sectionmargin {
+    margin-bottom: -230px;
+}
+
+.templaterow {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr) !important;
+    gap: 80px !important;
+}
+
+.columnrow {
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.img-size-certi {
+    height: 250px !important;
+    width: 150px !important;
+    max-height: 250px !important;
+    max-width: 150px !important;
+    object-fit: contain;
+}

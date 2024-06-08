@@ -36,7 +36,7 @@ function Header() {
         body: JSON.stringify({
         })
     };
-    const { data, loading, error } = useFetch("http://192.168.1.9/api/categorias", requestOptions);
+    const { data, loading, error } = useFetch("https://admin.vertigotravelperu.com/api/categorias", requestOptions);
     const categorias = data;
     window.addEventListener('scroll', changeBackground);
     if (loading) return <div className="mainloader">
@@ -58,7 +58,7 @@ function Header() {
             <nav className={navbar ? 'navbar active navbar-expand-lg' : 'navbar navbar-expand-lg'}  >
                 <div className="container">
                     <Link to='/' className='navbar-logo' >
-                        {navbar ? <img src="../src/assets/images/vertigo-logo-horizontal-2.webp" alt="logo-vertigo" /> : <img className='img-header-logo' src="../src/assets/images/vertigologo2.webp" alt="logo-vertigo" />}
+                        {navbar ? <img src="../assets/images/vertigo-logo-horizontal-2.webp" alt="logo-vertigo" /> : <img className='img-header-logo' src="../assets/images/vertigologo2.webp" alt="logo-vertigo" />}
                     </Link>
                     <div className='menu-icon' onClick={handleClick}>
                         x
@@ -138,13 +138,13 @@ function Header() {
                                     id="language-selector"
                                     variant="transparent"
                                     className="nav-link p-0 bg-transparent"
-                                    title={<><span className="ml-2">{i18n.language === 'es' ? <img src="../../src/assets/images/iconos/pe.svg" className='flags text-white' alt="Perú" /> : <img src="../../src/assets/images/iconos/us.svg" className='flags' alt="Estados Unidos" />}</span></>}
+                                    title={<><span className="ml-2">{i18n.language === 'es' ? <img src="../../assets/images/iconos/pe.svg" className='flags text-white' alt="Perú" /> : <img src="../../assets/images/iconos/us.svg" className='flags' alt="Estados Unidos" />}</span></>}
                                 >
                                     <Dropdown.Item onClick={() => handleChangeLng('es')}>
-                                        <img src="../../src/assets/images/iconos/pe.svg" className='flags' alt="Perú" />Español
+                                        <img src="../../assets/images/iconos/pe.svg" className='flags' alt="Perú" />Español
                                     </Dropdown.Item>
                                     <Dropdown.Item onClick={() => handleChangeLng('en')}>
-                                        <img src="../../src/assets/images/iconos/us.svg" className='flags' alt="Estados Unidos" />English
+                                        <img src="../../assets/images/iconos/us.svg" className='flags' alt="Estados Unidos" />English
                                     </Dropdown.Item>
                                 </DropdownButton>
                             </li>

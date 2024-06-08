@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useState } from 'react'
 import './index.css'
 import { Link, NavLink } from 'react-router-dom';
 import Cart from '../Cart';
-import { Card, Col, Container, Dropdown, DropdownButton, Row } from 'react-bootstrap';
+import { Col, Container, Dropdown, DropdownButton, Row } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { useFetch } from '../../Hook/useFetch';
 import { GeneralContext } from '../../context/general';
@@ -10,14 +10,30 @@ import { DotLoader } from 'react-spinners';
 function Header() {
     const { general } = useContext(GeneralContext);
     const GeneralData = general.menus;
+    const [imgpreview, setImgPreview] = useState('https://vertigotravelperu.com/wp-content/uploads/2022/09/manu1.png');
+    const handleSlugTour = (imagen) => {
+        setImgPreview(imagen)
+    }
 
-    const { i18n } = useTranslation();
+    const { t, i18n } = useTranslation("translation");
 
     const handleChangeLng = (lng) => {
         i18n.changeLanguage(lng);
         localStorage.setItem('lng', lng);
-        window.location.reload();
+        const newrute = window.location.origin + window.location.pathname
+        if (window.location.pathname.substring(0, 6) === "/tours") {
+            console.log("La URL comienza con /tours/");
+            console.log("La ruta completa es: " + window.location.pathname);
+            window.location.href = window.location.origin;
+        }
+        else {
+            window.location.href = window.location.origin;
+        }
     };
+
+
+
+
 
 
     const [click, setClick] = useState(false);
@@ -41,14 +57,19 @@ function Header() {
                                     <Row className=' d-flex justify-content-center align-items-start'>
                                         {menu.detalles && menu.detalles.length > 0 ? (
                                             menu.detalles.map((categoria) => (
-                                                <Col key={categoria.id} className='p-0'>
+                                                <Col key={categoria.id} className='p-0 px-2'>
                                                     <span className='nav-link tittle-categoria-header w-100'>
                                                         {categoria.categoria.nombre}
                                                     </span>
                                                     <Row>
-                                                        <Col className='d-grid gap-2 height-menu '>
+                                                        <Col className='d-grid gap-1 height-menu '>
                                                             {categoria.categoria.tours.map((tour) => (
-                                                                <NavLink to={`/tours/${tour.slug}`} className=' w-100 border-bot-menu p-0' key={tour.id}>
+                                                                <NavLink
+                                                                    to={`/tours/${tour.slug}`}
+                                                                    onMouseOver={() => handleSlugTour(tour.imagenprincipal)}
+                                                                    className='w-100 border-bot-menu p-0'
+                                                                    key={tour.id}
+                                                                >
                                                                     <div className="menu-title-nav pt-2">{tour.nombre}</div>
                                                                 </NavLink>
                                                             ))}
@@ -64,7 +85,7 @@ function Header() {
                                 <Col md={4} className='d-flex justify-content-center align-items-center'>
                                     <div className='d-flex justify-content-center rounded'>
                                         <img
-                                            src="https://vertigotravelperu.com/wp-content/uploads/2022/09/manu1.png"
+                                            src={imgpreview}
                                             alt="imagen"
                                             className='img-fluid p-4 img-menu '
                                         />
@@ -82,7 +103,6 @@ function Header() {
 
 
     const handleClick = () => setClick(!click);
-    const closeMobileMenu = () => setClick(false);
     const changeBackground = () => {
         if (window.scrollY >= 80) {
             setNavbar(true);
@@ -96,12 +116,12 @@ function Header() {
         body: JSON.stringify({
         })
     };
-    const { data, loading, error } = useFetch("http://192.168.1.9/api/categorias", requestOptions);
+    const { data, loading, error } = useFetch("https://admin.vertigotravelperu.com/api/categorias", requestOptions);
     const categorias = data;
     window.addEventListener('scroll', changeBackground);
     if (loading) return <div className="mainloader">
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
-            <DotLoader color="#28a745" loading={true} size={100} />
+            <DotLoader color="#f79633" loading={true} size={100} />
         </div>
     </div>;
     if (error) return <div className="mainloader">
@@ -111,14 +131,12 @@ function Header() {
     </div>;
     if (!categorias) return <div>No se encontraron tours</div>;
 
-
-
     return (
         <>
             <nav className={navbar ? 'navbar active navbar-expand-lg' : 'navbar navbar-expand-lg'}  >
-                <div className="container">
+                <div className="container mw-100 px-5">
                     <Link to='/' className='navbar-logo' >
-                        {navbar ? <img src="../src/assets/images/vertigologo2.webp" alt="logo-vertigo" className='logo-hor' /> : <img className='img-header-logo' src="../src/assets/images/vertigologo2.webp" alt="logo-vertigo" />}
+                        {navbar ? <img src="../assets/images/vertigologo2.webp" alt="logo-vertigo" className='logo-hor' /> : <img className='img-header-logo' src="../assets/images/vertigologo2.webp" alt="logo-vertigo" />}
                     </Link>
                     <div className='menu-icon' onClick={handleClick}>
                         x
@@ -129,7 +147,7 @@ function Header() {
                                 <NavLink to='/' className={({ isActive }) => {
                                     return isActive ? 'nav-link active' : ' nav-link'
                                 }}>
-                                    Home
+                                    {t("header.home")}
                                 </NavLink>
                             </li>
                             {GeneralData.filter(menu => menu.tipo === '1').map((menu) => (
@@ -153,25 +171,32 @@ function Header() {
                                     </div>
                                 </li>
                             ))}
-                            <li className="nav-item d-flex align-items-center text-white">
+                            {/* <li className="nav-item d-flex align-items-center text-white">
                                 <NavLink to='/tours' className={({ isActive }) => {
                                     return isActive ? 'nav-link active' : ' nav-link '
                                 }}>
                                     Tours
                                 </NavLink>
-                            </li>
+                            </li> */}
                             <li className="nav-item d-flex align-items-center text-white">
                                 <NavLink to='/nosotros' className={({ isActive }) => {
                                     return isActive ? 'nav-link active' : ' nav-link '
                                 }}>
-                                    Nosotros
+                                    {t("header.about")}
                                 </NavLink>
                             </li>
                             <li className="nav-item d-flex align-items-center text-white">
                                 <NavLink to='/contacto' className={({ isActive }) => {
                                     return isActive ? 'nav-link active' : ' nav-link '
                                 }}>
-                                    Contacto
+                                    {t("header.contact")}
+                                </NavLink>
+                            </li>
+                            <li className="nav-item d-flex align-items-center text-white">
+                                <NavLink to='/dorado' className={({ isActive }) => {
+                                    return isActive ? 'nav-link active' : ' nav-link '
+                                }}>
+                                    DORADO LODGE
                                 </NavLink>
                             </li>
                             <li className="nav-item d-flex align-items-center text-white">
@@ -179,13 +204,13 @@ function Header() {
                                     id="language-selector"
                                     variant="transparent"
                                     className="nav-link p-0 bg-transparent"
-                                    title={<><span className="ml-2">{i18n.language === 'es' ? <img src="../../src/assets/images/iconos/pe.svg" className='flags text-white' alt="Perú" /> : <img src="../../src/assets/images/iconos/us.svg" className='flags' alt="Estados Unidos" />}</span></>}
+                                    title={<><span className="ml-2">{i18n.language === 'es' ? <img src="../../assets/images/iconos/pe.svg" className='flags text-white' alt="Perú" /> : <img src="../../assets/images/iconos/us.svg" className='flags' alt="Estados Unidos" />}</span></>}
                                 >
                                     <Dropdown.Item onClick={() => handleChangeLng('es')}>
-                                        <img src="../../src/assets/images/iconos/pe.svg" className='flags' alt="Perú" />Español
+                                        <img src="../../assets/images/iconos/pe.svg" className='flags' alt="Perú" />Español
                                     </Dropdown.Item>
                                     <Dropdown.Item onClick={() => handleChangeLng('en')}>
-                                        <img src="../../src/assets/images/iconos/us.svg" className='flags' alt="Estados Unidos" />English
+                                        <img src="../../assets/images/iconos/us.svg" className='flags' alt="Estados Unidos" />English
                                     </Dropdown.Item>
                                 </DropdownButton>
                             </li>

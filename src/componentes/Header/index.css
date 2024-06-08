@@ -7,7 +7,7 @@
 }
 
 .navbar.active {
-    background: linear-gradient(180deg, #059d0ac7 0%, #059d0a 100%) !important
+    background: linear-gradient(180deg, #09630c 0%, #054307 100%) !important
 }
 
 .navbar-logo {
@@ -119,6 +119,12 @@
 
 .logo-hor {
     height: 65px;
+}
+
+.img-menu {
+    border-radius: 30px !important;
+    height: 350px !important;
+    object-fit: cover;
 }
 
 
@@ -234,9 +240,27 @@ button.nav-link {
 }
 
 .height-menu {
-    max-height: 400px;
-    overflow-x: auto;
+    max-height: 300px;
+    overflow-y: auto;
 }
+
+.height-menu::-webkit-scrollbar {
+    width: 5px;
+    /* Ancho del scrollbar */
+}
+
+.height-menu::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    /* Color del thumb (barra) */
+    border-radius: 5px;
+    /* Radio de borde del thumb */
+}
+
+.height-menu::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+    /* Color de fondo del scrollbar */
+}
+
 
 
 
@@ -280,10 +304,6 @@ button.nav-link {
     background-color: #FFFFFF;
 }
 
-.height-menu {
-    max-height: 300px;
-    overflow-y: auto;
-}
 
 .border-bot-menu {
     border-bottom: 1px solid #e0e0e0;

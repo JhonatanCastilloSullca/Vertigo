@@ -1,27 +1,11 @@
-import { Accordion, Button, Card, Col, Container, Form, FormControl, Image, InputGroup, ProgressBar, Row } from "react-bootstrap"
+import { Card, Container, Row } from "react-bootstrap"
 import './index.css'
-import CardTours from "../../componentes/CardTours"
-import { FaCheck, FaCreditCard, FaShoppingCart, FaTimes, FaUserCircle } from "react-icons/fa";
-import { BsBackpack } from "react-icons/bs";
-import ToursData from '../../data/tours.json';
-import { useLocation, useParams } from "react-router-dom"
-import ToursInfoSection from "../../componentes/ToursInfoSection";
-import CardFormulario from "../../componentes/CardFormulario";
-import TourInformation from "../../componentes/ToursInfoItems";
-import { useFetch } from "../../Hook/useFetch";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import { Autoplay, Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
-import Certificados from "../../secciones/Certificados";
-import { useContext, useEffect, useState } from "react";
-import { GeneralContext } from "../../context/general";
-import CertificadoCarousel from "../../componentes/CertificadoCarousel";
+import { useLocation } from "react-router-dom"
+import { useFetch } from "../../Hook/useFetch"
+import { useContext, useEffect } from "react"
+import { GeneralContext } from "../../context/general"
+import CertificadoCarousel from "../../componentes/CertificadoCarousel"
 import { useCart } from "../../Hook/useCart";
-import { FaCircleUser, FaList, FaRegCreditCard } from "react-icons/fa6";
-import { MdDelete } from "react-icons/md";
-import PaymentButton from "../../componentes/PaymentButton";
 import { DotLoader } from "react-spinners";
 
 
@@ -36,7 +20,7 @@ function CheckOutValid() {
     }, []);
     const { general } = useContext(GeneralContext);
     const GeneralData = general.nosotros;
-    const cabeceraTipo = general.certificados[0];
+    const cabeceraTipo = general.certificados;
 
 
     const requestOptions = {
@@ -45,7 +29,7 @@ function CheckOutValid() {
         body: JSON.stringify({
         })
     };
-    const { data, loading, error } = useFetch(`http://192.168.1.9/api/confirmar-pago?id=${id}`, requestOptions);
+    const { data, loading, error } = useFetch(`https://admin.vertigotravelperu.com/api/confirmar-pago?id=${id}`, requestOptions);
 
     const blogs = data;
     if (loading) return <div className="mainloader">
@@ -78,7 +62,7 @@ function CheckOutValid() {
                         <Card className="m-2">
                             <div className="d-grid justify-content-around w-100 m-auto p-2">
                                 <h1>Tu reserva ha sido aceptada con exito</h1>
-                                <h4>Un agente de Vertigo travel se pondra en contacto con usted</h4>
+                                <h4>Un agente de Vertigo travelPerú se pondra en contacto con usted</h4>
                                 <Card className="mt-4">
                                     <Card.Body>
                                         <h5 className="card-title">Recibo de Pago</h5>
@@ -89,7 +73,7 @@ function CheckOutValid() {
                                                 <p><strong>Tarjeta:</strong> {data.tarjeta}</p>
                                             </div>
                                             <div className="col-md-12">
-                                                <p><strong>Importe Pagado:</strong> S/. {data.monto}</p>
+                                                <p><strong>Importe Pagado:</strong> $ {data.monto}</p>
                                             </div>
                                         </div>
                                     </Card.Body>

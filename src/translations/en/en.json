@@ -1,3 +1,66 @@
 {
-    "bienvenido-a": "Welcome To"
+    "header": {
+        "home": "HOME",
+        "about": "ABOUT US",
+        "contact": "CONTACT",
+        "search": "Search Tours...",
+        "cart": "CART"
+    },
+    "terminos": {
+        "terminos-condiciones": "Terms and Conditions",
+        "ley": "In compliance with Law No. 29733 –<b>Law on Personal Data Protection</b>- and its Regulation No. 003-2013-JUS, I authorize and grant <b>VERTIGO TRAVEL PERU EIRL</b> (hereinafter <b>VERTIGO TRAVEL PERU</b>), indefinitely, my free, prior, express, unequivocal, and informed consent so that (by itself or through third parties):",
+        "recopile": "a) Collect, process or delete, transfer or import, export my personal data, to create Databases, transfer them to third parties linked or not to <b>VERTIGO TRAVEL PERU</b> (whether business partners or not, national or foreign, public or private) for the purpose of:",
+        "otorgarme": "<b></b> Providing me with the requested service and/or",
+        "informarme": "<b></b> Informing me about new services related to the acquired service(s) and/or",
+        "establecer": "<b></b> Establishing communication to provide me with information related to other services, contests, and content that may be of interest to me and/or offers and/or promotions and/or alliances and/or advertising, among others, contests and content that may be of interest to the owner of <b>VERTIGO TRAVEL PERU</b> and/or any other company that belongs or may belong in the future to <b>VERTIGO TRAVEL PERÚ</b>, whether domiciled in the country or not (directly and/or through linked or unrelated third parties),",
+        "evaluar": "<b></b> Evaluating the quality of their services and/or",
+        "realizar": "<b></b> Conducting customer satisfaction surveys and/or storing and processing my personal data for statistical and/or historical purposes for <b>VERTIGO TRAVEL PERU</b> and/or linked or unrelated third parties and/or any other company that belongs or may belong in the future to <b>VERTIGO TRAVEL PERU</b>.",
+        "informado": "I have been informed that:",
+        "no-consentimiento": "<b></b> If I do not give this consent, my information will only be used (processed) for the execution (development) and fulfillment of the contracted service,",
+        "revocar": "<b></b> I can revoke my consent at any time by communicating my decision in writing at any <b>VERTIGO TRAVEL PERU</b> office, which will not affect the use of my data or the content of the Databases for the execution and fulfillment of the transaction that I celebrate with you,",
+        "derechos": "<b></b> I can exercise my rights of access, rectification, cancellation, and opposition of my data in accordance with current legislation."
+    },
+    "buttons": {
+        "revisa-nuestros-tours": "Check our tours",
+        "no-se-encontraron": "No tours found"
+    },
+    "destinos": {
+        "nuestros-paquetes": "Our packages nationwide",
+        "selecciona-tu-destino-favorito": "Select your favorite destination"
+    },
+    "tours": {
+        "destinos": "Destinations",
+        "nuestros-tours": "Our Tours",
+        "revisa-nuestros-tours": "Check our tours"
+    },
+    "about": {
+        "sobre-nosotros": "About Us"
+    },
+    "testimonios": {
+        "testimonios": "Testimonials",
+        "comentario-turisticos": "Tourist Comments",
+        "mensaje-testimonio": "We are a dynamic Cusco company that generates quality tourist experiences in cultural, nature, adventure and community tourism. With more than 10 years designing tourist products in southern Peru, we offer a diversified offer and contribute to the cultural and natural preservation of our country. We also constantly train our staff and strategic allies in our different destinations, which allows us to guarantee high quality standards."
+    },
+    "nosotros": {
+        "nosotros": "Us",
+        "sobre-nosotros": "About Us"
+    },
+    "contacto": {
+        "contactanos": "Contact us",
+        "ubicacion-nuestro-local": "Find us at our location",
+        "numero-contacto": "Contact number",
+        "direaccion-email": "Emai Address"
+    },
+    "formulario": {
+        "nombre": "Name",
+        "email": "E-mail",
+        "celular": "Cell phone",
+        "asunto": "Affair",
+        "mensaje": "Message",
+        "enviar-mensaje": "Send Message"
+    },
+    "error": {
+        "no-se-encontro-tour": "Tour not found",
+        "tour-no-existe": "The tour does not exist"
+    }
 }

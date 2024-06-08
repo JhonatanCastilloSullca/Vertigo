@@ -1,5 +1,5 @@
 
-import { Link, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Home from '../Home';
 import './index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,6 +15,9 @@ import CheckOutInvalid from '../CheckOutInvalid';
 import ContactPage from '../Contacto';
 import NosotrosPage from '../Nosotros';
 import ScrollToTop from '../../componentes/ScrollToTop';
+import DoradoPage from '../Dorado';
+import TermsPage from '../Terms';
+import NotFoundPage from '../NotFoundPage';
 function App() {
   return (
     <CartProvider>
@@ -28,9 +31,11 @@ function App() {
         <Route path='/checkout' element={<CheckOutPage />} />
         <Route path='/contacto' element={<ContactPage />} />
         <Route path='/nosotros' element={<NosotrosPage />} />
-        {/* <Route path='/valid-checkout' element={<CheckOutValid />} /> */}
+        <Route path='/dorado' element={<DoradoPage />} />
+        <Route path='/terminos' element={<TermsPage />} />
         <Route path='/valid-checkout' element={<CheckOutValid />} />
         <Route path='/invalid-checkout' element={<CheckOutInvalid />} />
+        <Route path='*' element={<NotFoundPage />} /> {/* Ruta 404 */}
       </Routes>
       <Footer></Footer>
     </CartProvider>

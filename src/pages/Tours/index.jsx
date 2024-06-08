@@ -1,9 +1,6 @@
 import { Accordion, Card, Col, Container, Row } from "react-bootstrap"
 import './index.css'
 import CardTours from "../../componentes/CardTours"
-import { FaCheck, FaTimes } from "react-icons/fa";
-import { BsBackpack } from "react-icons/bs";
-import ToursData from '../../data/tours.json';
 import { useParams } from "react-router-dom"
 import ToursInfoSection from "../../componentes/ToursInfoSection";
 import CardFormulario from "../../componentes/CardFormulario";
@@ -28,7 +25,7 @@ function ToursPage() {
     };
 
 
-    const { data: tourData, loading, error } = useFetch(`http://192.168.1.9/api/tour-slug?slug=${tourId}`, requestOptions);
+    const { data: tourData, loading, error } = useFetch(`https://admin.vertigotravelperu.com/api/tour-slug?slug=${tourId}`, requestOptions);
 
     if (loading) return <div className="mainloader">
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
@@ -116,19 +113,7 @@ function ToursPage() {
                                     </Accordion.Item>
                                 </Accordion>
                             </div>
-                            <div className="row gap-4 mt-4">
-                                <Accordion defaultActiveKey="0" className="p-0">
-                                    <Accordion.Item eventKey="0">
-                                        <Accordion.Header className="incluye-accordion "><h3 className="box-title border-0 mb-0">Qué Llevar</h3></Accordion.Header>
-                                        <Accordion.Body>
-                                            <Row className="pt-4">
-                                                <div className="description-tours recomendation-tours" dangerouslySetInnerHTML={{ __html: tourData.recomendaciones }}>
-                                                </div>
-                                            </Row>
-                                        </Accordion.Body>
-                                    </Accordion.Item>
-                                </Accordion>
-                            </div>
+
                         </div>
                         <div className="col-md-8 heading-section">
                             <div className="w-100">
@@ -207,6 +192,21 @@ function ToursPage() {
                                         </Row>
                                     </Container>
                                 )}
+                                <Container className="mt-4 ">
+
+                                    <Accordion defaultActiveKey="0" className="p-0">
+                                        <Accordion.Item eventKey="0">
+                                            <Accordion.Header className="incluye-accordion "><h3 className="box-title border-0 mb-0">Qué Llevar</h3></Accordion.Header>
+                                            <Accordion.Body>
+                                                <Row className="pt-4">
+                                                    <div className="description-tours recomendation-tours" dangerouslySetInnerHTML={{ __html: tourData.recomendaciones }}>
+                                                    </div>
+                                                </Row>
+                                            </Accordion.Body>
+                                        </Accordion.Item>
+                                    </Accordion>
+                                </Container>
+
                             </div>
                         </div>
                     </div>
@@ -214,7 +214,7 @@ function ToursPage() {
                 <Container>
                     <h3 className="box-title m-0">Tours Relacionados</h3>
                     <Row className="pt-4">
-                        <CardTours />
+                        <CardTours tours={tourData.relacionados} />
                     </Row>
                 </Container>
             </div >

@@ -1,3 +1,66 @@
 {
-    "bienvenido-a": "Bienvenido a"
+    "header": {
+        "home": "INICIO",
+        "about": "NOSOTROS",
+        "contact": "CONTACTO",
+        "search": "Buscar Tours...",
+        "cart": "CARRITO"
+    },
+    "terminos": {
+        "terminos-condiciones": "Términos y Condiciones",
+        "ley": "En cumplimiento de la Ley N° 29733 –<b>Ley de Protección de Datos Personales</b>- y su Reglamento N° 003-2013-JUS, autorizo y otorgo a <b>VERTIGO TRAVEL PERU EIRL</b> (en adelante <b>VERTIGO TRAVEL PERU</b>), de manera indefinida, mi consentimiento libre, previo, expreso, inequívoco e informado para que (por sí mismo o a través de terceros):",
+        "recopile": "Recopile, de tratamiento o suprima, transfiera o importe, exporte mis datos personales, para elaborar Bases de Datos, transferirlas a terceras personas vinculadas o no a <b>VERTIGO TRAVEL PERU</b> (sean socios comerciales o no, nacionales o extranjeros, públicos o privados) con la finalidad de:",
+        "otorgarme": "<b></b> Otorgarme el servicio solicitado y/o",
+        "informarme": "<b></b> Informarme sobre nuevos servicios que estén relacionados con el o los servicios adquiridos y/o",
+        "establecer": "<b></b> Establecer una comunicación que permita brindarme información relacionada con otros servicios, concursos y contenidos que puedan ser de mi interés y/u ofertas y/o promociones y/o alianzas y/o publicidad, entre otros, concursos y contenidos que puedan ser de interés del titular de <b>VERTIGO TRAVEL PERU</b> y /o cualquier otra empresa que pertenezca o que pueda pertenecer en el futuro a <b>VERTIGO TRAVEL PERÚ</b>, domiciliado o no en el país (directamente y/o a través de terceras vinculadas o no vinculadas),",
+        "evaluar": "<b></b> Evaluar la calidad de sus servicios y/o",
+        "realizar": "<b></b> Realizar nivel de satisfacción de los clientes y/o almacenar y tratar mis datos personales con fines estadísticos y/o históricos para <b>VERTIGO TRAVEL PERU</b> y/o terceras vinculadas o no vinculadas y/o cualquiera otra empresa que pertenezca o que en el futuro pueda pertenecer a <b>VERTIGO TRAVEL PERU</b>.",
+        "informado": "He sido informado que:",
+        "no-consentimiento": "<b></b> Si no otorgo este consentimiento, mi información solo será utilizada (tratada) para la ejecución (desarrollo) y cumplimiento del servicio que contrate,",
+        "revocar": "<b></b> podré revocar, en cualquier momento mi consentimiento, comunicando mi decisión por escrito en cualquiera de las oficinas de <b>VERTIGO TRAVEL PERU</b>, la cual no afectará el uso de mis datos ni el contenido de las Bases de Datos para la ejecución y cumplimiento de la transacción que celebre con ustedes,",
+        "derechos": "<b></b> podré ejercer mis derechos de acceso, rectificación, cancelación y oposición de mis datos de acuerdo a la legislación vigente."
+    },
+    "buttons": {
+        "revisa-nuestros-tours": "Revisa nuestros tours",
+        "no-se-encontraron": "No se encontraron tours"
+    },
+    "destinos": {
+        "nuestros-paquetes": "Nuestros paquetes a nivel nacional",
+        "selecciona-tu-destino-favorito": "Selecciona tu destino favorito"
+    },
+    "tours": {
+        "destinos": "Destinos",
+        "nuestros-tours": "Nuestros Tours",
+        "revisa-nuestros-tours": "Revisa nuestros tours"
+    },
+    "about": {
+        "sobre-nosotros": "Sobre Nosotros"
+    },
+    "testimonios": {
+        "testimonios": "Testimonios",
+        "comentario-turisticos": "Comentarios Turisticos",
+        "mensaje-testimonio": "Somos una empresa cusqueña dinámica que genera experiencias turísticas de calidad en turismo cultural, de naturaleza, de aventura y comunitario. Con más de 10 años diseñando productos turísticos en el sur del Perú, ofrecemos una oferta diversificada y contribuimos a la preservación cultural y natural de nuestro país. Además capacitamos constantemente a nuestro personal y aliados estratégicos en nuestros diferentes destinos, lo que nos permite garantizar altos estándares de calidad."
+    },
+    "nosotros": {
+        "nosotros": "Nosotros",
+        "sobre-nosotros": "Sobre Nosotros"
+    },
+    "contacto": {
+        "contactanos": "Contactanos",
+        "ubicacion-nuestro-local": "Ubicanos en Nuestro Local",
+        "numero-contacto": "Numero de Contacto",
+        "direaccion-email": "Dirección de Email"
+    },
+    "formulario": {
+        "nombre": "Nombre",
+        "email": "Email",
+        "celular": "Celular",
+        "asunto": "Asunto",
+        "mensaje": "Mensaje",
+        "enviar-mensaje": "Enviar Mensaje"
+    },
+    "error": {
+        "no-se-encontro-tour": "No se encontró el tour",
+        "tour-no-existe": "El tour no existe"
+    }
 }

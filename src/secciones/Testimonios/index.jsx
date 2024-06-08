@@ -1,5 +1,4 @@
 import './index.css'
-
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -7,18 +6,24 @@ import 'swiper/css/pagination';
 import { Autoplay, Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 import { FaTripadvisor } from 'react-icons/fa';
 import { FaCircleDot } from 'react-icons/fa6';
+import { useTranslation } from 'react-i18next';
+import { useContext } from 'react';
+import { GeneralContext } from '../../context/general';
 
 function Testimonios() {
+    const { general } = useContext(GeneralContext);
+    const GeneralData = general.tripadvisor;
+    const { t } = useTranslation();
     return (
         <>
 
-            <div className="ftco-section testimony-section bg-bottom" style={{ backgroundImage: "url('../../../src/assets/images/bg_1.jpg')" }}>
+            <div className="ftco-section testimony-section bg-bottom" style={{ backgroundImage: "url('./assets/images/Lago-Salvador-_Parque-Nacional-del-Manu-Juan-Carlos.webp')" }}>
                 <div className="overlay"></div>
                 <div className="container">
                     <div className="row justify-content-center pb-4">
                         <div className="col-md-7 text-center heading-section heading-section-white ">
-                            <span className="subheading">Testimonios</span>
-                            <h2 className="mb-4">Comentarios Turisticos</h2>
+                            <span className="subheading">{t("testimonios.testimonios")}</span>
+                            <h2 className="mb-4">{t("testimonios.comentario-turisticos")}</h2>
                         </div>
                     </div>
                     <div className="row ">
@@ -50,176 +55,42 @@ function Testimonios() {
                             }}
                             className="mySwiperDestiny"
                         >
-                            <SwiperSlide>
-                                <div className="card mb-3">
-                                    <div className="card-header d-flex justify-content-between align-items-center border-0">
-                                        <div className="d-flex align-items-center">
-                                            <img
-                                                src="https://via.placeholder.com/50"
-                                                alt="User"
-                                                className="rounded-circle me-3"
-                                            />
-                                            <div>
-                                                <h6 className="mb-0">John Doe</h6>
-                                                <span className="text-muted">New York, USA</span>
+                            {GeneralData.map((testimonios) => (
+                                <SwiperSlide key={testimonios.id}>
+                                    <div className="card mb-3" >
+                                        <div className="card-header d-flex justify-content-between align-items-center border-0">
+                                            <div className="d-flex align-items-center">
+                                                <img
+                                                    src={testimonios.url}
+                                                    alt="User"
+                                                    className="rounded-circle me-3"
+                                                />
+                                                <div>
+                                                    <h6 className="mb-0">{testimonios.name}</h6>
+                                                    <span className="text-muted">{testimonios.fecha}</span>
+                                                </div>
+                                            </div>
+                                            <div className="d-flex align-items-center border-none ti-stars">
+                                                <FaTripadvisor />
                                             </div>
                                         </div>
-                                        <div className="d-flex align-items-center border-none ti-stars">
-                                            <FaTripadvisor />
+                                        <div className="card-body pt-0">
+                                            <span className="ti-stars p-0">
+                                                <FaCircleDot />
+                                                <FaCircleDot />
+                                                <FaCircleDot />
+                                                <FaCircleDot />
+                                                <FaCircleDot />
+                                            </span>
+                                            <p className="card-text clamp-4">
+                                                {testimonios.description}
+                                            </p>
                                         </div>
                                     </div>
-                                    <div className="card-body pt-0">
-                                        <span className="ti-stars p-0">
-                                            <FaCircleDot />
-                                            <FaCircleDot />
-                                            <FaCircleDot />
-                                            <FaCircleDot />
-                                            <FaCircleDot />
-                                        </span>
-                                        <p className="card-text">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae semper dolor, nec vehicula arcu.
-                                            Vestibulum in lectus non odio sollicitudin auctor at sit amet nunc. In sed erat sed nunc sodales aliquet.
-                                            Nulla facilisi. Sed aliquam tortor ut mauris lacinia, quis feugiat libero malesuada.
-                                        </p>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className="card mb-3">
-                                    <div className="card-header d-flex justify-content-between align-items-center border-0">
-                                        <div className="d-flex align-items-center">
-                                            <img
-                                                src="https://via.placeholder.com/50"
-                                                alt="User"
-                                                className="rounded-circle me-3"
-                                            />
-                                            <div>
-                                                <h6 className="mb-0">John Doe</h6>
-                                                <span className="text-muted">New York, USA</span>
-                                            </div>
-                                        </div>
-                                        <div className="d-flex align-items-center border-none ti-stars">
-                                            <FaTripadvisor />
-                                        </div>
-                                    </div>
-                                    <div className="card-body pt-0">
-                                        <span className="ti-stars p-0">
-                                            <FaCircleDot />
-                                            <FaCircleDot />
-                                            <FaCircleDot />
-                                            <FaCircleDot />
-                                            <FaCircleDot />
-                                        </span>
-                                        <p className="card-text">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae semper dolor, nec vehicula arcu.
-                                            Vestibulum in lectus non odio sollicitudin auctor at sit amet nunc. In sed erat sed nunc sodales aliquet.
-                                            Nulla facilisi. Sed aliquam tortor ut mauris lacinia, quis feugiat libero malesuada.
-                                        </p>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className="card mb-3">
-                                    <div className="card-header d-flex justify-content-between align-items-center border-0">
-                                        <div className="d-flex align-items-center">
-                                            <img
-                                                src="https://via.placeholder.com/50"
-                                                alt="User"
-                                                className="rounded-circle me-3"
-                                            />
-                                            <div>
-                                                <h6 className="mb-0">John Doe</h6>
-                                                <span className="text-muted">New York, USA</span>
-                                            </div>
-                                        </div>
-                                        <div className="d-flex align-items-center border-none ti-stars">
-                                            <FaTripadvisor />
-                                        </div>
-                                    </div>
-                                    <div className="card-body pt-0">
-                                        <span className="ti-stars p-0">
-                                            <FaCircleDot />
-                                            <FaCircleDot />
-                                            <FaCircleDot />
-                                            <FaCircleDot />
-                                            <FaCircleDot />
-                                        </span>
-                                        <p className="card-text">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae semper dolor, nec vehicula arcu.
-                                            Vestibulum in lectus non odio sollicitudin auctor at sit amet nunc. In sed erat sed nunc sodales aliquet.
-                                            Nulla facilisi. Sed aliquam tortor ut mauris lacinia, quis feugiat libero malesuada.
-                                        </p>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className="card mb-3">
-                                    <div className="card-header d-flex justify-content-between align-items-center border-0">
-                                        <div className="d-flex align-items-center">
-                                            <img
-                                                src="https://via.placeholder.com/50"
-                                                alt="User"
-                                                className="rounded-circle me-3"
-                                            />
-                                            <div>
-                                                <h6 className="mb-0">John Doe</h6>
-                                                <span className="text-muted">New York, USA</span>
-                                            </div>
-                                        </div>
-                                        <div className="d-flex align-items-center border-none ti-stars">
-                                            <FaTripadvisor />
-                                        </div>
-                                    </div>
-                                    <div className="card-body pt-0">
-                                        <span className="ti-stars p-0">
-                                            <FaCircleDot />
-                                            <FaCircleDot />
-                                            <FaCircleDot />
-                                            <FaCircleDot />
-                                            <FaCircleDot />
-                                        </span>
-                                        <p className="card-text">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae semper dolor, nec vehicula arcu.
-                                            Vestibulum in lectus non odio sollicitudin auctor at sit amet nunc. In sed erat sed nunc sodales aliquet.
-                                            Nulla facilisi. Sed aliquam tortor ut mauris lacinia, quis feugiat libero malesuada.
-                                        </p>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
-                            <SwiperSlide>
-                                <div className="card mb-3">
-                                    <div className="card-header d-flex justify-content-between align-items-center border-0">
-                                        <div className="d-flex align-items-center">
-                                            <img
-                                                src="https://via.placeholder.com/50"
-                                                alt="User"
-                                                className="rounded-circle me-3"
-                                            />
-                                            <div>
-                                                <h6 className="mb-0">John Doe</h6>
-                                                <span className="text-muted">New York, USA</span>
-                                            </div>
-                                        </div>
-                                        <div className="d-flex align-items-center border-none ti-stars">
-                                            <FaTripadvisor />
-                                        </div>
-                                    </div>
-                                    <div className="card-body pt-0">
-                                        <span className="ti-stars p-0">
-                                            <FaCircleDot />
-                                            <FaCircleDot />
-                                            <FaCircleDot />
-                                            <FaCircleDot />
-                                            <FaCircleDot />
-                                        </span>
-                                        <p className="card-text">
-                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae semper dolor, nec vehicula arcu.
-                                            Vestibulum in lectus non odio sollicitudin auctor at sit amet nunc. In sed erat sed nunc sodales aliquet.
-                                            Nulla facilisi. Sed aliquam tortor ut mauris lacinia, quis feugiat libero malesuada.
-                                        </p>
-                                    </div>
-                                </div>
-                            </SwiperSlide>
+                                </SwiperSlide>
+
+                            ))}
+
                         </Swiper>
 
                     </div>

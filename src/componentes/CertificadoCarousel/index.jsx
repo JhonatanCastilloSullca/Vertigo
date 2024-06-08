@@ -25,51 +25,23 @@ function CertificadoCarousel({ general }) {
     return (
         <div className="">
             <div className="container">
-                <Swiper
-                    modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
-                    spaceBetween={50}
-                    slidesPerView={1}
-                    centeredSlides={true}
-                    grabCursor={true}
-                    autoplay={{
-                        delay: 500,
-                        disableOnInteraction: false,
-                        pauseOnMouseEnter: true,
-                    }}
-                    loop={true}
-                    pagination={{
-                        clickable: true,
-                    }}
-                    breakpoints={{
-                        640: {
-                            slidesPerView: 5,
-                            spaceBetween: 20,
-                        },
-                        768: {
-                            slidesPerView: 5,
-                            spaceBetween: 40,
-                        },
-                        1024: {
-                            slidesPerView: 5,
-                            spaceBetween: 50,
-                        },
-                    }}
-                    className="mySwiperDestiny"
-                >
-                    {
-                        general.images.map((certificados) => (
-                            <SwiperSlide key={certificados.id}>
+
+                <div className="row templaterow sectionmargin">
+                    {general.detalles.map((certificados) => (
+                        <div className="column columnrow" key={certificados.id}>
+                            <div className="icon-container">
                                 <img
-                                    src={certificados.nombre}
-                                    className='slider-image-home'
-                                    onClick={() => handleImageClick(certificados.nombre)}
-                                    alt="Nature"
+                                    src={certificados.url}
+                                    className="img-fluid icon-image img-size-certi "//250*150
+                                    onClick={() => handleImageClick(certificados.urlabrir)}
+                                    alt="Certificado"
                                 />
-                            </SwiperSlide>
-                        )
-                        )
-                    }
-                </Swiper>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+
             </div>
             <ImageModal isOpen={modalOpen} imageUrl={selectedImage} onClose={() => setModalOpen(false)} />
         </div>

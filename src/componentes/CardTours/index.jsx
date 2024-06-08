@@ -18,7 +18,7 @@ function CardTours({ tours }) {
                                     backgroundImage: `url(${tour.imagenprincipal ? tour.imagenprincipal : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTJbnQkQbM5APIunAO_B6Upp9b8zqnscVro8WPe2Ic9Q&s'})`
                                 }}
                             >
-                                <span className="price">S/. {tour.precio || 'Precio no disponible'}</span>
+                                <span className="price">$ {tour.precio || 'Precio no disponible'}</span>
                             </NavLink>
                             <div className="text p-4">
                                 <NavLink to={`/tours/${tour.slug}`} className="category-link">{tour.categoria?.nombre || 'Categoría no disponible'}</NavLink>

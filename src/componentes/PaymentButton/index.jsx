@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 
 
+
 const PaymentButton = ({ sessiontoken, merchantid, purchasenumber, amount, route, link_js }) => {
     const [scriptLoaded, setScriptLoaded] = useState(false);
 
@@ -38,7 +39,7 @@ const PaymentButton = ({ sessiontoken, merchantid, purchasenumber, amount, route
                 amount: amount,
                 expirationminutes: '20',
                 timeouturl: 'about:blank',
-                merchantlogo: 'img/comercio.png',
+                merchantlogo: "http://localhost:5173/src/assets/images/vertigologo2.webp",
                 formbuttoncolor: '#000000',
                 action: route,
                 complete: function (params) {

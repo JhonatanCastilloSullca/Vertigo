@@ -14,8 +14,8 @@ function Certificados() {
 
     return (
         <>
-            <div className="ftco-section ">
-                <div className="container">
+            <div className="">
+                <div className="">
                     <TituloSection titulo={cabeceraTipo.titulo} subtitulo={cabeceraTipo.subtitulo} />
                     <CertificadoCarousel general={cabeceraTipo} />
                 </div>

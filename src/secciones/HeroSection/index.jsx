@@ -14,7 +14,6 @@ function HeroSection() {
 
     const { general: GeneralData } = useContext(GeneralContext);
     const cabeceraTipo = GeneralData.cabecera.tipo;
-    console.log("🚀 ~ HeroSection ~ GeneralData:", GeneralData)
     return (
         <>
             <div className='w-100 relative'>

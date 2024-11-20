@@ -1,13 +1,18 @@
 import { Card, Form, Alert } from "react-bootstrap";
 import { useCart } from "../../Hook/useCart";
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { FaCartFlatbed, FaCartShopping } from "react-icons/fa6";
 
 function CardFormulario({ tour }) {
 
     const { addToCart, removeFromeCart, cart } = useCart();
     const [fecha, setFecha] = useState("");
-    const [pax, setPax] = useState("");
+    const [pax, setPax] = useState(1);
     const [error, setError] = useState({});
+    const { t } = useTranslation();
+
 
     const checkTourInCart = tour => {
         return cart.some(item => item.id === tour.id);
@@ -52,8 +57,10 @@ function CardFormulario({ tour }) {
                     <h3 className="box-title">Reserva con nosotros</h3>
                     <div>
                         <h2 className="producto-tittle-information text-center text-primary">{tour.nombre}</h2>
-                        <p className="text-muted text-center"><span className="text-danger h2 fw-bolder">{tour.precio}</span> x pax</p>
-                        <div className="d-flex flex-column">
+                        <p className="text-muted text-center mb-0"><span className="text-danger h2 fw-bolder">$ {tour.precio}</span> x pax</p>
+                        <p className=" text-center text-danger"> Tarifa min 4pax.</p>
+
+                        {/* <div className="d-flex flex-column">
                             <div className="div-formulario">
                                 <span>Fecha:</span>
                                 <Form.Control
@@ -69,13 +76,13 @@ function CardFormulario({ tour }) {
                                     {error.fecha}
                                 </div>
                             )}
-                        </div>
-                        <div className="d-flex flex-column">
+                        </div> */}
+                        {/* <div className="d-flex flex-column">
                             <div className="div-formulario">
                                 <span>Pax:</span>
                                 <Form.Control
                                     type="text"
-                                    placeholder="1"
+                                    placeholder="0"
                                     className={`input-formulario fs-12 ${error.pax ? 'is-invalid' : ''}`}
                                     value={pax}
                                     onChange={handlePaxChange}
@@ -87,17 +94,26 @@ function CardFormulario({ tour }) {
                                     {error.pax}
                                 </div>
                             )}
-                        </div>
+                        </div> */}
                     </div>
                     <div className="submit_group">
-                        <button onClick={handleSubmit} className="booking_form_submit">
+                        {/* <button onClick={handleSubmit} className="booking_form_submit">
                             {
                                 isToursInCart
                                     ? "Quitar de la reserva"
                                     : "Reservar Ahora"
                             }
-                        </button>
+                        </button> */}
+                        <a href="https://api.whatsapp.com/send/?phone=51990757584&text=Hola%20quiero%20reservar" className="booking_form_submit text-center">
+                            Reservar Ahora
+                        </a>
                     </div>
+                    {/* <div className="submit_group items-center text-center">
+                        <NavLink to='/checkout' className="py-2 d-block">
+                            <FaCartShopping className="mx-2" />
+                            {t("header.cart2")}
+                        </NavLink>
+                    </div> */}
                 </Card.Body>
             </Card>
         </>

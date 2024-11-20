@@ -19,7 +19,7 @@ function Destinos() {
             language_id: languageId
         }
     };
-    const { data, loading, error } = useFetch("https://admin.vertigotravelperu.com/api/ubicaciones", requestOptions);
+    const { data, loading, error } = useFetch("https://api.vertigotravelperu.com/api/ubicaciones", requestOptions);
     const GeneralData = data;
     if (loading) return <div className="mainloader">
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
@@ -38,7 +38,7 @@ function Destinos() {
                 <div className="container">
                     <div className="row justify-content-center pb-4">
                         <div className="col-md-12 heading-section text-center">
-                            <span className="subheading">{t("destinos.nuestros-paquetes")}</span>
+                            <span className="subheading">{t("destinos.nuestros-paquetes") }</span>
                             <h2 className="mb-4">{t("destinos.selecciona-tu-destino-favorito")}</h2>
                         </div>
                     </div>

@@ -24,11 +24,10 @@ function TourInformation({ tourData }) {
     return (
         <>
             {tourData.tamaño_grupo && (
-                <TourInformationItem icon={<HiUserGroup />} title="Max. Personas" description={tourData.tamaño_grupo.toString()} />
+                <TourInformationItem icon={<HiUserGroup />} title="Max. Personas" description={'8 pax'} />
             )}
-            <TourInformationItem icon={<FaBaby />} title="Edad Minima" description="6 Años" />
-            {tourData.Lugar_de_Recojo && (
-                <TourInformationItem icon={<FaMapPin />} title="Lugar de Recojo" description={tourData.Lugar_de_Recojo} />
+            {tourData.tamaño_grupo && (
+                <TourInformationItem icon={<HiUserGroup />} title="Min. Personas" description={'2 pax'} />
             )}
             {tourData.ubicaciones && (
                 <TourInformationItem

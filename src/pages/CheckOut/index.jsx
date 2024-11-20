@@ -106,7 +106,7 @@ function CheckOutPage() {
                     cliente: formData,
                     total: subtotal
                 };
-                const response = await fetch('https://admin.vertigotravelperu.com/api/niubiz', {
+                const response = await fetch('https://api.vertigotravelperu.com/api/niubiz', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -201,7 +201,7 @@ function CheckOutPage() {
                                                     </div>
                                                 </div>
                                                 <div className="precio-cart-product position-relative ">
-                                                    <h2 className="description-text-precio-tour">S/ {item.price}</h2>
+                                                    <h2 className="description-text-precio-tour">$ {item.price}</h2>
                                                     <h3 className="description-text-fecha-tour">Fecha: {item.fecha}</h3>
                                                     <InputGroup className="mb-3 justify-content-center ">
                                                         <Button variant="outline-secondary" className="btn-left-cart" onClick={() => handleDecrement(item)}>
@@ -227,9 +227,9 @@ function CheckOutPage() {
                                     <div className="d-flex justify-content-end border-bottom m-2">
                                         <h2 className="description-text-subtotal-tour">Subtotal: {subtotal}</h2>
                                     </div>
-                                    <div className="d-flex justify-content-end border-bottom m-2">
-                                        <h2 className="description-text-subtotal-tour">Monto Reserva: S/ {mtoReserva}</h2>
-                                    </div>
+                                    {/* <div className="d-flex justify-content-end border-bottom m-2">
+                                        <h2 className="description-text-subtotal-tour">Monto Reserva: $ {mtoReserva}</h2>
+                                    </div> */}
                                 </Card.Body>
                                 <Card.Footer className="d-flex justify-content-between align-items-center">
                                     <span className="cart-notificacion-terminos">*Terminos y Condiciones</span>
@@ -374,6 +374,7 @@ function CheckOutPage() {
                                             merchantid={paymentData.merchant_id}
                                             purchasenumber={paymentData.reserva_id}
                                             amount={paymentData.pago}
+                                            // logo={paymentData.logo}
                                             link_js={paymentData.link_js}
                                             route={paymentData.route}
                                         />
@@ -388,7 +389,7 @@ function CheckOutPage() {
                 <Container className="text-center">
                     <Row className="mb-4">
                         <div className="d-flex flex-column justify-content-center align-items-center">
-                            <p className="section-description">
+                            <p className="section-description w-100 p-3">
                                 Somos una empresa cusqueña dinámica que genera experiencias turísticas de calidad en turismo cultural, de naturaleza, de aventura y comunitario. Con más de 10 años diseñando productos turísticos en el sur del Perú, ofrecemos una oferta diversificada y contribuimos a la preservación cultural y natural de nuestro país. Además capacitamos constantemente a nuestro personal y aliados estratégicos en nuestros diferentes destinos, lo que nos permite garantizar altos estándares de calidad.
                             </p>
                         </div>

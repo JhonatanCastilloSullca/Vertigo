@@ -23,7 +23,7 @@ function Tours() {
             language_id: languageId
         }
     };
-    const { data, loading, error } = useFetch("https://admin.vertigotravelperu.com/api/tours", requestOptions);
+    const { data, loading, error } = useFetch("https://api.vertigotravelperu.com/api/tours", requestOptions);
     const ToursData = data;
     if (loading) return <div className="mainloader">
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
@@ -43,12 +43,12 @@ function Tours() {
                     <div className="row justify-content-center pb-4">
                         <div className="col-md-12 heading-section text-center ">
                             <span className="subheading">{t("tours.destinos")}</span>
-                            <h2 className="mb-4">{t("tours.nuestros-tours")}</h2>
+                            {/* <h2 className="mb-4">{t("tours.nuestros-tours")}</h2> */}
                         </div>
                     </div>
                     <div className="row">
                         <CardTours tours={getRandomTours(ToursData, 3)} />
-                        <Col >
+                        <Col className='d-none' >
                             <p className='align-items-center justify-content-center d-flex'>
                                 <NavLink to={`/tours`} className='btn btn-primary py-3 px-4'>
                                     {t("tours.revisa-nuestros-tours")}

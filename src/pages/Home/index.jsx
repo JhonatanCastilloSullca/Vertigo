@@ -16,13 +16,14 @@ function Home() {
             <HeroSection />
             <Search />
             <Servicios />
-            <Destinos />
             <Tours />
+            <Destinos />
             {/* <Parallax /> */}
             {/* <About /> */}
             <Testimonios />
-            {/* <Blog /> */}
             <Certificados />
+
+            {/* <Blog /> */}
         </>
     )
 }

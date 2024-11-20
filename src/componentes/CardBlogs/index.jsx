@@ -16,7 +16,7 @@ function CardBlogs() {
         })
     };
 
-    const { data, loading, error } = useFetch("https://admin.vertigotravelperu.com/api/tours", requestOptions);
+    const { data, loading, error } = useFetch("https://api.vertigotravelperu.com/api/tours", requestOptions);
 
     const blogs = data;
     if (loading) return <div className="mainloader">

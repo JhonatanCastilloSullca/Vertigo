@@ -37,7 +37,7 @@ function NotFoundPage() {
                 <Container className="text-center">
                     <Row className="mb-4">
                         <div className="d-flex flex-column justify-content-center align-items-center">
-                            <p className="section-description">
+                            <p className="section-description w-100 p-3">
                                 {t("testimonios.mensaje-testimonio")}
                             </p>
                         </div>

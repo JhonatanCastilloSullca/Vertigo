@@ -1,6 +1,6 @@
 import './index.css'
 import { NavLink } from 'react-router-dom';
-import { FaEnvelope, FaFacebook, FaTripadvisor } from 'react-icons/fa';
+import { FaEnvelope, FaFacebook, FaInstagram, FaTiktok, FaTripadvisor } from 'react-icons/fa';
 import { Row } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 import { FloatingWhatsApp } from 'react-floating-whatsapp';
@@ -43,6 +43,10 @@ function Footer() {
                                         rel="noopener noreferrer" href="https://www.facebook.com/vertigotravelperuEIRL" className='d-flex justify-content-center align-items-center' ><FaFacebook /></a></li>
                                     <li ><a target="_blank"
                                         rel="noopener noreferrer" href="https://www.tripadvisor.com.pe/Attraction_Review-g294314-d7187588-Reviews-Vertigo_Travel_Peru-Cusco_Cusco_Region.html" className='d-flex justify-content-center align-items-center' ><FaTripadvisor /></a></li>
+                                    <li ><a target="_blank"
+                                        rel="noopener noreferrer" href="https://www.tiktok.com/@vertigotravelperu" className='d-flex justify-content-center align-items-center' ><FaTiktok /></a></li>
+                                    <li ><a target="_blank"
+                                        rel="noopener noreferrer" href="https://www.instagram.com/vertigotravelperu/" className='d-flex justify-content-center align-items-center' ><FaInstagram /></a></li>
                                 </ul>
                             </div>
                         </div>
@@ -88,9 +92,37 @@ function Footer() {
                                 <h2 className="ftco-heading-2">Contactanos</h2>
                                 <div className="block-23 mb-3">
                                     <ul>
-                                        <li><FaLocationDot className='text-white ' /><span className="text px-2">C. Plateros 394, Cusco, Perú</span></li>
-                                        <li><FaPhone className='text-white ' /><span className="text px-2">+51 990 757 584</span></li>
-                                        <li><FaEnvelope className='text-white ' /><span className="text px-2">info@vertigotravel.com</span></li>
+                                        <li>
+                                            <a href="https://www.google.com/maps/search/?api=1&query=C.+Plateros+394,+Cusco,+Perú" target="_blank" rel="noopener noreferrer">
+                                                <FaLocationDot className="text-white" />
+                                                <span className="text px-2">C. Plateros 394, Cusco, Perú</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="tel:+51990757584">
+                                                <FaPhone className="text-white" />
+                                                <span className="text px-2">+51 990 757 584</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="mailto:info@vertigotravel.com">
+                                                <FaEnvelope className="text-white" />
+                                                <span className="text px-2">info@vertigotravel.com</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="mailto:reservas@vertigotravel.com">
+                                                <FaEnvelope className="text-white" />
+                                                <span className="text px-2">reservas@vertigotravel.com</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="mailto:gerencia@vertigotravel.com">
+                                                <FaEnvelope className="text-white" />
+                                                <span className="text px-2">gerencia@vertigotravel.com</span>
+                                            </a>
+                                        </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -102,7 +134,7 @@ function Footer() {
             <Row className='m-0 p-0 bg-dark'>
                 <div className="col-md-12 text-center copy-text-footer">
                     <p>
-                        Vertigo
+                        Vertigo Travel Perú
                     </p>
                 </div>
             </Row>
@@ -110,6 +142,4 @@ function Footer() {
     )
 }
 
-export default Footer
-
-
+export default Footer;

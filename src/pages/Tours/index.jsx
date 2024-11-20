@@ -25,7 +25,7 @@ function ToursPage() {
     };
 
 
-    const { data: tourData, loading, error } = useFetch(`https://admin.vertigotravelperu.com/api/tour-slug?slug=${tourId}`, requestOptions);
+    const { data: tourData, loading, error } = useFetch(`https://api.vertigotravelperu.com/api/tour-slug?slug=${tourId}`, requestOptions);
 
     if (loading) return <div className="mainloader">
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
@@ -50,7 +50,7 @@ function ToursPage() {
             <div className="hero-wrap js-mediumheight" style={{ backgroundImage: `url('${tourData.imagenprincipal}')` }}>
                 <div className="overlay-real"></div>
                 <div className="container p-3">
-                    <div className="row no-gutters slider-text js-mediumheight align-items-center">
+                    <div className="row no-gutters slider-text js-mediumheight align-items-center justify-content-center">
                         <div className="col-md-7 ">
                         </div>
                     </div>
@@ -64,7 +64,7 @@ function ToursPage() {
                     categoria={tourData.categoria.nombre}
                 />
             </Container>
-            <div className="ftco-section services-section pt-4 descriptio-tour-container">
+            <div className="ftco-section services-section pt-4 descriptio-tour-container pb-0 -mb-4">
                 <div className="container p-4">
                     <div className="row d-flex">
                         <div className="col-md-4">
@@ -167,7 +167,7 @@ function ToursPage() {
                                             {detallesTourDias && detallesTourDias.map((detalle, index) => (
                                                 <Accordion.Item key={index} eventKey={String(index)}>
                                                     <Accordion.Header>
-                                                        <h6 className="fw-bold text-primary">Día {index + 1}: {detalle.titulo}</h6>
+                                                        <h6 className="fw-bold text-primary">{detalle.titulo}</h6>
                                                     </Accordion.Header>
                                                     <Accordion.Body>
                                                         <div className="incluye-tours" dangerouslySetInnerHTML={{ __html: detalle.descripcion }}></div>

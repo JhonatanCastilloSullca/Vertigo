@@ -37,7 +37,7 @@ function App() {
         <Route path='/invalid-checkout' element={<CheckOutInvalid />} />
         <Route path='*' element={<NotFoundPage />} /> {/* Ruta 404 */}
       </Routes>
-      <Footer></Footer>
+      <Footer />
     </CartProvider>
   )
 }

@@ -6,6 +6,7 @@ import { FaCartShopping, FaMoneyBill } from "react-icons/fa6"
 import { useCart } from "../../Hook/useCart"
 import { NavLink } from "react-router-dom"
 
+
 function CartItem({ imagenprincipal, precio, nombre, removeFromeCart }) {
     return (
         <ListGroup.Item className="">

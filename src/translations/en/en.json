@@ -4,7 +4,8 @@
         "about": "ABOUT US",
         "contact": "CONTACT",
         "search": "Search Tours...",
-        "cart": "CART"
+        "cart": "CART",
+        "cart2": "View Cart"
     },
     "terminos": {
         "terminos-condiciones": "Terms and Conditions",
@@ -29,7 +30,7 @@
         "selecciona-tu-destino-favorito": "Select your favorite destination"
     },
     "tours": {
-        "destinos": "Destinations",
+        "destinos": "Our Packages",
         "nuestros-tours": "Our Tours",
         "revisa-nuestros-tours": "Check our tours"
     },

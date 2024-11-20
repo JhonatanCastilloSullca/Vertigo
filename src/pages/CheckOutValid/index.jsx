@@ -29,7 +29,7 @@ function CheckOutValid() {
         body: JSON.stringify({
         })
     };
-    const { data, loading, error } = useFetch(`https://admin.vertigotravelperu.com/api/confirmar-pago?id=${id}`, requestOptions);
+    const { data, loading, error } = useFetch(`https://api.vertigotravelperu.com/api/confirmar-pago?id=${id}`, requestOptions);
 
     const blogs = data;
     if (loading) return <div className="mainloader">
@@ -87,7 +87,7 @@ function CheckOutValid() {
                 <Container className="text-center">
                     <Row className="mb-4">
                         <div className="d-flex flex-column justify-content-center align-items-center">
-                            <p className="section-description">
+                            <p className="section-description w-100 p-3">
                                 Somos una empresa cusqueña dinámica que genera experiencias turísticas de calidad en turismo cultural, de naturaleza, de aventura y comunitario. Con más de 10 años diseñando productos turísticos en el sur del Perú, ofrecemos una oferta diversificada y contribuimos a la preservación cultural y natural de nuestro país. Además capacitamos constantemente a nuestro personal y aliados estratégicos en nuestros diferentes destinos, lo que nos permite garantizar altos estándares de calidad.
                             </p>
                         </div>

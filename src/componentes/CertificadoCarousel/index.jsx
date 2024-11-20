@@ -7,12 +7,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Autoplay, Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules';
 
-
-
-
-
 function CertificadoCarousel({ general }) {
-
     const [modalOpen, setModalOpen] = useState(false);
     const [selectedImage, setSelectedImage] = useState('');
 
@@ -21,18 +16,16 @@ function CertificadoCarousel({ general }) {
         setModalOpen(true);
     };
 
-
     return (
         <div className="">
             <div className="container">
-
-                <div className="row templaterow sectionmargin">
+                <div className="row templaterow py-5">
                     {general.detalles.map((certificados) => (
                         <div className="column columnrow" key={certificados.id}>
                             <div className="icon-container">
                                 <img
                                     src={certificados.url}
-                                    className="img-fluid icon-image img-size-certi "//250*150
+                                    className="img-fluid icon-image img-size-certi"
                                     onClick={() => handleImageClick(certificados.urlabrir)}
                                     alt="Certificado"
                                 />
@@ -40,8 +33,6 @@ function CertificadoCarousel({ general }) {
                         </div>
                     ))}
                 </div>
-
-
             </div>
             <ImageModal isOpen={modalOpen} imageUrl={selectedImage} onClose={() => setModalOpen(false)} />
         </div>

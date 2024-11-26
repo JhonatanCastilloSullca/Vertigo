@@ -18,8 +18,8 @@ function ToursArchive() {
         }
     };
 
-    const { data: GeneralData, loading: generalLoading, error: generalError } = useFetch("http://127.0.0.1/api/categorias", requestOptions);
-    const { data: tourData, loading: tourLoading, error: tourError } = useFetch("http://127.0.0.1/api/tours", requestOptions);
+    const { data: GeneralData, loading: generalLoading, error: generalError } = useFetch("https://api.vertigotravelperu.com/api/categorias", requestOptions);
+    const { data: tourData, loading: tourLoading, error: tourError } = useFetch("https://api.vertigotravelperu.com/api/tours", requestOptions);
 
 
     const [filteredCount, setFilteredCount] = useState(0);

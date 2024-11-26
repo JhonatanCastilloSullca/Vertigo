@@ -14,7 +14,7 @@ function CardActividades() {
         body: JSON.stringify({
         })
     };
-    const { data, loading, error } = useFetch("http://127.0.0.1/api/servicios", requestOptions);
+    const { data, loading, error } = useFetch("https://api.vertigotravelperu.com/api/servicios", requestOptions);
     const servicios = data;
 
 

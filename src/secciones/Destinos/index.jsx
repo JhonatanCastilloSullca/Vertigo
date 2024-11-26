@@ -19,7 +19,7 @@ function Destinos() {
             language_id: languageId
         }
     };
-    const { data, loading, error } = useFetch("http://127.0.0.1/api/ubicaciones", requestOptions);
+    const { data, loading, error } = useFetch("https://api.vertigotravelperu.com/api/ubicaciones", requestOptions);
     const GeneralData = data;
     if (loading) return <div className="mainloader">
         <div style={{ textAlign: 'center', marginTop: '20px' }}>

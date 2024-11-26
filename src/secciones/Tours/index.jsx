@@ -31,7 +31,7 @@ function Tours() {
             language_id: languageId
         }
     };
-    const { data, loading, error } = useFetch("http://127.0.0.1/api/tours", requestOptions);
+    const { data, loading, error } = useFetch("https://api.vertigotravelperu.com/api/tours", requestOptions);
     const categoria = data ? data.filter((item) => item.destacado == 1) : [];
     const ToursData = categoria;
     if (loading) return <div className="mainloader">

@@ -25,7 +25,7 @@ function BlogPage() {
     };
 
 
-    const { data: blogData, loading, error } = useFetch(`https://api.vertigotravelperu.com/api/blog-slug?slug=${blogId}`, requestOptions);
+    const { data: blogData, loading, error } = useFetch(`http://127.0.0.1/api/blog-slug?slug=${blogId}`, requestOptions);
 
     if (loading) return <div className="mainloader">
         <div style={{ textAlign: 'center', marginTop: '20px' }}>

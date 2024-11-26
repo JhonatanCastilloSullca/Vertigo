@@ -145,10 +145,6 @@
 }
 
 
-.drpwdpwm-menu {
-    width: 100vw;
-}
-
 
 
 .tittle-categoria-header {
@@ -347,7 +343,6 @@ button.nav-link {
     width: 100%;
     position: fixed;
     z-index: 999999999999999;
-    left: 0;
 }
 
 

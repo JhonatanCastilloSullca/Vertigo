@@ -2,8 +2,16 @@ import { DotLoader } from 'react-spinners';
 import { useFetch } from '../../Hook/useFetch';
 import CardTours from '../../componentes/CardTours'
 import './index.css'
-import { Col } from 'react-bootstrap';
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import { GiDuration } from "react-icons/gi";
+import { AiOutlineTeam } from "react-icons/ai";
 import { NavLink } from 'react-router-dom';
+import { Col } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 function getRandomTours(tours, count) {
     let shuffled = tours.slice();
@@ -23,8 +31,9 @@ function Tours() {
             language_id: languageId
         }
     };
-    const { data, loading, error } = useFetch("https://api.vertigotravelperu.com/api/tours", requestOptions);
-    const ToursData = data;
+    const { data, loading, error } = useFetch("http://127.0.0.1/api/tours", requestOptions);
+    const categoria = data ? data.filter((item) => item.destacado == 1) : [];
+    const ToursData = categoria;
     if (loading) return <div className="mainloader">
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
             <DotLoader color="#28a745" loading={true} size={100} />
@@ -46,15 +55,71 @@ function Tours() {
                             {/* <h2 className="mb-4">{t("tours.nuestros-tours")}</h2> */}
                         </div>
                     </div>
-                    <div className="row">
-                        <CardTours tours={getRandomTours(ToursData, 3)} />
-                        <Col className='d-none' >
-                            <p className='align-items-center justify-content-center d-flex'>
-                                <NavLink to={`/tours`} className='btn btn-primary py-3 px-4'>
-                                    {t("tours.revisa-nuestros-tours")}
-                                </NavLink>
-                            </p>
-                        </Col>
+                </div>
+                <div className="container">
+                    <div className="row justify-content-center pb-4">
+                        <div className="row">
+                            <Swiper
+                                    modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
+                                    spaceBetween={50}
+                                    centeredSlides={true}
+                                    grabCursor={true}
+                                    autoplay={{
+                                        delay: 1800,
+                                        disableOnInteraction: false,
+                                    }}
+                                    pagination={{
+                                        clickable: true,
+                                    }}
+                                    breakpoints={{
+                                        640: {
+                                            slidesPerView: 2,
+                                            spaceBetween: 20,
+                                        },
+                                        768: {
+                                            slidesPerView: 3,
+                                            spaceBetween: 40,
+                                        },
+                                        1024: {
+                                            slidesPerView: 3,
+                                            spaceBetween: 50,
+                                        },
+                                    }}
+                                    className=""
+                                >
+
+                                    {
+                                        ToursData.map((tour) => (
+                                            <SwiperSlide key={tour.id}>
+                                                <div className="project-wrap">
+                                                    <NavLink
+                                                        to={`/tours/${tour.slug}`}
+                                                        className="img"
+                                                        style={{
+                                                            backgroundImage: `url(${tour.imagenprincipal ? tour.imagenprincipal : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTJbnQkQbM5APIunAO_B6Upp9b8zqnscVro8WPe2Ic9Q&s'})`
+                                                        }}
+                                                    >
+                                                        <span className="price">$ {tour.precio || 'Precio no disponible'}</span>
+                                                    </NavLink>
+                                                    <div className="text p-4">
+                                                        <NavLink to={`/tours/${tour.slug}`} className="category-link">{tour.categoria?.nombre || 'Categoría no disponible'}</NavLink>
+                                                        <h3><NavLink to={`/tours/${tour.slug}`}>{tour.nombre}</NavLink></h3>
+                                                        <p className="location mb-0"><span className="fa fa-map-marker"></span>
+                                                            {tour.ubicaciones?.map((ubicacion, index) => (
+                                                                <span key={ubicacion.id}>{(index ? ', ' : '') + ubicacion.nombre}</span>
+                                                            ))}
+                                                        </p>
+                                                        <ul>
+                                                            <li><span><AiOutlineTeam /></span> {tour.tamaño_grupo || 'Tamaño del grupo no disponible'}</li>
+                                                            <li><span><GiDuration /></span> {tour.duracion} {tour.unidad?.toLowerCase() || 'Duración no disponible'}</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </SwiperSlide>
+                                        ))
+                                    }
+                                </Swiper>
+                        </div>
                     </div>
                 </div>
             </div>

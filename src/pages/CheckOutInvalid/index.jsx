@@ -24,7 +24,7 @@ function CheckOutInvalid() {
         body: JSON.stringify({
         })
     };
-    const { data, loading, error } = useFetch(`https://api.vertigotravelperu.com/api/confirmar-pago?id=${id}`, requestOptions);
+    const { data, loading, error } = useFetch(`http://127.0.0.1/api/confirmar-pago?id=${id}`, requestOptions);
 
     const blogs = data;
     if (loading) return <div className="mainloader">

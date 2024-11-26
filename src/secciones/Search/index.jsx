@@ -58,7 +58,7 @@ function Search() {
             language_id: languageId
         }
 
-        fetch("https://api.vertigotravelperu.com/api/tours", {
+        fetch("http://127.0.0.1/api/tours", {
             method: 'POST',
             headers: headers,
             body: JSON.stringify(body),

@@ -36,7 +36,7 @@ function Header() {
         body: JSON.stringify({
         })
     };
-    const { data, loading, error } = useFetch("https://api.vertigotravelperu.com/api/categorias", requestOptions);
+    const { data, loading, error } = useFetch("http://127.0.0.1/api/categorias", requestOptions);
     const categorias = data;
     window.addEventListener('scroll', changeBackground);
     if (loading) return <div className="mainloader">

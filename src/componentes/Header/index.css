@@ -271,6 +271,7 @@ button.nav-link {
     position: absolute;
     top: 100%;
     left: 0;
+    transform: translateX(-25%);
     z-index: 1000;
     background-color: #fff;
     border: 1px solid #ccc;

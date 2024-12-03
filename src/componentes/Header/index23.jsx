@@ -29,8 +29,8 @@ function Header() {
     const renderMenu = (menu) => {
         if (activeMenu === menu.id) {
             return (
-                <Container>
-                    <div className="drpwdpwm-menu">
+                <Container className='w-100'>
+                    <div className="drpwdpwm-menu container">
                         <ul className="menuvertigo">
                             {menu.detalles && menu.detalles.length > 0 ? (
                                 menu.detalles.map((categoria) => (

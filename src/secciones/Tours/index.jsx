@@ -35,19 +35,19 @@ function Tours() {
     const categoria = data ? data.filter((item) => item.destacado == 1) : [];
     const ToursData = categoria;
     if (loading) return <div className="mainloader">
-        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+        <div style={{ textAlign: 'center', marginTop: '10px' }}>
             <DotLoader color="#28a745" loading={true} size={100} />
         </div>
     </div>;
     if (error) return <div className="mainloader">
-        <div style={{ textAlign: 'center', marginTop: '20px' }}>
+        <div style={{ textAlign: 'center', marginTop: '10px' }}>
             <DotLoader color="#ff0011" loading={true} size={100} />
         </div>
     </div>;
     if (!ToursData) return <div>{t("buttons.no-se-encontraron")}</div>;
     return (
         <>
-            <div className="ftco-section">
+            <div className="ftco-section" style={{ padding: 0}}>
                 <div className="container">
                     <div className="row justify-content-center pb-4">
                         <div className="col-md-12 heading-section text-center ">
@@ -66,10 +66,11 @@ function Tours() {
                                     grabCursor={true}
                                     autoplay={{
                                         delay: 1800,
-                                        disableOnInteraction: false,
+                                        disableOnInteraction: true,
                                     }}
+                                    navigation={true}
                                     pagination={{
-                                        clickable: true,
+                                        clickable: false,
                                     }}
                                     breakpoints={{
                                         640: {

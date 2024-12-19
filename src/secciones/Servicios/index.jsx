@@ -10,7 +10,7 @@ function Servicios() {
     const { t } = useTranslation("translation");
     return (
         <>
-            <div className="ftco-section services-section py-6">
+            <div className="ftco-section services-sections">
                 <div className="container p-3">
                     <div className="row d-flex">
                         <div className="col-md-6">

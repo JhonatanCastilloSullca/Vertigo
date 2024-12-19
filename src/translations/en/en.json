@@ -5,7 +5,8 @@
         "contact": "CONTACT",
         "search": "Search Tours...",
         "cart": "CART",
-        "cart2": "View Cart"
+        "cart2": "View Cart",
+        "complaints-book": "COMPLAINTS BOOK"
     },
     "terminos": {
         "terminos-condiciones": "Terms and Conditions",
@@ -50,7 +51,8 @@
         "contactanos": "Contact us",
         "ubicacion-nuestro-local": "Find us at our location",
         "numero-contacto": "Contact number",
-        "direaccion-email": "Emai Address"
+        "direaccion-email": "Emai Address",
+        "libro": "Claims Book"
     },
     "formulario": {
         "nombre": "Name",
@@ -58,7 +60,10 @@
         "celular": "Cell phone",
         "asunto": "Affair",
         "mensaje": "Message",
-        "enviar-mensaje": "Send Message"
+        "enviar-mensaje": "Send Message",
+        "enviar": "Send",
+        "num-documento": "Document Number",
+        "documento": "Document"
     },
     "error": {
         "no-se-encontro-tour": "Tour not found",

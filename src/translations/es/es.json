@@ -5,7 +5,8 @@
         "contact": "CONTACTO",
         "search": "Buscar Tours...",
         "cart": "CARRITO",
-        "cart2": "Ver Carrito"
+        "cart2": "Ver Carrito",
+        "complaints-book": "LIBRO DE RECLAMACIONES"
     },
     "terminos": {
         "terminos-condiciones": "Términos y Condiciones",
@@ -50,7 +51,8 @@
         "contactanos": "Contactanos",
         "ubicacion-nuestro-local": "Ubicanos en Nuestro Local",
         "numero-contacto": "Numero de Contacto",
-        "direaccion-email": "Dirección de Email"
+        "direaccion-email": "Dirección de Email",
+        "libro": "Libro de Reclamaciones"
     },
     "formulario": {
         "nombre": "Nombre",
@@ -58,7 +60,10 @@
         "celular": "Celular",
         "asunto": "Asunto",
         "mensaje": "Mensaje",
-        "enviar-mensaje": "Enviar Mensaje"
+        "enviar-mensaje": "Enviar Mensaje",
+        "enviar": "Enviar",
+        "num-documento": "Numero Documento",
+        "documento": "Documento"
     },
     "error": {
         "no-se-encontro-tour": "No se encontró el tour",

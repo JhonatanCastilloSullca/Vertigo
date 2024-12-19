@@ -51,7 +51,6 @@
     list-style: none !important;
 }
 
-
 .nav-item>.nav-link {
     font-size: 15px !important;
     padding-top: 1.5rem !important;
@@ -109,7 +108,6 @@
     height: 10px;
 }
 
-
 .btn:focus,
 .btn.focus {
     outline: none !important;
@@ -127,12 +125,6 @@
     object-fit: cover;
 }
 
-
-
-
-
-
-
 .menuvertigo {
     background-color: #fff;
     -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, .5);
@@ -143,9 +135,6 @@
     color: #555;
     display: block;
 }
-
-
-
 
 .tittle-categoria-header {
     position: relative;
@@ -167,7 +156,6 @@
     bottom: 0;
     left: 0;
 }
-
 
 .menu-title-nav {
     font-size: 12px;
@@ -193,7 +181,6 @@ button.nav-link {
     font-weight: 500 !important;
     opacity: 1 !important;
 }
-
 
 .menu-title-nav {
     font-size: 12px;
@@ -255,14 +242,6 @@ button.nav-link {
     /* Color de fondo del scrollbar */
 }
 
-
-
-
-
-
-
-
-
 .nav-item {
     position: relative;
 }
@@ -299,7 +278,6 @@ button.nav-link {
     background-color: #FFFFFF;
 }
 
-
 .border-bot-menu {
     border-bottom: 1px solid #e0e0e0;
     padding: 8px;
@@ -333,45 +311,34 @@ button.nav-link {
     height: auto;
 }
 
-
-
-
-
-
-
-
 .container-menu {
     width: 100%;
     position: fixed;
     z-index: 999999999999999;
 }
 
+.navbar-collapse.show {
+    position: absolute; /* Permite centrarlo respecto al viewport */
+    top: 50%; /* Lo centra verticalmente */
+    left: 50%; /* Lo centra horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta el centro exacto */
+    width: 80%; /* Controla el ancho */
+    max-width: 1200px;
+    z-index: 999999;
+    background-color: #ffffff; /* Ajusta si es necesario */
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow-y: auto;
+    max-height: 90vh; /* Evita que el menú sobresalga */
+}
+
+.menuvertigo {
+    position: relative !important;
+}
 
 .img-menu {
     border-radius: 30px !important;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @media screen and (max-width: 960px) {
     .NavbarItems {

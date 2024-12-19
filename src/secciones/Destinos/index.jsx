@@ -58,6 +58,7 @@ function Destinos() {
                                 pagination={{
                                     clickable: true,
                                 }}
+                                navigation={true}
                                 breakpoints={{
                                     640: {
                                         slidesPerView: 2,

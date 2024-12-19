@@ -14,7 +14,6 @@ function Home() {
     return (
         <>
             <HeroSection />
-            <Search />
             <Servicios />
             <Tours />
             <Destinos />

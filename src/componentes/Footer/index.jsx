@@ -75,13 +75,13 @@ function Footer() {
                                         </NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to='/' className="py-2 d-block">
-                                            {t("header.cart")}
+                                        <NavLink to='/terminos' className="py-2 d-block">
+                                            TERMINOS Y CONDICIONES
                                         </NavLink>
                                     </li>
                                     <li>
-                                        <NavLink to='/terminos' className="py-2 d-block">
-                                            TERMINOS Y CONDICIONES
+                                        <NavLink to='/libro-reclamaciones' className="py-2 d-block">
+                                            {t("header.complaints-book")}
                                         </NavLink>
                                     </li>
                                 </ul>

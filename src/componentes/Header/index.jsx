@@ -54,33 +54,58 @@ function Header() {
                         <Row>
                             <Container className=' d-flex justify-content-center align-items-start'>
                                 <Col md={12}>
-                                    <Row className=' d-flex justify-content-center align-items-start'>
+                                    <Row className='d-flex justify-content-center align-items-start'>
                                         {menu.detalles && menu.detalles.length > 0 ? (
-                                            menu.detalles.map((categoria) => (
-                                                <Col key={categoria.id} className='p-0 px-2'>
-                                                    <span className='nav-link tittle-categoria-header w-100'>
-                                                        {categoria.categoria.nombre}
-                                                    </span>
-                                                    <Row>
-                                                        <Col className='d-grid gap-1 height-menu'>
-                                                            {categoria.categoria.tours.map((tour) => (
-                                                                <NavLink
-                                                                    to={`/tours/${tour.slug}`}
-                                                                    onMouseOver={() => handleSlugTour(tour.imagenprincipal)}
-                                                                    className='w-100 border-bot-menu p-0'
-                                                                    key={tour.id}
-                                                                >
-                                                                    <div className="menu-title-nav pt-2">{tour.nombre}</div>
-                                                                </NavLink>
-                                                            ))}
-                                                        </Col>
-                                                    </Row>
-                                                </Col>
-                                            ))
+                                            (() => {
+                                                // Agrupar categorías consecutivas con tours.length <= 3
+                                                const groupedCategories = [];
+                                                let tempGroup = [];
+
+                                                menu.detalles.forEach((categoria, index) => {
+                                                    const currentLength = categoria.categoria.tours.length;
+                                                    const nextLength = menu.detalles[index + 1]?.categoria.tours.length || 0;
+
+                                                    tempGroup.push(categoria);
+
+                                                    // Si la siguiente no cumple o no existe, cerramos el grupo
+                                                    if (currentLength > 3 || nextLength > 3 || !menu.detalles[index + 1]) {
+                                                        groupedCategories.push([...tempGroup]);
+                                                        tempGroup = [];
+                                                    }
+                                                });
+
+                                                // Renderizar los grupos
+                                                return groupedCategories.map((group, groupIndex) => (
+                                                    <Col key={groupIndex} className='p-0 px-2'>
+                                                        {group.map((categoria) => (
+                                                            <div key={categoria.id}>
+                                                                <span className='nav-link tittle-categoria-header w-100'>
+                                                                    {categoria.categoria.nombre}
+                                                                </span>
+                                                                <Row>
+                                                                    <Col className='d-grid gap-1 height-menu'>
+                                                                        {categoria.categoria.tours.map((tour) => (
+                                                                            <NavLink
+                                                                                to={`/tours/${tour.slug}`}
+                                                                                onMouseOver={() => handleSlugTour(tour.imagenprincipal)}
+                                                                                className='w-100 border-bot-menu p-0'
+                                                                                key={tour.id}
+                                                                            >
+                                                                                <div className="menu-title-nav pt-2">{tour.nombre}</div>
+                                                                            </NavLink>
+                                                                        ))}
+                                                                    </Col>
+                                                                </Row>
+                                                            </div>
+                                                        ))}
+                                                    </Col>
+                                                ));
+                                            })()
                                         ) : (
                                             <li>No hay categorías disponibles</li>
                                         )}
                                     </Row>
+
                                 </Col>
 
                                 {/* <Col md={4} className='d-flex justify-content-center align-items-center'>

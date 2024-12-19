@@ -12,6 +12,7 @@ import PaquetePage from '../Paquete';
 import CheckOutPage from '../CheckOut';
 import CheckOutValid from '../CheckOutValid';
 import CheckOutInvalid from '../CheckOutInvalid';
+import LibroReclamaciones from '../libro-reclamaciones';
 import ContactPage from '../Contacto';
 import NosotrosPage from '../Nosotros';
 import ScrollToTop from '../../componentes/ScrollToTop';
@@ -35,6 +36,7 @@ function App() {
         <Route path='/terminos' element={<TermsPage />} />
         <Route path='/valid-checkout' element={<CheckOutValid />} />
         <Route path='/invalid-checkout' element={<CheckOutInvalid />} />
+        <Route path='/libro-reclamaciones' element={<LibroReclamaciones />} />
         <Route path='*' element={<NotFoundPage />} /> {/* Ruta 404 */}
       </Routes>
       <Footer />

@@ -3,7 +3,7 @@ import { useCart } from "../../Hook/useCart";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { FaCartFlatbed, FaCartShopping } from "react-icons/fa6";
+import { FaCartFlatbed, FaCartShopping, FaWhatsapp } from "react-icons/fa6";
 
 function CardFormulario({ tour }) {
 
@@ -104,9 +104,10 @@ function CardFormulario({ tour }) {
                                     : "Reservar Ahora"
                             }
                         </button>
-                        {/* <a href="https://api.whatsapp.com/send/?phone=51990757584&text=Hola%20quiero%20reservar" className="booking_form_submit text-center">
-                            Reservar Ahora
-                        </a> */}
+                        <a href="https://api.whatsapp.com/send/?phone=51990757584&text=Hola%20quiero%20reservar" className="booking_form_submit text-center">
+                            <FaWhatsapp />
+                            Contacta con nosotros
+                        </a>
                     </div>
                     <div className="submit_group items-center text-center">
                         <NavLink to='/checkout' className="py-2 d-block">

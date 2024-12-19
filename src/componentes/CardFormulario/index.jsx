@@ -60,7 +60,7 @@ function CardFormulario({ tour }) {
                         <p className="text-muted text-center mb-0"><span className="text-danger h2 fw-bolder">$ {tour.precio}</span> x pax</p>
                         <p className=" text-center text-danger"> Tarifa min 4pax.</p>
 
-                        {/* <div className="d-flex flex-column">
+                        <div className="d-flex flex-column">
                             <div className="div-formulario">
                                 <span>Fecha:</span>
                                 <Form.Control
@@ -76,8 +76,8 @@ function CardFormulario({ tour }) {
                                     {error.fecha}
                                 </div>
                             )}
-                        </div> */}
-                        {/* <div className="d-flex flex-column">
+                        </div>
+                        <div className="d-flex flex-column">
                             <div className="div-formulario">
                                 <span>Pax:</span>
                                 <Form.Control
@@ -94,26 +94,26 @@ function CardFormulario({ tour }) {
                                     {error.pax}
                                 </div>
                             )}
-                        </div> */}
+                        </div>
                     </div>
                     <div className="submit_group">
-                        {/* <button onClick={handleSubmit} className="booking_form_submit">
+                        <button onClick={handleSubmit} className="booking_form_submit">
                             {
                                 isToursInCart
                                     ? "Quitar de la reserva"
                                     : "Reservar Ahora"
                             }
-                        </button> */}
-                        <a href="https://api.whatsapp.com/send/?phone=51990757584&text=Hola%20quiero%20reservar" className="booking_form_submit text-center">
+                        </button>
+                        {/* <a href="https://api.whatsapp.com/send/?phone=51990757584&text=Hola%20quiero%20reservar" className="booking_form_submit text-center">
                             Reservar Ahora
-                        </a>
+                        </a> */}
                     </div>
-                    {/* <div className="submit_group items-center text-center">
+                    <div className="submit_group items-center text-center">
                         <NavLink to='/checkout' className="py-2 d-block">
                             <FaCartShopping className="mx-2" />
                             {t("header.cart2")}
                         </NavLink>
-                    </div> */}
+                    </div>
                 </Card.Body>
             </Card>
         </>

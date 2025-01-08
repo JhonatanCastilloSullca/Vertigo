@@ -19,6 +19,7 @@ import ScrollToTop from '../../componentes/ScrollToTop';
 import DoradoPage from '../Dorado';
 import TermsPage from '../Terms';
 import NotFoundPage from '../NotFoundPage';
+import BlogPage from '../Blog';
 function App() {
   return (
     <CartProvider>
@@ -28,6 +29,7 @@ function App() {
         <Route path='/' element={<Home />} />
         <Route path='/tours' element={<ToursArchive />} />
         <Route path='/tours/:id' element={<ToursPage />} />
+        <Route path='/blog/:id' element={<BlogPage />} />
         <Route path='/paquete/:id' element={<PaquetePage />} />
         <Route path='/checkout' element={<CheckOutPage />} />
         <Route path='/contacto' element={<ContactPage />} />

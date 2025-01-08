@@ -22,7 +22,7 @@ function Home() {
             <Testimonios />
             <Certificados />
 
-            {/* <Blog /> */}
+            <Blog />
         </>
     )
 }

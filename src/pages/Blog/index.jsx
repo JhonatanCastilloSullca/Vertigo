@@ -1,5 +1,4 @@
 import { Accordion, Card, Col, Container, Row } from "react-bootstrap"
-import './index.css'
 import CardTours from "../../componentes/CardTours"
 import { useParams } from "react-router-dom"
 import ToursInfoSection from "../../componentes/ToursInfoSection";
@@ -26,6 +25,7 @@ function BlogPage() {
 
 
     const { data: blogData, loading, error } = useFetch(`https://api.vertigotravelperu.com/api/blog-slug?slug=${blogId}`, requestOptions);
+    console.log(blogData);
 
     if (loading) return <div className="mainloader">
         <div style={{ textAlign: 'center', marginTop: '20px' }}>
@@ -55,70 +55,39 @@ function BlogPage() {
                 </div>
             </div>
             <Container>
-                <ToursInfoSection
-                    titulo={blogData.nombre}
-                    duracion={blogData.duracion}
-                    precio={blogData.precio}
-                    categoria={blogData.categoria.nombre}
-                />
+                <Row className="info-row">
+                    <Col md={12} className=" d-flex align-items-center justify-content-center">
+                        <h2 className="subheading-tours font-weight-bold text-light">{blogData.titulo}</h2>
+                    </Col>
+
+                </Row>
+            </Container>
+            {/* <Container>
+                <Row className="mt-4 pt-4">
+                    <Col md={12} className=" d-flex align-items-center justify-content-center gap-4">
+                        <h2 className="fw-bolder fs-6 text-gray">{blogData.user.apellido} {blogData.user.nombre}</h2>
+                        <h2 className="font-weight-semibold fs-6 text-gray">{blogData.fecha}</h2>
+                    </Col>
+                </Row>
+            </Container> */}
+            <Container>
+                <Row>
+                    <Col>
+                        <Row className="pt-4 mt-4">
+                            <div className="incluye-tours text-center" dangerouslySetInnerHTML={{ __html: blogData.descripcioncorta }}></div>
+                        </Row>
+                    </Col>
+                </Row>
             </Container>
             <div className="ftco-section services-section pt-4 descriptio-blog-container">
                 <div className="container p-4">
                     <div className="row d-flex">
-                        <div className="col-md-4">
-                            <div className="row gap-4">
-                                <CardFormulario blog={blogData} />
-                                {blogData.tamaño_grupo || blogData.Lugar_de_Recojo || blogData.ubicaciones || (blogData.Idiomas_Disponibles && blogData.Idiomas_Disponibles.length > 0) ? (
-                                    <Card>
-                                        <Card.Body>
-                                            <h3 className="box-title">Información del Blog</h3>
-                                            <TourInformation blogData={blogData} />
-                                        </Card.Body>
-                                    </Card>
-                                ) : null}
-                            </div>
-                            <div className="row gap-4 mt-4">
-                                <Accordion defaultActiveKey="0" className="p-0">
-                                    <Accordion.Item eventKey="0">
-                                        <Accordion.Header className="incluye-accordion "><h3 className="box-title border-0 mb-0">Incluye</h3></Accordion.Header>
-                                        <Accordion.Body>
-                                            <Row>
-                                                <Col>
-                                                    <Row className="pt-4">
-                                                        <div className="incluye-tours" dangerouslySetInnerHTML={{ __html: blogData.incluye }}></div>
-                                                    </Row>
-                                                </Col>
-                                            </Row>
-                                        </Accordion.Body>
-                                    </Accordion.Item>
-                                </Accordion>
-                            </div>
-                            <div className="row gap-4 mt-4">
-                                <Accordion defaultActiveKey="0" className="p-0">
-                                    <Accordion.Item eventKey="0">
-                                        <Accordion.Header className="incluye-accordion "><h3 className="box-title border-0 mb-0">No Incluye</h3></Accordion.Header>
-                                        <Accordion.Body>
-                                            <Row>
-                                                {blogData.noincluye && (
-                                                    <Col>
-                                                        <Row className="pt-4">
-                                                            <div className="noincluye-tours" dangerouslySetInnerHTML={{ __html: blogData.noincluye }}></div>
-                                                        </Row>
-                                                    </Col>
-                                                )}
-                                            </Row>
-                                        </Accordion.Body>
-                                    </Accordion.Item>
-                                </Accordion>
-                            </div>
-
-                        </div>
-                        <div className="col-md-8 heading-section">
+                        <div className="col-md-12 heading-section">
                             <div className="w-100">
                                 <Swiper
                                     modules={[Autoplay, Navigation, Pagination, Scrollbar, A11y]}
                                     spaceBetween={50}
-                                    slidesPerView={1}
+                                    slidesPerView={3}
                                     grabCursor={true}
                                     loop={true}
                                     navigation={true}
@@ -131,7 +100,7 @@ function BlogPage() {
                                     }}
                                     breakpoints={{
                                         640: {
-                                            slidesPerView: 2,
+                                            slidesPerView: 1,
                                             spaceBetween: 20,
                                         },
                                         768: {
@@ -139,7 +108,7 @@ function BlogPage() {
                                             spaceBetween: 40,
                                         },
                                         1024: {
-                                            slidesPerView: 2,
+                                            slidesPerView: 3,
                                             spaceBetween: 50,
                                         },
                                     }}
@@ -158,23 +127,7 @@ function BlogPage() {
                                         <div className="incluye-tours" dangerouslySetInnerHTML={{ __html: blogData.descripcion }}></div>
                                     </Container>
                                 )}
-                                {detallesTourDias && detallesTourDias.length > 0 && (
-                                    <Container className="mt-4 ">
-                                        <h3 className="box-title m-0">Itinerario</h3>
-                                        <Accordion defaultActiveKey="0" className="pt-4">
-                                            {detallesTourDias && detallesTourDias.map((detalle, index) => (
-                                                <Accordion.Item key={index} eventKey={String(index)}>
-                                                    <Accordion.Header>
-                                                        <h6 className="fw-bold text-primary">Día {index + 1}: {detalle.titulo}</h6>
-                                                    </Accordion.Header>
-                                                    <Accordion.Body>
-                                                        <div className="incluye-tours" dangerouslySetInnerHTML={{ __html: detalle.descripcion }}></div>
-                                                    </Accordion.Body>
-                                                </Accordion.Item>
-                                            ))}
-                                        </Accordion>
-                                    </Container>
-                                )}
+
 
                                 {blogData.galeria && blogData.galeria.length > 0 && (
                                     <Container className="mt-4">
@@ -190,25 +143,20 @@ function BlogPage() {
                                         </Row>
                                     </Container>
                                 )}
-                                <Container className="mt-4 ">
-
-                                    <Accordion defaultActiveKey="0" className="p-0">
-                                        <Accordion.Item eventKey="0">
-                                            <Accordion.Header className="incluye-accordion "><h3 className="box-title border-0 mb-0">Qué Llevar</h3></Accordion.Header>
-                                            <Accordion.Body>
-                                                <Row className="pt-4">
-                                                    <div className="description-tours recomendation-tours" dangerouslySetInnerHTML={{ __html: blogData.recomendaciones }}>
-                                                    </div>
-                                                </Row>
-                                            </Accordion.Body>
-                                        </Accordion.Item>
-                                    </Accordion>
-                                </Container>
-
                             </div>
                         </div>
                     </div>
                 </div>
+                <Container>
+                    <Row>
+                        <Col>
+                            <Row className="pt-4 mt-4">
+                                <div className="incluye-tours text-center" dangerouslySetInnerHTML={{ __html: blogData.descripcionlarga }}></div>
+                            </Row>
+                        </Col>
+                    </Row>
+                </Container>
+
                 <Container>
                     <h3 className="box-title m-0">Tours Relacionados</h3>
                     <Row className="pt-4">

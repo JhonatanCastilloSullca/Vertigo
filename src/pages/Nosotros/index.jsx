@@ -51,7 +51,7 @@ function NosotrosPage() {
                 </Container>
             </div>
             <About />
-            <div className="ftco-section services-section descriptio-tour-container pt-0 ">
+            <div className="ftco-section services-section descriptio-tour-container pt-6 ">
                 <Container>
                     <Row>
                         <Col md={12}>
@@ -59,7 +59,7 @@ function NosotrosPage() {
 
                             {
                                 blogData && blogData.map((item, index) => (
-                                    <Row key={item.id} className='align-items-center py-4'>
+                                    <Row key={item.id} className='align-items-center py-4 pt-6'>
                                         {index % 2 === 0 ? (
                                             <>
                                                 <Col md={6}>

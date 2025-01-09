@@ -20,7 +20,7 @@ function BlogCard({ blog }) {
                         <div className="text-nosotros clamp px-2" dangerouslySetInnerHTML={{ __html: blog.descripcioncorta }}></div>
 
                     </div>
-                    <p><a href="#" className="btn btn-primary">Read more</a></p>
+                    <p><a href={`/blog/${blog.slug}`} className="btn btn-primary">Read more</a></p>
                 </div>
             </div>
         </div>

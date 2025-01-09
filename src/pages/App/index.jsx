@@ -20,6 +20,7 @@ import DoradoPage from '../Dorado';
 import TermsPage from '../Terms';
 import NotFoundPage from '../NotFoundPage';
 import BlogPage from '../Blog';
+import BlogsArchive from '../BlogsArchive';
 function App() {
   return (
     <CartProvider>
@@ -28,6 +29,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/tours' element={<ToursArchive />} />
+        <Route path='/blogs' element={<BlogsArchive />} />
         <Route path='/tours/:id' element={<ToursPage />} />
         <Route path='/blog/:id' element={<BlogPage />} />
         <Route path='/paquete/:id' element={<PaquetePage />} />

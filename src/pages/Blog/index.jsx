@@ -157,12 +157,6 @@ function BlogPage() {
                     </Row>
                 </Container>
 
-                <Container>
-                    <h3 className="box-title m-0">Tours Relacionados</h3>
-                    <Row className="pt-4">
-                        <CardTours tours={blogData.relacionados} />
-                    </Row>
-                </Container>
             </div >
         </>
     )

@@ -263,10 +263,15 @@ function Header() {
                                             </div>
                                         </li>
                                     ))}
-                                    
+
                                     <li className="nav-item d-flex align-items-center text-white">
                                         <NavLink to='/contacto' className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
                                             {t("header.contact")}
+                                        </NavLink>
+                                    </li>
+                                    <li className="nav-item d-flex align-items-center text-white">
+                                        <NavLink to='/blogs' className={({ isActive }) => isActive ? 'nav-link active' : 'nav-link'}>
+                                            BLOG
                                         </NavLink>
                                     </li>
                                     <li className="nav-item d-flex align-items-center text-white">

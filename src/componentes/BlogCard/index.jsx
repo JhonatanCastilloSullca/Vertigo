@@ -2,7 +2,7 @@ import './index.css';
 
 
 function BlogCard({ blog }) {
-    
+
     return (
         <div className="col-md-12 d-flex ">
             <div className="blog-entry justify-content-end">
@@ -17,7 +17,7 @@ function BlogCard({ blog }) {
                     </div>
                     <h3 className="heading"><a href="#">{blog.titulo}</a></h3>
                     <div className="descripcion-corta-container">
-                    <div className="text-nosotros clamp px-2" dangerouslySetInnerHTML={{ __html: blog.descripcioncorta }}></div>
+                        <div className="text-nosotros clamp px-2" dangerouslySetInnerHTML={{ __html: blog.descripcioncorta }}></div>
 
                     </div>
                     <p><a href="#" className="btn btn-primary">Read more</a></p>
